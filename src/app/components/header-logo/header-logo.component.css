@@ -1,0 +1,38 @@
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  font-family: var(--ff-montserrat);
+  color: var(--branco);
+}
+
+img {
+  height: 32px;
+}
+
+.container__opcoes {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  margin-right: 1rem;
+}
+
+.container__meuPerfil {
+  display: flex;
+  align-items: center;
+}
+
+.menu__logo {
+  width: auto;
+  height: 45px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--fundo);
+  padding: 1em 1.5em;
+}
