@@ -12,6 +12,10 @@ img {
   height: 32px;
   width: 32px;
 }
+hr {
+  opacity: 100%;
+  margin: 1em 0.5em;
+}
 
 .buttons__button {
   text-decoration: none;
@@ -30,6 +34,18 @@ img {
 .buttons__button:active {
   box-shadow: none;
   scale: 0.8;
+  background-color: var(--cor-principal);
+  transition: all ease-out 0.3s;
+}
+
+.buttons__button:hover {
+  box-shadow: none;
+  scale: 1.1;
+  transition: all ease-in-out 0.5s;
+}
+
+.buttons__button img:hover {
+
 }
 
 .container__buttons {
@@ -45,4 +61,17 @@ img {
   text-align: center;
   justify-content: center;
   flex-direction: column;
+}
+
+.container__downloads {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.downloads__hr {
+  margin: 0em 0.5em;
+  opacity: 100%;
+  width: 100%;
+  height: 2px;
 }

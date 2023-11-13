@@ -1,0 +1,23 @@
+@import url(../../../../styles.css);
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.titulo__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--verde-escuro);
+  height: 100px;
+  width: 100%;
+}
+
+.titulo {
+  margin: 0;
+  font-size: 24px;
+  font-family: var(--ff-montserrat);
+  color: var(--branco);
+}
