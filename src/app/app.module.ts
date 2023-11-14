@@ -12,6 +12,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { DownloadsComponent } from './components/home/downloads/downloads.component';
 import { NovidadesComponent } from './components/home/novidades/novidades.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { NovidadesComponent } from './components/home/novidades/novidades.compon
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,

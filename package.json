@@ -22,14 +22,16 @@
     "fflate": "^0.7.3",
     "hammerjs": "^2.0.8",
     "igniteui-angular": "^15.1.34",
+    "jarallax": "^2.1.4",
     "minireset.css": "~0.0.4",
+    "parallax-js": "^3.1.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^15.1.1",
-    "@angular/cli": "~15.1.1",
+    "@angular/cli": "^15.2.10",
     "@angular/compiler-cli": "^15.1.0",
     "@igniteui/angular-schematics": "~15.1.1110",
     "@types/hammerjs": "^2.0.40",

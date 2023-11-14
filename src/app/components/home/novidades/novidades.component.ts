@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, HostListener, OnInit } from '@angular/core';
 @Component({
   selector: 'app-novidades',
   templateUrl: './novidades.component.html',
-  styleUrls: ['./novidades.component.css']
+  styleUrls: ['./novidades.component.css'],
 })
 export class NovidadesComponent implements OnInit {
+  offset: number = 0;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  @HostListener('window:scroll', ['$event'])
+  onScroll(event: any): void {
+    this.offset = window.scrollY;
   }
-
 }
