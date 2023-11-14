@@ -30,20 +30,16 @@ b {
 }
 
 .imagem__container {
-  height: 40vh;
+  height: 35vh;
   width: 100%;
   overflow: hidden;
   position: relative;
   background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
 }
 
 .imagem__novidade {
   background-image: url('../../../../assets/headphone-1.png');
-  /* width: 100%;
-  position: absolute;
-  top: 0; */
+  background-size: cover;
 }
 
 .titulo__container {

@@ -59,7 +59,8 @@ hr {
   display: flex;
   text-align: center;
   justify-content: center;
-  gap: 1em;
+  gap: .5em;
+  margin: 0 .5em;
 }
 
 .container {
