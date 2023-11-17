@@ -1,16 +1,21 @@
-p, h2 {
+@import url("../../../../styles.css");
+
+a {
+  text-decoration: none;
+}
+
+hr {
+  margin: .5em .5em;
+}
+p,
+h2 {
   margin: 0;
   color: var(--branco);
   font-size: var(--ff-montserrat);
 }
 
-.titulo__novidade {
-  font-size: 32px;
-  font-weight: 700;
-}
-
 b {
-  color: var(--cor-principal);
+  color: var(--verde-escuro);
 }
 
 .container {
@@ -18,6 +23,7 @@ b {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin: 0 .5em;
 }
 
 .novidade__container {
@@ -25,8 +31,9 @@ b {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  text-align: justify;
+  text-align: center;
   word-wrap: break-word;
+  width: 100%;
 }
 
 .imagem__container {
@@ -38,7 +45,7 @@ b {
 }
 
 .imagem__novidade {
-  background-image: url('../../../../assets/headphone-1.png');
+  background-image: url("../../../../assets/headphone-1.png");
   background-size: cover;
 }
 
@@ -46,18 +53,104 @@ b {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--verde-escuro);
-  height: 45px;
   width: 100%;
 }
 
 .titulo {
-  margin: 0;
+  display: flex;
   font-size: 24px;
   font-family: var(--ff-montserrat);
   color: var(--branco);
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--verde-escuro);
+  border-radius: 0.5em 0.5em 0 0;
+  height: 45px;
+  width: 100%;
+}
+
+.titulo__novidade {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--verde-escuro);
+  font-size: 26px;
+  font-family: var(--ff-montserrat);
+  height: 45px;
+  width: 100%;
+  border-radius: 0 0 0.5em 0.5em;
 }
 
 .texto__novidade {
-  margin: 0 .5em;
+  margin: 0 0.5em;
+  text-align: justify;
+  color: var(--fundo);
+  font-size: 12px;
+  font-family: var(--ff-montserrat);
+  background-color: var(--branco);
+}
+
+.imagem__container__any {
+  display: none;
+}
+
+.titulo__novidade__any {
+  display: none;
+}
+
+@media screen and (min-width: 1220px) {
+  .container {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+  }
+
+  .imagem__container {
+    display: none;
+  }
+
+  .imagem__container__any {
+    display: block;
+    height: 50vh;
+    width: 100%;
+  }
+
+  .imagem__novidade__any {
+    background-image: url("../../../../assets/headphone-1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .titulo__container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  a {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .titulo__novidade__any {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--verde-escuro);
+    font-size: 26px;
+    font-family: var(--ff-montserrat);
+    height: 45px;
+    width: 100%;
+    border-radius: 0 0 0.5em 0.5em;
+  }
+
+  .titulo__novidade__any__imagem {
+    height: 24px;
+    width: 24px;
+  }
+
+  .titulo__novidade, .texto__novidade {
+    display: none;
+  }
 }

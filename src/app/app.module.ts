@@ -1,3 +1,4 @@
+import { TopfiveComponent } from './components/home/topfive/topfive.component';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderLogoComponent,
     FooterComponent,
     DownloadsComponent,
-    NovidadesComponent
+    NovidadesComponent,
+    TopfiveComponent
   ],
   imports: [
     BrowserModule,

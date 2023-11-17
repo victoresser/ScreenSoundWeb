@@ -4,12 +4,6 @@ p {
   margin: 0;
 }
 
-a {
-  text-decoration: none;
-  font-family: var(--ff-montserrat);
-  color: var(--branco);
-}
-
 img {
   height: 32px;
 }
@@ -17,8 +11,7 @@ img {
 .container__opcoes {
   display: flex;
   align-items: center;
-  gap: 50px;
-  margin-right: 1rem;
+  gap: 2em;
 }
 
 .container__meuPerfil {
@@ -37,4 +30,19 @@ img {
   justify-content: space-between;
   background-color: var(--fundo);
   padding: 1em 1.5em;
+}
+
+.menu__logo__any {
+  display: none;
+}
+
+@media screen and (min-width: 1220px) {
+  .menu__logo {
+    display: none;
+  }
+
+  .menu__logo__any {
+    display: flex;
+    height: 45px;
+  }
 }

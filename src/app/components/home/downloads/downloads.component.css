@@ -1,6 +1,6 @@
-P,
-h2 {
-  margin: 0;
+@import url('../../../../styles.css');
+
+p, h2{
   color: var(--branco);
   font-family: var(--ff-montserrat);
 }
@@ -85,7 +85,7 @@ hr {
 }
 
 .hr_separador {
-  margin: 0 0.5em 1.7em 0.5em  ;
+  margin: 0 .5em .5em .5em  ;
 }
 
 @keyframes scale-up-center {
