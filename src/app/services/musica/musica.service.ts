@@ -14,7 +14,7 @@ export class MusicaService {
   listarTopFive(): Observable<Musica[]> {
     const itensPorPagina = 5;
 
-    let params = new HttpParams().set('_limit:', itensPorPagina);
+    let params = new HttpParams().set('?take=', itensPorPagina);
 
     return this.http.get<Musica[]>(this.API + 'listarTopFive');
   }
@@ -23,8 +23,8 @@ export class MusicaService {
     const itensPorPagina = 9;
 
     let params = new HttpParams()
-      .set('_page', paginas)
-      .set('_limit', itensPorPagina);
+      .set('?skip=', paginas)
+      .set('&take=', itensPorPagina);
 
     if (filtro.trim().length > 2) {
       params = params.set('q', filtro);

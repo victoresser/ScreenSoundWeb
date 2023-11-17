@@ -1,55 +1,71 @@
 <div class="container">
+  <!-- Músicas Top Five -->
   <div class="topfive__musicas topfive" >
     <h2 class="titulo__musicas titulo">TOP 5 Músicas</h2>
     <div class="lista__topfive" *ngFor="let musica of musicas">
 
       <div class="container__imagem" *ngIf="musica.imagem !== null && musica.imagem !== ''">
-        <img [src]="musica.imagem" alt="Capa de música">
+        <img [src]="musica.imagem" alt="Capa de música" class="imagem">
       </div>
 
       <div class="container__imagem" *ngIf="musica.imagem == null || musica.imagem == ''">
-        <img src="../../../../assets/Icons/nao-encontrado.png" alt="Capa da Música" class="imagem__musica"/>
+        <img src="../../../../assets/Icons/nao-encontrado.png" alt="Capa da Música" class="imagem__nao__encontrada"/>
       </div>
 
       <hr/>
 
       <div class="textos__topfive">
         <h3>{{ musica.nome }}</h3>
-        <p>{{ musica.banda }}</p>
+        <p>{{ musica.banda }} <br> {{ musica.album }}</p>
       </div>
 
     </div>
     <span class="rodape__topfive"></span>
   </div>
 
+  <!-- Álbuns Top Five -->
   <div class="topfive__albuns topfive">
     <h2 class="titulo__albuns titulo">TOP 5 Álbuns</h2>
-    <div class="lista__topfive">
-      <div class="container__imagem">
-        <img src="../../../../assets/Icons/nao-encontrado.png" alt="Capa da Álbum" class="imagem__musica"/>
+    <div class="lista__topfive" *ngFor="let album of albuns">
+
+      <div class="container__imagem" *ngIf="album.imagem !== null && album.imagem !== ''">
+        <img [src]="album.imagem" alt="Capa de música" class="imagem">
+      </div>
+
+      <div class="container__imagem" *ngIf="album.imagem == null || album.imagem == ''">
+        <img src="../../../../assets/Icons/nao-encontrado.png" alt="Capa da Música" class="imagem"/>
       </div>
 
       <hr/>
 
       <div class="textos__topfive">
-        <h3>Nome Álbum</h3>
-        <p>Nome banda</p>
-      </div></div>
+        <h3>{{ album.nome }}</h3>
+        <p>{{ album.banda }}</p>
+      </div>
+
+    </div>
     <span class="rodape__topfive"></span>
   </div>
 
+  <!-- Bandas Top Five -->
   <div class="topfive__bandas topfive">
     <h2 class="titulo__bandas titulo">TOP 5 Bandas</h2>
-    <div class="lista__topfive">
-      <div class="container__imagem">
-        <img src="../../../../assets/Icons/nao-encontrado.png" alt="Capa da Banda" class="imagem__musica"/>
+    <div class="lista__topfive" *ngFor="let banda of bandas">
+
+      <div class="container__imagem" *ngIf="banda.imagem !== null && banda.imagem !== ''">
+        <img [src]="banda.imagem" alt="Capa de música" class="imagem">
+      </div>
+
+      <div class="container__imagem" *ngIf="banda.imagem == null || banda.imagem == ''">
+        <img src="../../../../assets/Icons/nao-encontrado.png" alt="Capa da Música" class="imagem"/>
       </div>
 
       <hr/>
 
       <div class="textos__topfive">
-        <h3>Nome Banda</h3>
-      </div></div>
+        <h3>{{ banda.nome }}</h3>
+      </div>
+    </div>
     <span class="rodape__topfive"></span>
   </div>
 </div>

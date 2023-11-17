@@ -13,6 +13,12 @@ html, body, p, ol, ul, li, dl, dt, dd, blockquote, figure, fieldset, legend, tex
   padding: 0;
 }
 
+p {
+  font-size: 16px;
+  font-family: var(--ff-montserrat);
+  color: var(--branco);
+}
+
 body {
   background-color: var(--fundo);
   color: var(--branco);
