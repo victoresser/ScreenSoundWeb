@@ -1,12 +1,12 @@
 <div class="container">
   <div class="titulo__container">
     <h2 class="titulo">Novidades</h2>
-    <div class="imagem__container__any imagem__novidade__any" [style.backgroundPositionY]="offset * -0.5 + 'px'" routerLink="/home"></div>
+    <div class="imagem__container__any imagem__novidade__any" [style.backgroundPositionY]="calculateBackgroundPositionY()" id="parallaxContainer" routerLink=""></div>
     <a href="/oasis-preview"><h2 class="titulo__novidade__any">Novo Headphone Oasis! <img src="../../../../assets/Icons/compartilhar-white.png" alt="Encaminhar" class="titulo__novidade__any__imagem"></h2></a>
   </div>
 
   <div class="novidade__container">
-    <div class="imagem__container imagem__novidade" [style.backgroundPositionY]="offset * -0.5 + 'px'" routerLink="/home"></div>
+    <div class="imagem__container imagem__novidade" [style.backgroundPositionY]="calculateBackgroundPositionY()" id="parallaxContainer"></div>
     <h2 class="titulo__novidade">Novo Headphone Oasis!</h2>
     <!-- <p class="texto__novidade">Os novos fones de ouvido <b>Oasis ScreenSound</b> são o resultado do compromisso da empresa em fornecer uma experiência sonora excepcional. Projetados para oferecer um som imersivo e cristalino, esses fones de ouvido de alta qualidade permitem que você mergulhe na música e aprecie cada nota e batida. Com uma experiência auditiva única, os fones de ouvido da <b>ScreenSound</b> são perfeitos para os amantes da música que desejam uma qualidade de áudio excepcional.</p> -->
   </div>

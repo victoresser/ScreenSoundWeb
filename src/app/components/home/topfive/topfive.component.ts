@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Album, Banda, Musica } from 'src/app/interfaces';
 import { AlbumService } from 'src/app/services/album/album.service';
@@ -11,7 +11,8 @@ import { MusicaService } from 'src/app/services/musica/musica.service';
   styleUrls: ['./topfive.component.css'],
 })
 export class TopfiveComponent implements OnInit {
-  musicas: Array<Musica> = [];
+  empty: string = "";
+  @Input() musicas: Array<Musica> = [];
   albuns: Array<Album> = [];
   bandas: Array<Banda> = [];
 
@@ -23,8 +24,18 @@ export class TopfiveComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.musicaService.listarTopFive().subscribe((x) => {
-      this.musicas = x;
-    });
+    this.carregarMusica();
+  }
+
+  carregarMusica() {
+    const musicaId = 1; // Substitua pelo ID da sua música
+    this.musicaService.listarTopFive().subscribe(
+      (musica) => {
+        this.musicas = musica;
+      },
+      error => {
+        console.error('Erro ao carregar a música:', error);
+      }
+    );
   }
 }

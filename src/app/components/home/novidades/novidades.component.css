@@ -5,8 +5,9 @@ a {
 }
 
 hr {
-  margin: .5em .5em;
+  margin: .5em;
 }
+
 p,
 h2 {
   margin: 0;
@@ -23,7 +24,7 @@ b {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin: 0 .5em;
+  margin: .5em;
 }
 
 .novidade__container {
@@ -101,8 +102,9 @@ b {
 
 @media screen and (min-width: 1220px) {
   .container {
-    display: grid;
-    grid-template-columns: 33% 33% 33%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
   .imagem__container {
@@ -150,7 +152,8 @@ b {
     width: 24px;
   }
 
-  .titulo__novidade, .texto__novidade {
+  .titulo__novidade,
+  .texto__novidade {
     display: none;
   }
 }

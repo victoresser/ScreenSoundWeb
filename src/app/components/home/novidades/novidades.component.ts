@@ -5,21 +5,20 @@ import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
   styleUrls: ['./novidades.component.css'],
 })
 export class NovidadesComponent implements OnInit {
-  offset: number = 0;
-  limit: number = 0;
-
+  offset = 0;
+  maxOffset = 400;
   constructor(private el: ElementRef) {}
 
-  ngOnInit() {
-    this.limit = this.el.nativeElement.offsetHeight - window.innerHeight;
-  }
+  ngOnInit() {}
+
 
   @HostListener('window:scroll', ['$event'])
-  onScroll(event: any): void {
+  onScroll(event: Event): void {
     this.offset = window.scrollY;
+  }
 
-    // if (this.offset > this.limit) {
-    //   this.offset = this.limit;
-    // }
+  calculateBackgroundPositionY(): string {
+    const adjustedOffset = Math.min(this.offset, this.maxOffset);
+    return `${adjustedOffset * -0.7}px`;
   }
 }

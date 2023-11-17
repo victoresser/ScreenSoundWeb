@@ -3,8 +3,8 @@ export interface Musica {
   nome: string;
   duracao: number;
   dataDeCriacao: Date;
-  album: string;
-  banda: string;
+  album: Album;
+  banda: Banda;
   imagem: string;
 }
 

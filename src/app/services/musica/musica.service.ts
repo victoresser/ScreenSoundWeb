@@ -7,16 +7,16 @@ import { Musica } from 'src/app/interfaces';
   providedIn: 'root',
 })
 export class MusicaService {
-  private API = 'https://localhost:7049/api/Musica';
+  private API = 'https://localhost:7049/api/Musica/';
 
   constructor(private http: HttpClient) {}
 
   listarTopFive(): Observable<Musica[]> {
     const itensPorPagina = 5;
 
-    let params = new HttpParams().set('_limit', itensPorPagina);
+    let params = new HttpParams().set('_limit:', itensPorPagina);
 
-    return this.http.get<Musica[]>(`${this.API}/listar`, { params });
+    return this.http.get<Musica[]>(this.API + 'listarTopFive');
   }
 
   listarMusicas(paginas: number, filtro: string): Observable<Musica[]> {

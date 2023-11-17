@@ -8,7 +8,7 @@ h3 {
   display: flex;
   align-items: center;
   height: 25px;
-  font-size: 32px;
+  font-size: 16px;
 }
 
 hr {
@@ -56,20 +56,16 @@ hr {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 90px;
-  width: 90px;
-  background-color: #e7ebee;
+  /* height: 90px;
+  width: 90px; */
+  /* background-color: #e7ebee; */
   margin: 0.5em;
   border-radius: 0.5em;
-  -webkit-animation: slide-in-left 0.5s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-  animation: slide-in-left 0.5s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 }
 
 .imagem__musica {
   height: 65px;
   width: 65px;
-  -webkit-animation: slide-in-left 0.5s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-  animation: slide-in-left 0.5s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 }
 
 .rodape__topfive {
@@ -92,6 +88,7 @@ hr {
     opacity: 1;
   }
 }
+
 @keyframes slide-in-left {
   0% {
     -webkit-transform: translateX(-1000px);
@@ -102,5 +99,19 @@ hr {
     -webkit-transform: translateX(0);
     transform: translateX(0);
     opacity: 1;
+  }
+}
+
+@media screen and (min-width: 1220px) {
+  .container {
+    display: flex;
+    flex-direction: row;
+    grid-template-columns: 33% 33% 33%;
+    margin: 0.5em;
+    gap: 1.5em;
+  }
+
+  .topfive {
+    width: 100%;
   }
 }
