@@ -14,6 +14,8 @@ import { HomeComponent } from './components/home/home.component';
 import { DownloadsComponent } from './components/home/downloads/downloads.component';
 import { NovidadesComponent } from './components/home/novidades/novidades.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MusicasComponent } from './components/musicas/musicas.component';
+import { FiltroComponent } from './components/musicas/filtro/filtro.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     DownloadsComponent,
     NovidadesComponent,
-    TopfiveComponent
+    TopfiveComponent,
+    MusicasComponent,
+    FiltroComponent
   ],
   imports: [
     BrowserModule,
