@@ -1,26 +1,36 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
-import { MusicasComponent } from './components/musicas/musicas.component';
+import { MusicaComponent } from './components/filtro/musica/musica.component';
+import { AlbumComponent } from './components/filtro/album/album.component';
+import { BandaComponent } from './components/filtro/banda/banda.component';
 
 const routes: Routes = [
   {
     path: '',
     redirectTo: 'home',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'home',
-    component: HomeComponent
+    component: HomeComponent,
   },
   {
     path: 'musicas',
-    component: MusicasComponent
-  }
+    component: MusicaComponent,
+  },
+  {
+    path: 'albuns',
+    component: AlbumComponent,
+  },
+  {
+    path: 'bandas',
+    component: BandaComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

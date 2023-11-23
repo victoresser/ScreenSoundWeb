@@ -1,0 +1,41 @@
+<app-filtro></app-filtro>
+
+<div class="container">
+
+  <div class="lista__container" *ngIf="bandas.length > 0; else semBandas" [@fadeIn]>
+
+    <div class="banda" *ngFor="let banda of bandas; let i = index" [style.animation-delay]="i * 100 + 'ms'">
+
+      <div class="banda__container" >
+
+        <div class="container__banda">
+          <img [src]="banda.imagem" [alt]="banda.nome" class="imagem__banda"
+          (mouseover)="onMouseOver(i)"
+          (mouseout)="onMouseOut()"
+          [class.animate]="isHovered === i"/>
+          <p>
+            <b>{{ banda.nome }}</b>
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <app-footer *ngIf="bandas.length > 0"></app-footer>
+
+  <ng-template #semBandas class="semBandas">
+
+    <img
+      src="../../../../assets/Icons/papagaio.svg"
+      alt="ScreenSound Papagaio"
+      style="height: 250px; width: 250px"
+    />
+
+    <p style="color: white">"Parece que ficamos sem <b>Bandas</b> capitão!"</p>
+
+  </ng-template>
+
+</div>

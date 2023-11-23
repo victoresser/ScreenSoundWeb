@@ -15,7 +15,7 @@ export class MusicaService {
     return this.http.get<Musica[]>(`${this.API}/listarTopFive`);
   }
 
-  listarMusicas(filtro: string): Observable<Musica[]> {
+  listar(filtro: string): Observable<Musica[]> {
     let params = new HttpParams();
 
     if (filtro.trim().length > 2) {
