@@ -6,6 +6,9 @@
   top: 0;
   height: 100%;
   z-index: -1;
+  filter: brightness(58%);
+  -webkit-filter: brightness(58%);
+  -moz-filter: brightness(58%);
 }
 
 .filtro__container {

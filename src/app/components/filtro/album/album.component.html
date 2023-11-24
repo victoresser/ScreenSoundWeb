@@ -5,30 +5,32 @@
 
     <div class="album" *ngFor="let album of albuns; let i = index" [style.animation-delay]="i * 100 + 'ms'">
 
-      <div class="album__container" >
+      <div class="container__album">
 
-        <div class="container__album">
-          <img [src]="album.imagem" [alt]="album.nome" class="imagem__album"
-          (mouseover)="onMouseOver(i)"
-          (mouseout)="onMouseOut()"
-          [class.animate]="isHovered === i"/>
-          <p>
-            <b>{{ album.nome }}</b>
-          </p>
-        </div>
+        <img [src]="album.imagem" [alt]="album.nome" class="imagem__album"
+        (mouseover)="onMouseOver(i)"
+        (mouseout)="onMouseOut()"
+        [class.animate]="isHovered === i"/>
+
+      </div>
+      <hr class="separador__album">
+
+      <div class="descricoes">
+        <p class="nome__album">
+          <b>{{ album.nome }}</b>
+        </p>
 
       </div>
 
     </div>
-
   </div>
 
   <ng-template #semAlbuns class="semAlbuns">
-    <div class="ngTemplate"></div>
+
     <img
       src="../../../../assets/Icons/papagaio.svg"
       alt="ScreenSound Papagaio"
-      style="height: 250px; width: 250px; margin: .5em;"
+      style="height: 250px; width: 250px; margin: 1em;"
     />
 
     <p style="color: var(--branco);">"Parece que ficamos sem <b>Álbuns</b> capitão!"</p>
