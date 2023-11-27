@@ -2,13 +2,16 @@
 
 <div class="container">
   <div class="lista__container" *ngIf="musicas.length > 0; else semMusicas">
-    <div class="musica" *ngFor="let musica of musicas">
+    <div class="musica" *ngFor="let musica of musicas; let i = index" [style.animation-delay]="i * 100 + 'ms'">
       <div class="musica__container">
         <div class="container__musica">
           <img
             [src]="musica.imagem"
             [alt]="musica.nome"
             class="imagem__musica"
+            (mouseover)="onMouseOver(i)"
+            (mouseout)="onMouseOut()"
+            [class.animate]="isHovered === i"
           />
           <p><b>{{ musica.banda }}</b></p>
         </div>

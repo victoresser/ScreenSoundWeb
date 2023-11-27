@@ -10,6 +10,7 @@ import { MusicaService } from 'src/app/services/musica/musica.service';
 export class MusicaComponent {
   @Input() musicas: Array<Musica> = [];
   filtro: string = '';
+  isHovered: number | null = null;
 
   constructor(private musicaService: MusicaService) {}
 
@@ -21,5 +22,13 @@ export class MusicaComponent {
     this.musicaService
       .listar(this.filtro)
       .subscribe((musica) => (this.musicas = musica));
+  }
+
+  onMouseOver(index: number) {
+    this.isHovered = index;
+  }
+
+  onMouseOut() {
+    this.isHovered = null;
   }
 }

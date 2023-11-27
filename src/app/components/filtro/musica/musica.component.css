@@ -1,4 +1,4 @@
-@import url('../../../../styles.css');
+@import url("../../../../styles.css");
 
 p {
   color: var(--fundo);
@@ -17,7 +17,7 @@ p {
   flex-wrap: wrap;
   width: 97%;
   height: auto;
-  border-radius: .5em;
+  border-radius: 0.5em;
   background-color: rgba(255, 255, 255, 0.55);
   box-shadow: 0px 0px 36px 0px rgba(0, 0, 0, 0.45) inset;
   -webkit-box-shadow: 0px 0px 36px 0px rgba(0, 0, 0, 0.45) inset;
@@ -34,7 +34,10 @@ p {
   width: 100%;
   -webkit-animation: fade-in-bck 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
   animation: fade-in-bck 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-  animation-delay: 0.5s;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 500ms forwards;
+  transition: transform 0.5s ease;
 }
 
 .musica:hover {
@@ -44,13 +47,19 @@ p {
   transition: all ease-in-out 2s both;
 }
 
+.musica:hover .imagem__musica {
+  transition: scale(1.1);
+}
+
 .musica:hover .nome__musica {
-  color: #55A162;
-  animation: scale-up-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) alternate both;
+  color: #55a162;
+  animation: scale-up-center 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) alternate
+    both;
 }
 
 .musica::after .nome__musica {
-  animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) alternate both;
+  animation: scale-in-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) alternate
+    both;
 }
 
 .musica__container {
@@ -98,6 +107,11 @@ p {
   height: 100px;
   width: 100px;
   border-radius: 0.5em;
+  transition: transform 0.5s ease;
+}
+
+.musica:hover .imagem__musica {
+  transform: scale(1.1);
 }
 
 .semMusicas p {
@@ -105,6 +119,48 @@ p {
 }
 
 app-footer {
-  margin: .5em 0 0 0;
+  margin: 0.5em 0 0 0;
   width: 100%;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-up-center {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.01);
+  }
+}
+
+@media screen and (min-width: 1220px) {
+  .lista__container {
+    justify-content: flex-start;
+    padding: 0.5em;
+    max-width: 1650px;
+    gap: .5em;
+  }
+
+  .separador__musica {
+    display: none;
+  }
+
+  .musica {
+    height: 100%;
+    width: 400px;
+  }
+
+  .musica:hover {
+    border-radius: .5em;
+  }
+
+  .musica__container {
+    margin: .2em;
+  }
 }
