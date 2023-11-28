@@ -30,8 +30,9 @@
 
       <hr class="separador__musica" />
     </div>
+    <div infinite-scroll (scrolled)="onScroll()"></div>
   </div>
-  <app-footer *ngIf="musicas.length > 0;"></app-footer>
+  <app-footer></app-footer>
 
   <ng-template #semMusicas class="semMusicas">
     <img src="../../../../assets/Icons/papagaio.svg" alt="ScreenSound Papagaio" style="height: 250px; width: 250px; margin: 1em;"/>

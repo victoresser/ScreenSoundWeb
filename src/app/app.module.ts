@@ -18,6 +18,7 @@ import { MusicaComponent } from './components/filtro/musica/musica.component';
 import { AlbumComponent } from './components/filtro/album/album.component';
 import { BandaComponent } from './components/filtro/banda/banda.component';
 import { FiltroComponent } from './components/filtro/filtro.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { FiltroComponent } from './components/filtro/filtro.component';
     MusicaComponent,
     AlbumComponent,
     BandaComponent,
-    FiltroComponent
+    FiltroComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +43,7 @@ import { FiltroComponent } from './components/filtro/filtro.component';
     FormsModule,
     IgxCarouselModule,
     IgxSliderModule,
+    InfiniteScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent],
