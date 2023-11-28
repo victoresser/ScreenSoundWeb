@@ -25,6 +25,7 @@
     "igniteui-angular": "^17.0.4",
     "jarallax": "^2.1.4",
     "minireset.css": "~0.0.4",
+    "ngx-infinite-scroll": "^17.0.0",
     "parallax-js": "^3.1.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

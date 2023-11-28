@@ -1,42 +1,65 @@
 <app-filtro></app-filtro>
 
 <div class="container">
-  <div class="lista__container" *ngIf="musicas.length > 0; else semMusicas">
-    <div class="musica" *ngFor="let musica of musicas; let i = index" [style.animation-delay]="i * 100 + 'ms'">
-      <div class="musica__container">
-        <div class="container__musica">
-          <img
-            [src]="musica.imagem"
-            [alt]="musica.nome"
-            class="imagem__musica"
-            (mouseover)="onMouseOver(i)"
-            (mouseout)="onMouseOut()"
-            [class.animate]="isHovered === i"
-          />
-          <p><b>{{ musica.banda }}</b></p>
-        </div>
+	<div class="lista__container" *ngIf="musicas.length > 0; else semMusicas">
 
-        <hr />
+		<div
+			class="musica"
+			*ngFor="let musica of musicas; let i = index"
+			[style.animation-delay]="i * 100 + 'ms'"
+		>
 
-        <div class="container__musica2">
-          <h3 class="nome__musica">{{ musica.nome }}</h3>
+			<div class="musica__container">
 
-          <p class="descricoes">
-            <b>Duração</b>: {{ musica.duracao }} segundos <br />
-            <b>Álbum</b>: {{ musica.album }}
-          </p>
-        </div>
-      </div>
+				<div class="container__musica">
 
-      <hr class="separador__musica" />
-    </div>
-    <div infinite-scroll (scrolled)="onScroll()"></div>
-  </div>
-  <app-footer></app-footer>
+					<img
+						[src]="musica.imagem"
+						[alt]="musica.nome"
+						class="imagem__musica"
+						(mouseover)="onMouseOver(i)"
+						(mouseout)="onMouseOut()"
+						[class.animate]="isHovered === i"
+					/>
 
-  <ng-template #semMusicas class="semMusicas">
-    <img src="../../../../assets/Icons/papagaio.svg" alt="ScreenSound Papagaio" style="height: 250px; width: 250px; margin: 1em;"/>
-    <p style="color: var(--branco)">"Parece que ficamos sem <b>Músicas</b> capitão!"</p>
-  </ng-template>
+					<p>
+						<b>{{ musica.banda }}</b>
+					</p>
+
+				</div>
+
+				<hr />
+
+				<div class="container__musica2">
+
+					<h3 class="nome__musica">{{ musica.nome }}</h3>
+
+					<p class="descricoes">
+						<b>Duração</b>: {{ musica.duracao }} segundos <br />
+						<b>Álbum</b>: {{ musica.album }}
+					</p>
+
+				</div>
+
+			</div>
+
+			<hr class="separador__musica" />
+		</div>
+		<div infinite-scroll (scrolled)="onScroll()"></div>
+	</div>
+	<app-footer *ngIf="musicas.length > 0"></app-footer>
+
+	<ng-template #semMusicas class="semMusicas">
+
+		<img
+			src="../../../../assets/Icons/papagaio.svg"
+			alt="ScreenSound Papagaio"
+			style="height: 250px; width: 250px; margin: 1em"
+		/>
+
+		<p style="color: var(--branco)">
+			"Parece que ficamos sem <b>Músicas</b> capitão!"
+		</p>
+
+	</ng-template>
 </div>
-
