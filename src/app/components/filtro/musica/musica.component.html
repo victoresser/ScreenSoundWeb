@@ -3,11 +3,7 @@
 <div class="container">
 	<div class="lista__container" *ngIf="musicas.length > 0; else semMusicas">
 
-		<div
-			class="musica"
-			*ngFor="let musica of musicas; let i = index"
-			[style.animation-delay]="i * 100 + 'ms'"
-		>
+		<div class="musica" *ngFor="let musica of musicas; let i = index" [style.animation-delay]="i * 100 + 'ms'">
 
 			<div class="musica__container">
 
@@ -32,7 +28,7 @@
 
 				<div class="container__musica2">
 
-					<h3 class="nome__musica">{{ musica.nome }}</h3>
+					<b class="nome__musica">{{ musica.nome }}</b>
 
 					<p class="descricoes">
 						<b>Duração</b>: {{ musica.duracao }} segundos <br />
@@ -40,17 +36,18 @@
 					</p>
 
 				</div>
-
 			</div>
 
 			<hr class="separador__musica" />
 		</div>
-		<div infinite-scroll (scrolled)="onScroll()"></div>
+
+		<infinite-scroll infinite-scroll [infiniteScrollDistance]="scrollDistance" [infiniteScrollUpDistance]="scrollUpDistance" *ngIf="hasMoreData" (scrolled)="onScroll()"></infinite-scroll>
+
 	</div>
+
 	<app-footer *ngIf="musicas.length > 0"></app-footer>
 
 	<ng-template #semMusicas class="semMusicas">
-
 		<img
 			src="../../../../assets/Icons/papagaio.svg"
 			alt="ScreenSound Papagaio"
@@ -60,6 +57,6 @@
 		<p style="color: var(--branco)">
 			"Parece que ficamos sem <b>Músicas</b> capitão!"
 		</p>
-
 	</ng-template>
+
 </div>

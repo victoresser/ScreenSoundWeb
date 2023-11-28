@@ -18,33 +18,35 @@ import { MusicaComponent } from './components/filtro/musica/musica.component';
 import { AlbumComponent } from './components/filtro/album/album.component';
 import { BandaComponent } from './components/filtro/banda/banda.component';
 import { FiltroComponent } from './components/filtro/filtro.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    CarrosselComponent,
-    HeaderLogoComponent,
-    FooterComponent,
-    DownloadsComponent,
-    NovidadesComponent,
-    TopfiveComponent,
-    MusicaComponent,
-    AlbumComponent,
-    BandaComponent,
-    FiltroComponent,
-  ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    IgxCarouselModule,
-    IgxSliderModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+	declarations: [
+		AppComponent,
+		HomeComponent,
+		CarrosselComponent,
+		HeaderLogoComponent,
+		FooterComponent,
+		DownloadsComponent,
+		NovidadesComponent,
+		TopfiveComponent,
+		MusicaComponent,
+		AlbumComponent,
+		BandaComponent,
+		FiltroComponent,
+	],
+	imports: [
+		BrowserModule,
+		HttpClientModule,
+		AppRoutingModule,
+		BrowserAnimationsModule,
+		FormsModule,
+		IgxCarouselModule,
+		IgxSliderModule,
+		InfiniteScrollModule,
+	],
+	providers: [],
+	bootstrap: [AppComponent],
+	schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}
