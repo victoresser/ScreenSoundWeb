@@ -1,4 +1,3 @@
-import { HttpResponse } from '@angular/common/http';
 import { Component, Input } from '@angular/core';
 import { Musica } from 'src/app/interfaces';
 import { DataService } from 'src/app/services/data/data.service';
@@ -31,13 +30,21 @@ export class MusicaComponent {
 	}
 
 	carregarMusica() {
-		this.service.getMusicas(this.page, this.filtro).subscribe(musicas => {
-			this.musicas = this.musicas.concat(musicas);
+		this.service.getMusicas(this.page, this.filtro).subscribe((x) => {
+			this.musicas = this.musicas.concat(x);
 
-			if (musicas.length < this.pageSize) {
-			  this.hasMoreData = false;
+			if (x.length < this.pageSize) {
+				this.hasMoreData = false;
 			}
-		  });
+		});
+	}
+
+	tratarDisponibilidade(disponivel: boolean): string {
+		if (disponivel) {
+			return 'Disponível no plano basic';
+		} else {
+			return 'Disponível no plano Plus+';
+		}
 	}
 
 	onMouseOver(index: number) {

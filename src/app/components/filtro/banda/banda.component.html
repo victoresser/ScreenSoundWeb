@@ -22,6 +22,8 @@
 
     </div>
 
+	<infinite-scroll [infiniteScrollDistance]="scrollDistance" [infiniteScrollUpDistance]="scrollUpDistance" *ngIf="hasMoreData" (scrolled)="onScroll()"></infinite-scroll>
+
   </div>
 
   <ng-template #semBandas class="semBandas">

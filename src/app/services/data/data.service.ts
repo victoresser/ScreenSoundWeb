@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Musica } from 'src/app/interfaces';
+import { Album, Banda, Musica } from 'src/app/interfaces';
 
 @Injectable({
 	providedIn: 'root',
@@ -29,6 +29,30 @@ export class DataService {
 	}
 
 	// Requisições de Álbuns
+	getBandas(page: number, filtro?: string): Observable<Banda[]> {
+		const skip = (page - 1) * this.pageSize;
+		const params = new HttpParams()
+			.set('skip', skip.toString())
+			.set('take', this.pageSize.toString());
+
+		if (filtro) {
+			params.set('nomeBanda', filtro);
+		}
+		const url = `${this.bandaAPI}/listar?${params}`;
+		return this.http.get<Banda[]>(url);
+	}
 
 	// Requisições de Bandas
+	getAlbuns(page: number, filtro?: string): Observable<Album[]> {
+		const skip = (page - 1) * this.pageSize;
+		const params = new HttpParams()
+			.set('skip', skip.toString())
+			.set('take', this.pageSize.toString());
+
+		if (filtro) {
+			params.set('nomeMusica', filtro);
+		}
+		const url = `${this.albumAPI}/listar?${params}`;
+		return this.http.get<Album[]>(url);
+	}
 }

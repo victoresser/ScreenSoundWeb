@@ -32,10 +32,12 @@
 
 					<p class="descricoes">
 						<b>Duração</b>: {{ musica.duracao }} segundos <br />
-						<b>Álbum</b>: {{ musica.album }}
+						<b>Álbum</b>: {{ musica.album }} <br>
+						<b>{{ tratarDisponibilidade(musica.disponivel) }}</b>
 					</p>
 
 				</div>
+
 			</div>
 
 			<hr class="separador__musica" />

@@ -30,7 +30,7 @@ p {
 
 .musica {
 	display: flex;
-	flex-direction: column;
+	justify-content: flex-start;
 	width: 100%;
 	-webkit-animation: fade-in-bck 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 	animation: fade-in-bck 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
@@ -57,11 +57,6 @@ p {
 		alternate both;
 }
 
-.musica::after .nome__musica {
-	animation: scale-in-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-		alternate both;
-}
-
 .musica__container {
 	display: flex;
 	padding: 0.5em;
@@ -78,7 +73,6 @@ p {
 .container__musica2 {
 	display: flex;
 	flex-direction: column;
-	/* justify-content: center; */
 	width: 100%;
 }
 
@@ -139,7 +133,7 @@ app-footer {
 		transform: scale(1);
 	}
 	100% {
-		transform: scale(1.01);
+		transform: scale(1.02);
 	}
 }
 
