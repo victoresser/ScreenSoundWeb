@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ScreenSound:build:production"
+              "buildTarget": "ScreenSound:build:production"
             },
             "development": {
-              "browserTarget": "ScreenSound:build:development"
+              "buildTarget": "ScreenSound:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ScreenSound:build"
+            "buildTarget": "ScreenSound:build"
           }
         },
         "test": {
