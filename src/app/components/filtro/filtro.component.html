@@ -2,19 +2,19 @@
 
   <div class="menu__container">
 
-    <span class="menu__button adicionar"></span>
+    <span class="menu__button adicionar" (click)="adicionar()" [routerLink]="rotaAtual + '/adicionar'"></span>
 
     <hr class="separador__menu" />
 
-    <span class="menu__button editar"></span>
+    <span class="menu__button editar" (click)="editar()" [routerLink]="rotaAtual + '/editar'"></span>
 
     <hr class="separador__menu" />
 
-    <span class="menu__button excluir"></span>
+    <span class="menu__button excluir" (click)="excluir()" [routerLink]="rotaAtual + '/excluir'"></span>
 
     <hr class="separador__menu" />
 
-    <span class="menu__button pesquisar"></span>
+    <span class="menu__button pesquisar" (click)="pesquisar()" [routerLink]="rotaAtual + '/pesquisar'"></span>
 
   </div>
 

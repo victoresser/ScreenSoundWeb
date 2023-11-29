@@ -20,6 +20,10 @@ const routes: Routes = [
     component: MusicaComponent,
   },
   {
+	path: 'musicas/adicionar',
+	component: MusicaComponent
+  },
+  {
     path: 'albuns',
     component: AlbumComponent,
   },
