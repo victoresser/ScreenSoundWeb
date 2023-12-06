@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Musica } from 'src/app/interfaces';
+import { Musica } from 'src/app/components/filtro/musica/models/musica.model';
 
 @Injectable({
   providedIn: 'root',
@@ -24,4 +24,10 @@ export class MusicaService {
 
     return this.http.get<Musica[]>(`${this.API}/listar`, { params });
   }
+
+	addMusic(musica: Musica): Observable<Musica> {
+		return this.http.post<Musica>(this.API, Musica);
+	}
+
+	editMusic() {}
 }

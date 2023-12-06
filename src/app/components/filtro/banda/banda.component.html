@@ -25,6 +25,7 @@
 	<infinite-scroll [infiniteScrollDistance]="scrollDistance" [infiniteScrollUpDistance]="scrollUpDistance" *ngIf="hasMoreData" (scrolled)="onScroll()"></infinite-scroll>
 
   </div>
+	<app-footer *ngIf="bandas.length > 20"></app-footer>
 
   <ng-template #semBandas class="semBandas">
 

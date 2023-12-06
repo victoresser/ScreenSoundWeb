@@ -1,7 +1,6 @@
-import { NonNullAssert } from '@angular/compiler';
 import { Component, Input, OnInit } from '@angular/core';
-import { Album } from 'src/app/interfaces';
 import { AlbumService } from 'src/app/services/album/album.service';
+import { Album } from './album.model';
 
 @Component({
   selector: 'app-album',

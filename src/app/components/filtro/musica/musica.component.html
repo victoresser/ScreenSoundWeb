@@ -1,6 +1,6 @@
 <app-filtro></app-filtro>
 
-<div class="container">
+<div class="container" *ngIf="listarAberta" >
 	<div class="lista__container" *ngIf="musicas.length > 0; else semMusicas">
 
 		<div class="musica" *ngFor="let musica of musicas; let i = index" [style.animation-delay]="i * 100 + 'ms'">
@@ -10,7 +10,7 @@
 				<div class="container__musica">
 
 					<img
-						[src]="musica.imagem"
+						[src]="musica.imagem ? musica.imagem : imagemNaoEncontrada"
 						[alt]="musica.nome"
 						class="imagem__musica"
 						(mouseover)="onMouseOver(i)"
@@ -62,3 +62,5 @@
 	</ng-template>
 
 </div>
+
+<div class="adicionar__musica" *ngIf="adicionar"></div>

@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { fadeIn, hoverAnimation } from 'src/app/animations';
-import { Banda } from 'src/app/interfaces';
 import { DataService } from 'src/app/services/data/data.service';
+import { Banda } from './banda.model';
 
 @Component({
 	selector: 'app-banda',

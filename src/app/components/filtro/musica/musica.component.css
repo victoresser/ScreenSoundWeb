@@ -54,8 +54,8 @@ p {
 
 .musica:hover .nome__musica {
 	color: #55a162;
-	animation: scale-up-center 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-		alternate both;
+	animation: scale-up-center 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) alternate
+		both;
 }
 
 .musica__container {
@@ -138,11 +138,11 @@ app-footer {
 	}
 }
 
-@media screen and (min-width: 1220px) {
+@media screen and (min-width: 980px) {
 	.lista__container {
 		justify-content: flex-start;
 		padding: 0.5em;
-		max-width: 1650px;
+		max-width: 830px;
 		gap: 0.5em;
 	}
 
@@ -161,5 +161,23 @@ app-footer {
 
 	.musica__container {
 		margin: 0.2em;
+	}
+}
+
+/* @media screen and (min-width: 1440px) {
+	.lista__container {
+		justify-content: flex-start;
+		padding: 0.5em;
+		max-width: 1235px;
+		gap: 0.5em;
+	}
+} */
+
+@media screen and (min-width: 1690px) {
+	.lista__container {
+		justify-content: flex-start;
+		padding: 0.5em;
+		max-width: 1650px;
+		gap: 0.5em;
 	}
 }

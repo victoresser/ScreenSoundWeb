@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Album, Banda, Musica } from 'src/app/interfaces';
+import { Album } from '../filtro/album/album.model';
+import { Banda } from '../filtro/banda/banda.model';
+import { Musica } from '../filtro/musica/models/musica.model';
 
 @Component({
   selector: 'app-home',

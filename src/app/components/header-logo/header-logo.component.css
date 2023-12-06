@@ -9,9 +9,43 @@ img {
 }
 
 .container__opcoes {
-	display: flex;
+	display: inline-flex;
 	align-items: center;
-	gap: 2em;
+	height: 100%;
+	gap: 1.5em;
+}
+
+.button__mobile {
+	display: inline-flex;
+	height: 48px;
+	width: 48px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 32px;
+}
+
+.musicas {
+	background-image: url("../../../assets/buttons/musicas_white.png");
+}
+
+.musicas:hover {
+	background-image: url("../../../assets/buttons/musicas_green.png");
+}
+
+.albuns {
+	background-image: url("../../../assets/buttons/albuns_white.png");
+}
+
+.albuns:hover {
+	background-image: url("../../../assets/buttons/albuns_green.png");
+}
+
+.bandas {
+	background-image: url("../../../assets/buttons/bandas_white.png");
+}
+
+.bandas:hover {
+	background-image: url("../../../assets/buttons/bandas_green.png");
 }
 
 .container__opcoes__desktop {
@@ -48,6 +82,11 @@ img {
 }
 
 @media screen and (min-width: 1220px) {
+	.container {
+		padding: 0;
+		height: 77px;
+	}
+
 	.container__opcoes {
 		display: none;
 	}
@@ -55,20 +94,32 @@ img {
 	.container__opcoes__desktop {
 		display: flex;
 		position: center;
+		align-items: center;
 		height: 100%;
-		gap: 2.5em;
+	}
+
+	.container__meuPerfil {
+		display: flex;
+		align-items: center;
+		gap: 0.5em;
 	}
 
 	.button {
 		display: flex;
-		height: 100%;
-		width: 100%;
+		justify-content: center;
+		align-items: center;
+		font-size: 16px;
+		font-family: var(--ff-montserrat);
+		height: 78px;
+		width: 100px;
 		transition: transform 0.5 ease;
 	}
 
 	.button:hover {
-		color: var(--verde-escuro);
+		color: var(--fundo);
+		background-color: var(--verde-escuro);
 		transform: translateY(-1px);
+		font-weight: 700;
 	}
 
 	.menu__logo {
@@ -78,5 +129,6 @@ img {
 	.menu__logo__any {
 		display: flex;
 		height: 45px;
+		margin: .5em;
 	}
 }

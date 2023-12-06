@@ -14,11 +14,12 @@ import { HomeComponent } from './components/home/home.component';
 import { DownloadsComponent } from './components/home/downloads/downloads.component';
 import { NovidadesComponent } from './components/home/novidades/novidades.component';
 import { HttpClientModule } from '@angular/common/http';
-import { MusicaComponent } from './components/filtro/musica/musica.component';
 import { AlbumComponent } from './components/filtro/album/album.component';
-import { BandaComponent } from './components/filtro/banda/banda.component';
 import { FiltroComponent } from './components/filtro/filtro.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { ToastrModule } from 'ngx-toastr';
+import { BandaComponent } from './components/filtro/banda/banda.component';
+import { MusicaComponent } from './components/filtro/musica/musica.component';
 
 @NgModule({
 	declarations: [
@@ -44,6 +45,7 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 		IgxCarouselModule,
 		IgxSliderModule,
 		InfiniteScrollModule,
+		ToastrModule.forRoot(),
 	],
 	providers: [],
 	bootstrap: [AppComponent],
