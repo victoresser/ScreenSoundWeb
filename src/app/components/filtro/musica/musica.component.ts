@@ -17,18 +17,21 @@ export class MusicaComponent {
 	scrollDistance = 2;
 	scrollUpDistance = 1.5;
 	imagemNaoEncontrada = '../../../../assets/Icons/nao-encontrado.png';
-	listarAberta: boolean;
+	read: boolean;
 	adicionar: boolean;
+	editar: boolean;
 
 	constructor(private service: DataService) {
-		this.listarAberta = true;
+		this.read = true;
 		this.adicionar = false;
+		this.editar = false;
 	}
 
 	ngOnInit(): void {
 		this.carregarMusica();
-		this.listarAberta = true;
+		this.read = true;
 		this.adicionar = false;
+		this.editar = false;
 	}
 
 	ngOnChange(): void {

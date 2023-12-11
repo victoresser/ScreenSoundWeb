@@ -15,22 +15,18 @@ const routes: Routes = [
     path: 'home',
     component: HomeComponent,
   },
-  {
-    path: 'musicas',
-    component: MusicaComponent,
-  },
-  {
-	path: 'musicas/adicionar',
-	component: MusicaComponent
-  },
-  {
-    path: 'albuns',
-    component: AlbumComponent,
-  },
-  {
-    path: 'bandas',
-    component: BandaComponent,
-  },
+	{
+		path: 'musicas',
+		component: MusicaComponent
+	},
+	{
+		path: 'albuns',
+		component: AlbumComponent
+	},
+	{
+		path: 'bandas',
+		component: BandaComponent
+	}
 ];
 
 @NgModule({

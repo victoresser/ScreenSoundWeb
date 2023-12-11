@@ -1,6 +1,6 @@
 <app-filtro></app-filtro>
 
-<div class="container" *ngIf="listarAberta" >
+<div class="container" *ngIf="read">
 	<div class="lista__container" *ngIf="musicas.length > 0; else semMusicas">
 
 		<div class="musica" *ngFor="let musica of musicas; let i = index" [style.animation-delay]="i * 100 + 'ms'">
@@ -46,6 +46,8 @@
 		<infinite-scroll infinite-scroll [infiniteScrollDistance]="scrollDistance" [infiniteScrollUpDistance]="scrollUpDistance" *ngIf="hasMoreData" (scrolled)="onScroll()"></infinite-scroll>
 
 	</div>
+
+
 
 	<app-footer *ngIf="musicas.length > 0"></app-footer>
 

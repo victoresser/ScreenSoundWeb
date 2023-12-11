@@ -1,6 +1,5 @@
 import { RouteChangeService } from 'src/app/services/routes/route-change.service';
-import { Component, OnInit } from '@angular/core';
-import { Route } from '@angular/router';
+import { Component } from '@angular/core';
 import { MusicaComponent } from './musica/musica.component';
 
 @Component({
@@ -8,7 +7,7 @@ import { MusicaComponent } from './musica/musica.component';
 	templateUrl: './filtro.component.html',
 	styleUrls: ['./filtro.component.css'],
 })
-export class FiltroComponent implements OnInit {
+export class FiltroComponent {
 	rotaAtual: string = '';
 
 	constructor(
@@ -16,15 +15,9 @@ export class FiltroComponent implements OnInit {
 		private musica: MusicaComponent
 	) {}
 
-	ngOnInit() {
-		this.routeChangeService.getRouteChangeObservable().subscribe((rota) => {
-			this.rotaAtual = rota;
-		});
-	}
-
 	adicionar(route: string): void {
 		this.musica.adicionar = true;
-		this.musica.listarAberta = false;
+		this.musica.read = false;
 	}
 
 	editar(): void {}
