@@ -18,6 +18,8 @@ export class BandaComponent implements OnInit {
 	hasMoreData = true;
 	scrollDistance = 2;
 	scrollUpDistance = 1.5;
+	read = true;
+	addBanda = false;
 
 	constructor(private service: DataService) {}
 	ngOnInit(): void {

@@ -17,7 +17,7 @@ p {
 	flex-wrap: wrap;
 	width: 97%;
 	height: auto;
-	border-radius: 0.5em;
+	border-radius: 0.7em;
 	background-color: rgba(255, 255, 255, 0.55);
 	box-shadow: 0px 0px 36px 0px rgba(0, 0, 0, 0.45) inset;
 	-webkit-box-shadow: 0px 0px 36px 0px rgba(0, 0, 0, 0.45) inset;
@@ -45,7 +45,7 @@ p {
 	background-color: rgba(255, 255, 255, 0.25);
 	backdrop-filter: blur(5.5px);
 	-webkit-backdrop-filter: blur(5.5px);
-	transition: all ease-in-out 2s both;
+	transition: transform ease-in-out 2s both;
 }
 
 .musica:hover .imagem__musica {
@@ -106,7 +106,7 @@ p {
 	height: 100px;
 	width: 100px;
 	border-radius: 0.5em;
-	transition: transform 0.5s ease;
+	transition: all 0.5s ease;
 }
 
 .musica:hover .imagem__musica {
@@ -176,8 +176,7 @@ app-footer {
 @media screen and (min-width: 1690px) {
 	.lista__container {
 		justify-content: flex-start;
-		padding: 0.5em;
-		max-width: 1650px;
+		min-width: 86.3%;
 		gap: 0.5em;
 	}
 }

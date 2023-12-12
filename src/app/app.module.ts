@@ -19,6 +19,7 @@ import { CarrosselComponent } from './components/home/carrossel/carrossel.compon
 import { HeaderLogoComponent } from './components/header-logo/header-logo.component';
 import { DownloadsComponent } from './components/home/downloads/downloads.component';
 import { NovidadesComponent } from './components/home/novidades/novidades.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
 	declarations: [

@@ -28,7 +28,7 @@ img {
 	background-image: url("../../../assets/buttons/musicas_white.png");
 }
 
-.musicas:hover {
+.musicas:active {
 	background-image: url("../../../assets/buttons/musicas_green.png");
 }
 
@@ -36,7 +36,7 @@ img {
 	background-image: url("../../../assets/buttons/albuns_white.png");
 }
 
-.albuns:hover {
+.albuns:active {
 	background-image: url("../../../assets/buttons/albuns_green.png");
 }
 
@@ -44,7 +44,7 @@ img {
 	background-image: url("../../../assets/buttons/bandas_white.png");
 }
 
-.bandas:hover {
+.bandas:active {
 	background-image: url("../../../assets/buttons/bandas_green.png");
 }
 
@@ -54,6 +54,15 @@ img {
 
 .button {
 	display: none;
+}
+
+.perfil__imagem {
+	height: 48px;
+	width: 48px;
+	background-image: url(../../../assets/buttons/perfil_green.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 32px;
 }
 
 .container__meuPerfil {
@@ -81,6 +90,10 @@ img {
 	display: none;
 }
 
+.container__opcoes__desktop hr {
+	display: none;
+}
+
 @media screen and (min-width: 1220px) {
 	.container {
 		padding: 0;
@@ -101,7 +114,6 @@ img {
 	.container__meuPerfil {
 		display: flex;
 		align-items: center;
-		gap: 0.5em;
 	}
 
 	.button {
@@ -112,7 +124,7 @@ img {
 		font-family: var(--ff-montserrat);
 		height: 78px;
 		width: 100px;
-		transition: transform 0.5 ease;
+		transition: all 0.3s ease;
 	}
 
 	.button:hover {
@@ -130,5 +142,49 @@ img {
 		display: flex;
 		height: 45px;
 		margin: .5em;
+	}
+
+	.container__opcoes__desktop hr {
+		display: flex;
+		width: 2px;
+		height: 100%;
+		opacity: 25%;
+		color: white;
+	}
+
+	.perfil__imagem {
+		display: flex;
+		height: 78px;
+		width: 48px;
+		background-size: 32px;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-image: url('../../../assets/buttons/perfil_green.png');
+		transition: all 0.3s ease;
+	}
+
+	.perfil__button {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 16px;
+		font-family: var(--ff-montserrat);
+		height: 78px;
+		width: 90px;
+		transition: all 0.3s ease;
+	}
+
+	.container__meuPerfil:hover .perfil__imagem {
+		background-image: url('../../../assets/buttons/perfil_black.png');
+		background-color: #488a53;
+		transform: translateY(-1px);
+	}
+
+	.container__meuPerfil:hover .perfil__button {
+		color: var(--fundo);
+		border-left: solid 1px var(--fundo) 45%;
+		background-color: var(--verde-escuro);
+		transform: translateY(-1px);
+		font-weight: 700;
 	}
 }

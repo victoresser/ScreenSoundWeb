@@ -1,7 +1,7 @@
 <div class="container">
   <div class="container__menu">
-    <a href="/home"><img class="menu__logo" src="../../../assets/ScreenSound/default_transparent.svg" alt="Logo ScreenSound"></a>
-    <a href="/home"><img class="menu__logo__any" src="../../../assets/ScreenSound/default_transparent_horizontal.svg" alt="Logo ScreenSound"></a>
+    <a routerLink="/home"><img class="menu__logo" src="../../../assets/ScreenSound/default_transparent.svg" alt="Logo ScreenSound"></a>
+    <a routerLink="/home"><img class="menu__logo__any" src="../../../assets/ScreenSound/default_transparent_horizontal.svg" alt="Logo ScreenSound"></a>
   </div>
 
   <div class="container__opcoes">
@@ -12,14 +12,18 @@
 
   <div class="container__opcoes__desktop">
 		<span class="opcoes__button" ><a routerLink="/home" class="button">Home</a></span>
+		<hr>
 		<span class="opcoes__button" ><a routerLink="/musicas" class="button">Músicas</a></span>
+		<hr>
 		<span class="opcoes__button" ><a routerLink="/albuns" class="button">Álbuns</a></span>
+		<hr>
 		<span class="opcoes__button" ><a routerLink="/bandas" class="button">Bandas</a></span>
+		<hr>
 		<span class="opcoes__button" ><a routerLink="/novidades" class="button">Novidades</a></span>
   </div>
 
   <div class="container__meuPerfil">
-		<img src="../../../assets/buttons/perfil_green.png" alt="Perfil" href="#">
-    <a href="#" class="button">Perfil</a>
+		<span class="perfil__imagem" routerLink="/home"></span>
+    <a routerLink="#" class="perfil__button">Perfil</a>
   </div>
 </div>

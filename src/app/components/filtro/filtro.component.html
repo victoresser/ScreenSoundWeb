@@ -2,7 +2,7 @@
 
   <div class="menu__container">
 
-    <span class="menu__button adicionar" (click)="adicionar(rotaAtual)" [routerLink]="rotaAtual + '/adicionar'"></span>
+    <span class="menu__button adicionar" (click)="adicionar()" [routerLink]="rotaAtual + '/adicionar'"></span>
 
     <hr class="separador__menu" />
 
@@ -17,6 +17,19 @@
     <span class="menu__button pesquisar" (click)="pesquisar()" [routerLink]="rotaAtual + '/pesquisar'"></span>
 
   </div>
+	<div class="pesquisar" *ngIf="search">
+		<span (click)="search = false" class="fechar__pesquisa"></span>
+		<label for="search">Pesquisar</label>
+		<input type="search" id="search" placeholder="Pesquise pelo nome" (keyup)="pesquisar()">
+	</div>
+
+	<div class="adicionar__musica" *ngIf="rotaAtual == 'musica' && add" class="add__musica__container">
+		<div class="add__musica">
+			<p>Nome da música</p>
+			<label for="nome">Nome da Música</label>
+			<input type="text" id="nome" placeholder="Insira o nome da música" formControlName="nome">
+		</div>
+	</div>
 
   <video autoplay loop muted>
     <source src="../../../assets/Videos/screensound_video1.mp4" type="video/mp4">

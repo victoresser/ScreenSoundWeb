@@ -34,12 +34,6 @@ export class MusicaComponent {
 		this.editar = false;
 	}
 
-	ngOnChange(): void {
-		this.page = 1;
-		this.musicas = [];
-		this.carregarMusica();
-	}
-
 	carregarMusica() {
 		this.service.getMusicas(this.page, this.filtro).subscribe((x) => {
 			this.musicas = this.musicas.concat(x);
@@ -50,7 +44,7 @@ export class MusicaComponent {
 		});
 	}
 
-	tratarDisponibilidade(disponivel: boolean): string {
+	tratarDisponibilidade(disponivel?: boolean): string {
 		if (disponivel) {
 			return 'Disponível no plano basic';
 		} else {
