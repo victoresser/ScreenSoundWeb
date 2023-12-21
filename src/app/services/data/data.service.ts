@@ -1,8 +1,8 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Album } from 'src/app/components/filtro/album/album.model';
-import { Banda } from 'src/app/components/filtro/banda/banda.model';
+import { Album } from 'src/app/components/filtro/album/model/album.model';
+import { Banda } from 'src/app/components/filtro/banda/models/banda.model';
 import { Musica } from 'src/app/components/filtro/musica/models/musica.model';
 
 @Injectable({

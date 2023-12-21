@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Banda } from 'src/app/components/filtro/banda/banda.model';
+import { Banda } from 'src/app/components/filtro/banda/models/banda.model';
 
 @Injectable({
 	providedIn: 'root',

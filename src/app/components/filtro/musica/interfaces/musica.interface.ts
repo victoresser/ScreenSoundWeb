@@ -1,5 +1,5 @@
-import { Album } from '../../album/album.model';
-import { Banda } from '../../banda/banda.model';
+import { Album } from '../../album/model/album.model';
+import { Banda } from '../../banda/models/banda.model';
 
 export interface CreateMusicaDto {
 	nome: string;
@@ -7,6 +7,7 @@ export interface CreateMusicaDto {
 	disponivel: boolean;
 	banda: Banda;
 	album: Album;
+	imagem: string;
 }
 
 export interface EditMusicaDto {

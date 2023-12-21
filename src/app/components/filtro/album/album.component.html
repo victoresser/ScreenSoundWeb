@@ -1,51 +1,45 @@
-<app-filtro></app-filtro>
 <div class="container">
   <div
     class="lista__container"
     *ngIf="albuns.length > 0; else semAlbuns"
     [@fadeIn]
   >
-    <div
-      class="album"
-      *ngFor="let album of albuns; let i = index"
-      [style.animation-delay]="i * 100 + 'ms'"
-    >
-      <div class="album__container">
+    <div class="album" *ngFor="let album of albuns; let i = index" [style.animation-delay]="i * 100 + 'ms'">
+
+			<div class="album__container">
+
         <div class="container__album">
-          <img
-            [src]="album.imagem"
-            [alt]="album.nome"
-            class="imagem__album"
-            (mouseover)="onMouseOver(i)"
-            (mouseout)="onMouseOut()"
-            [class.animate]="isHovered === i"
-          />
+
+          <img [src]="album.imagem ? album.imagem : imagemNaoEncontrada" [alt]="album.nome" class="imagem__album" (mouseover)="onMouseOver(i)" (mouseout)="onMouseOut()" [class.animate]="isHovered === i"/>
+
           <p>
             <b>{{ album.banda }}</b>
           </p>
+
         </div>
 
         <hr />
 
         <p class="descricoes">
+
           <b>{{ album.nome }}</b>
+
         </p>
+
       </div>
 
       <hr class="separador__album" />
+
     </div>
   </div>
-  <app-footer *ngIf="albuns.length > 20"></app-footer>
 
   <ng-template #semAlbuns class="semAlbuns">
-    <img
-      src="../../../../assets/Icons/papagaio.svg"
-      alt="ScreenSound Papagaio"
-      style="height: 250px; width: 250px; margin: 1em"
-    />
+
+    <img src="../../../../assets/Icons/papagaio.svg" alt="ScreenSound Papagaio" style="height: 250px; width: 250px; margin: 1em"/>
 
     <p style="color: var(--branco)">
       "Parece que ficamos sem <b>Álbuns</b> capitão!"
     </p>
+
   </ng-template>
 </div>

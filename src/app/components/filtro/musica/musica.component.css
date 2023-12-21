@@ -117,11 +117,6 @@ p {
 	color: var(--branco);
 }
 
-app-footer {
-	margin: 0.5em 0 0 0;
-	width: 100%;
-}
-
 @keyframes fadeIn {
 	to {
 		opacity: 1;
@@ -176,7 +171,7 @@ app-footer {
 @media screen and (min-width: 1690px) {
 	.lista__container {
 		justify-content: flex-start;
-		min-width: 86.3%;
+		min-width: 1642px;
 		gap: 0.5em;
 	}
 }

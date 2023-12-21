@@ -2,8 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { AlbumService } from 'src/app/services/album/album.service';
 import { BandaService } from 'src/app/services/banda/banda.service';
 import { MusicaService } from 'src/app/services/musica/musica.service';
-import { Album } from '../../filtro/album/album.model';
-import { Banda } from '../../filtro/banda/banda.model';
+import { Album } from '../../filtro/album/model/album.model';
+import { Banda } from '../../filtro/banda/models/banda.model';
 import { Musica } from '../../filtro/musica/models/musica.model';
 
 @Component({

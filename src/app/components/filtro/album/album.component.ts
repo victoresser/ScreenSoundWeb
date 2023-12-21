@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AlbumService } from 'src/app/services/album/album.service';
-import { Album } from './album.model';
+import { Album } from './model/album.model';
 
 @Component({
   selector: 'app-album',
@@ -11,6 +11,7 @@ export class AlbumComponent implements OnInit {
   @Input() albuns: Album[] = [];
   filtro: string = '';
   isHovered: number | null = null;
+	imagemNaoEncontrada = '../../../../assets/Icons/nao-encontrado.png';
 
   constructor(private albumService: AlbumService) {}
 

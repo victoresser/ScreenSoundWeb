@@ -24,7 +24,7 @@
 	display: flex;
 	width: 97%;
 	height: 65px;
-	margin: .5em 0;
+	margin: 0.5em 0;
 }
 
 .menu__button {
@@ -57,6 +57,11 @@
 	-webkit-backdrop-filter: blur(5.5px);
 	border: 1px solid rgba(255, 255, 255, 1);
 	transition: all ease-in-out 2s both;
+}
+
+app-footer {
+	margin: 0.5em 0 0 0;
+	width: 100%;
 }
 
 .pesquisar {
@@ -98,6 +103,47 @@
 .separador__menu {
 	height: 100%;
 	width: 2px;
+}
+
+.pesquisador {
+	display: flex;
+	flex-direction: column;
+	width: 97%;
+	margin: auto;
+	height: 100%;
+	background-color: rgba(255, 255, 255, 0.55);
+	box-shadow: 0px 0px 36px 0px rgba(0, 0, 0, 0.45) inset;
+	-webkit-box-shadow: 0px 0px 36px 0px rgba(0, 0, 0, 0.45) inset;
+	-moz-box-shadow: 0px 0px 36px 0px rgba(0, 0, 0, 0.45) inset;
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	border-radius: 0.5em;
+	border: 1px solid rgba(255, 255, 255, 1);
+
+	.fechar__pesquisa {
+		display: flex;
+		justify-content: flex-start;
+	}
+
+	.pesquisador__header {
+		display: flex;
+		align-items: center;
+	}
+
+	.tituloPesquisar {
+		font-size: 24px;
+		margin: 0;
+		padding: 0;
+	}
+
+	.fechar__pesquisa {
+		background-image: url("../../../assets/Icons/excluir-black.png");
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: 32px;
+		height: 32px;
+		width: 32px;
+	}
 }
 
 @keyframes scale-up-center {

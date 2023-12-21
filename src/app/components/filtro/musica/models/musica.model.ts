@@ -1,5 +1,5 @@
-import { Album } from '../../album/album.model';
-import { Banda } from '../../banda/banda.model';
+import { Album } from '../../album/model/album.model';
+import { Banda } from '../../banda/models/banda.model';
 
 export class Musica {
 	id?: number;

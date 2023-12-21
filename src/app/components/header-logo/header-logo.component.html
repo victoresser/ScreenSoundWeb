@@ -13,17 +13,19 @@
   <div class="container__opcoes__desktop">
 		<span class="opcoes__button" ><a routerLink="/home" class="button">Home</a></span>
 		<hr>
-		<span class="opcoes__button" ><a routerLink="/musicas" class="button">Músicas</a></span>
+		<span class="opcoes__button" ><a routerLink="/filtro/musicas" class="button">Músicas</a></span>
 		<hr>
-		<span class="opcoes__button" ><a routerLink="/albuns" class="button">Álbuns</a></span>
+		<span class="opcoes__button" ><a routerLink="/filtro/albuns" class="button">Álbuns</a></span>
 		<hr>
-		<span class="opcoes__button" ><a routerLink="/bandas" class="button">Bandas</a></span>
+		<span class="opcoes__button" ><a routerLink="/filtro/bandas" class="button">Bandas</a></span>
 		<hr>
-		<span class="opcoes__button" ><a routerLink="/novidades" class="button">Novidades</a></span>
+		<span class="opcoes__button" ><a routerLink="/home" class="button">Novidades</a></span>
   </div>
 
-  <div class="container__meuPerfil">
-		<span class="perfil__imagem" routerLink="/home"></span>
-    <a routerLink="#" class="perfil__button">Perfil</a>
-  </div>
+
+	<a routerLink="/home" class="container__meuPerfil">
+		<span class="perfil__imagem"></span>
+		<span class="perfil__button">Perfil</span>
+	</a>
+
 </div>

@@ -1,36 +1,46 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
+import { FiltroComponent } from './components/filtro/filtro.component';
 import { AlbumComponent } from './components/filtro/album/album.component';
 import { BandaComponent } from './components/filtro/banda/banda.component';
 import { MusicaComponent } from './components/filtro/musica/musica.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full',
-  },
-  {
-    path: 'home',
-    component: HomeComponent,
-  },
 	{
-		path: 'musicas',
+		path: '',
+		redirectTo: 'home',
+		pathMatch: 'full',
+	},
+	{
+		path: 'home',
+		component: HomeComponent,
+	},
+	{
+		path: 'filtro',
+		component: FiltroComponent,
+		children: [
+			{ path: 'musicas', component: MusicaComponent },
+			{ path: 'albuns', component: AlbumComponent },
+			{ path: 'bandas', component: BandaComponent },
+		],
+	},
+	{
+		path: 'filtro/musica',
 		component: MusicaComponent
 	},
 	{
-		path: 'albuns',
+		path: 'filtro/albuns',
 		component: AlbumComponent
 	},
 	{
-		path: 'bandas',
+		path: 'filtro/bandas',
 		component: BandaComponent
 	}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+	imports: [RouterModule.forRoot(routes)],
+	exports: [RouterModule],
 })
 export class AppRoutingModule {}

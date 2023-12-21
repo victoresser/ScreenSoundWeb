@@ -94,6 +94,10 @@ img {
 	display: none;
 }
 
+.perfil__button {
+	display: none;
+}
+
 @media screen and (min-width: 1220px) {
 	.container {
 		padding: 0;
@@ -109,6 +113,7 @@ img {
 		position: center;
 		align-items: center;
 		height: 100%;
+		margin-right: 5.5em;
 	}
 
 	.container__meuPerfil {

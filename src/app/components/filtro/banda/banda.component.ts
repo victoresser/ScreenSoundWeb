@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { fadeIn, hoverAnimation } from 'src/app/animations';
 import { DataService } from 'src/app/services/data/data.service';
-import { Banda } from './banda.model';
+import { Banda } from './models/banda.model';
 
 @Component({
 	selector: 'app-banda',
@@ -18,6 +18,7 @@ export class BandaComponent implements OnInit {
 	hasMoreData = true;
 	scrollDistance = 2;
 	scrollUpDistance = 1.5;
+	imagemNaoEncontrada = '../../../../assets/Icons/nao-encontrado.png';
 	read = true;
 	addBanda = false;
 

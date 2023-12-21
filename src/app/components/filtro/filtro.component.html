@@ -1,37 +1,52 @@
 <div class="filtro__container">
 
-  <div class="menu__container">
+	<div class="menu__container">
 
-    <span class="menu__button adicionar" (click)="adicionar()" [routerLink]="rotaAtual + '/adicionar'"></span>
+		<span class="menu__button adicionar" (click)="log()"></span>
 
-    <hr class="separador__menu" />
+		<hr class="separador__menu" />
 
-    <span class="menu__button editar" (click)="editar()" [routerLink]="rotaAtual + '/editar'"></span>
+		<span class="menu__button editar"></span>
 
-    <hr class="separador__menu" />
+		<hr class="separador__menu" />
 
-    <span class="menu__button excluir" (click)="excluir()" [routerLink]="rotaAtual + '/excluir'"></span>
+		<span class="menu__button excluir"></span>
 
-    <hr class="separador__menu" />
+		<hr class="separador__menu" />
 
-    <span class="menu__button pesquisar" (click)="pesquisar()" [routerLink]="rotaAtual + '/pesquisar'"></span>
+		<span class="menu__button pesquisar" (click)="search = !search"></span>
 
-  </div>
-	<div class="pesquisar" *ngIf="search">
-		<span (click)="search = false" class="fechar__pesquisa"></span>
-		<label for="search">Pesquisar</label>
-		<input type="search" id="search" placeholder="Pesquise pelo nome" (keyup)="pesquisar()">
 	</div>
 
-	<div class="adicionar__musica" *ngIf="rotaAtual == 'musica' && add" class="add__musica__container">
-		<div class="add__musica">
-			<p>Nome da música</p>
-			<label for="nome">Nome da Música</label>
-			<input type="text" id="nome" placeholder="Insira o nome da música" formControlName="nome">
+	<div class="pesquisador" *ngIf="search">
+
+		<div class="pesquisador__header">
+
+			<span (click)="search = false" class="fechar__pesquisa"></span>
+			<h3 class="tituloPesquisar">Pesquisar</h3>
+
 		</div>
+
+		<div class="pesquisador__body">
+
+			<input
+				type="search"
+				id="search"
+				placeholder="Pesquise pelo nome"
+				(keyup)="pesquisar(filtro)"
+			/>
+
+		</div>
+
 	</div>
 
-  <video autoplay loop muted>
-    <source src="../../../assets/Videos/screensound_video1.mp4" type="video/mp4">
-  </video>
+	<router-outlet [musicas]="musicas" [bandas]="bandas" [albuns]="albuns"></router-outlet>
+
+	<video autoplay loop muted>
+		<source
+		src="../../../assets/Videos/screensound_video1.mp4"
+		type="video/mp4"
+		/>
+	</video>
+	<app-footer *ngIf="musicas.length >= 20 || bandas.length >= 20 || albuns.length >= 20"></app-footer>
 </div>
