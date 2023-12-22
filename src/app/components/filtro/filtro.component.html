@@ -29,17 +29,16 @@
 
 		<div class="pesquisador__body">
 
-			<input
-				type="search"
-				id="search"
-				placeholder="Pesquise pelo nome"
-			/>
+			<input type="search" id="search" placeholder="Pesquise pelo nome"/>
 
 		</div>
 
 	</div>
 
-	<router-outlet></router-outlet>
+	<app-add-musica *ngIf="rotaAtual === '/filtro/musicas' && add"></app-add-musica>
+	<router-outlet *ngIf="listar && !add"></router-outlet>
+
+	<app-footer *ngIf="musicas.length >= 20 && listar"></app-footer>
 
 	<video autoplay loop muted>
 

@@ -24,23 +24,11 @@ const routes: Routes = [
 			{ path: 'albuns', component: AlbumComponent },
 			{ path: 'bandas', component: BandaComponent },
 		],
-	},
-	{
-		path: 'filtro/musica',
-		component: MusicaComponent
-	},
-	{
-		path: 'filtro/albuns',
-		component: AlbumComponent
-	},
-	{
-		path: 'filtro/bandas',
-		component: BandaComponent
 	}
 ];
 
 @NgModule({
-	imports: [RouterModule.forRoot(routes)],
+	imports: [RouterModule.forRoot(routes), RouterModule.forChild(routes)],
 	exports: [RouterModule],
 })
 export class AppRoutingModule {}

@@ -1,9 +1,16 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+	Component,
+	OnChanges,
+	OnDestroy,
+	OnInit,
+	SimpleChanges,
+} from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { Musica } from './musica/models/musica.model';
 import { Album } from './album/model/album.model';
 import { Banda } from './banda/models/banda.model';
+import { RouteChangeService } from 'src/app/services/routes/route-change.service';
 
 @Component({
 	selector: 'app-filtro',
@@ -25,30 +32,31 @@ export class FiltroComponent implements OnInit, OnDestroy {
 	albuns: Album[] = [];
 	bandas: Banda[] = [];
 
-	constructor(private router: Router, private route: ActivatedRoute) {
-		this.rotaAtual = this.route.snapshot.url.join('');
+	constructor(
+		private router: Router,
+		private routeChangeService: RouteChangeService
+	) {
+		this.routerSubscription = this.routeChangeService
+			.getRouteChangeObservable()
+			.subscribe((route: string) => {
+				this.rotaAtual = route;
+			});
 
-		this.router.events.subscribe((event) => {
-			if (event instanceof NavigationEnd) {
-				this.rotaAtual = event.urlAfterRedirects;
-			}
-		});
+		this.add = false;
+		this.edit = false;
+		this.listar = true;
+		this.delete = false;
+		this.hasMoreData = true;
 	}
 
-	ngOnInit(): void {
-		this.rotaAtual = this.route.snapshot.url.join('');
-
-		this.router.events.subscribe((event) => {
-			if (event instanceof NavigationEnd) {
-				this.rotaAtual = event.urlAfterRedirects;
-			}
-		});
-	}
+	ngOnInit(): void {}
 
 	log() {
-		this.add = !this.add;
 		this.listar = !this.listar;
-		console.log(`Rota atual: ${this.rotaAtual} | Status: ${this.add}`);
+		this.add = !this.add;
+		console.log(
+			`Rota atual: ${this.rotaAtual} | Status Add: ${this.add} | Status Listar: ${this.listar}`
+		);
 	}
 
 	ngOnDestroy() {
