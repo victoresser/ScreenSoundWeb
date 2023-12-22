@@ -1,4 +1,4 @@
-<div class="container" *ngIf="read">
+<div class="container" *ngIf="listar" (listar)="filtroComp.listar">
 	<div class="lista__container" *ngIf="musicas.length > 0; else semMusicas">
 
 		<div class="musica" *ngFor="let musica of musicas; let i = index" [style.animation-delay]="i * 100 + 'ms'">
@@ -45,6 +45,12 @@
 
 	</div>
 
+	<div class="adicionar__musica" *ngIf="!listar && add">
+		<label for="nome">Nome Música</label>
+	</div>
+
+	<app-footer *ngIf="musicas.length >= 20 && listar"></app-footer>
+
 	<ng-template #semMusicas class="semMusicas">
 		<img
 			src="../../../../assets/Icons/papagaio.svg"
@@ -58,5 +64,3 @@
 	</ng-template>
 
 </div>
-
-<div class="adicionar__musica" *ngIf="adicionar"></div>

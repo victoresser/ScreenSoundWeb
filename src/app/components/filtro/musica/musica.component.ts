@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { DataService } from 'src/app/services/data/data.service';
 import { Musica } from './models/musica.model';
+import { FiltroComponent } from '../filtro.component';
 
 @Component({
 	selector: 'app-musica',
@@ -8,8 +9,14 @@ import { Musica } from './models/musica.model';
 	styleUrls: ['./musica.component.css'],
 })
 export class MusicaComponent {
-	@Input() musicas: Musica[] = [];
-	filtro: string = '';
+	musicas: Musica[] = [];
+	@Input() filtro: string = '';
+	@Input() listar: boolean = true;
+	@Input() add = false;
+	@Input() edit = false;
+	@Input() delete = false;
+	@Input() search = false;
+	filtroComp = this.filtroComponent;
 	isHovered: number | null = null;
 	page = 1;
 	pageSize = 20;
@@ -17,21 +24,12 @@ export class MusicaComponent {
 	scrollDistance = 2;
 	scrollUpDistance = 1.5;
 	imagemNaoEncontrada = '../../../../assets/Icons/nao-encontrado.png';
-	read: boolean;
-	adicionar: boolean;
-	editar: boolean;
 
-	constructor(private service: DataService) {
-		this.read = true;
-		this.adicionar = false;
-		this.editar = false;
+	constructor(private service: DataService, private filtroComponent: FiltroComponent) {
 	}
 
 	ngOnInit(): void {
 		this.carregarMusica();
-		this.read = true;
-		this.adicionar = false;
-		this.editar = false;
 	}
 
 	carregarMusica() {

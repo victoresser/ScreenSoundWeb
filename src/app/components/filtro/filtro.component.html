@@ -33,20 +33,18 @@
 				type="search"
 				id="search"
 				placeholder="Pesquise pelo nome"
-				(keyup)="pesquisar(filtro)"
 			/>
 
 		</div>
 
 	</div>
 
-	<router-outlet [musicas]="musicas" [bandas]="bandas" [albuns]="albuns"></router-outlet>
+	<router-outlet></router-outlet>
 
 	<video autoplay loop muted>
-		<source
-		src="../../../assets/Videos/screensound_video1.mp4"
-		type="video/mp4"
-		/>
+
+		<source src="../../../assets/Videos/screensound_video1.mp4" type="video/mp4"/>
+
 	</video>
-	<app-footer *ngIf="musicas.length >= 20 || bandas.length >= 20 || albuns.length >= 20"></app-footer>
+
 </div>

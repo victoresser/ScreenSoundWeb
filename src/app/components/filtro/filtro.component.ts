@@ -1,47 +1,39 @@
-import { Component, Input, OnChanges, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Musica } from './musica/models/musica.model';
 import { Album } from './album/model/album.model';
 import { Banda } from './banda/models/banda.model';
-import { CreateMusicaDto } from './musica/interfaces/musica.interface';
 
 @Component({
 	selector: 'app-filtro',
 	templateUrl: './filtro.component.html',
 	styleUrls: ['./filtro.component.css'],
 })
-export class FiltroComponent implements OnInit, OnChanges, OnDestroy {
-	rotaAtual: string = '';
+export class FiltroComponent implements OnInit, OnDestroy {
 	private routerSubscription: Subscription = new Subscription();
-	listar = true;
-	add = false;
-	edit = false;
-	delete = false;
+
+	rotaAtual: string = '';
+	hasMoreData = true;
 	search = false;
-	filtro = '';
+	delete = false;
+	listar = true;
+	edit = false;
+	add = false;
 
-	@Input() objects = [
-		{ titulo: 'Músicas', dados: [] as Array<Musica> },
-		{ titulo: 'Albuns', dados: [] as Array<Album> },
-		{ titulo: 'Bandas', dados: [] as Array<Banda> },
-	]
+	musicas: Musica[] = [];
+	albuns: Album[] = [];
+	bandas: Banda[] = [];
 
-	@Input() musicas: Musica[] = [];
-	@Input() albuns: Album[] = [];
-	@Input() bandas: Banda[] = [];
+	constructor(private router: Router, private route: ActivatedRoute) {
+		this.rotaAtual = this.route.snapshot.url.join('');
 
-	addMusica: CreateMusicaDto = {
-		nome: '',
-		duracao: 1,
-		disponivel: true,
-		album: new Album(),
-		banda: new Banda(),
-		imagem: '',
+		this.router.events.subscribe((event) => {
+			if (event instanceof NavigationEnd) {
+				this.rotaAtual = event.urlAfterRedirects;
+			}
+		});
 	}
-
-
-	constructor(private router: Router, private route: ActivatedRoute) {}
 
 	ngOnInit(): void {
 		this.rotaAtual = this.route.snapshot.url.join('');
@@ -54,43 +46,12 @@ export class FiltroComponent implements OnInit, OnChanges, OnDestroy {
 	}
 
 	log() {
-		this.add = !this.add
+		this.add = !this.add;
+		this.listar = !this.listar;
 		console.log(`Rota atual: ${this.rotaAtual} | Status: ${this.add}`);
 	}
 
-	ngOnChanges(): void {}
-
 	ngOnDestroy() {
 		this.routerSubscription.unsubscribe();
-	 }
-
-	performMusicAction() {
-		if (this.add) {
-			console.log('Ação de adição música executada.');
-		}
-
-		if (this.edit) {
-			console.log('Ação de edição música executada.');
-		}
-
-		if (this.delete) {
-			console.log('Ação de exclusão música executada.');
-		}
-	}
-
-	performAlbumAction(): void {}
-
-	performArtistAction(): void {}
-
-	pesquisar(filtro: string): void {}
-
-	openForm(url: string) {
-		if (url.startsWith('/musicas')) {
-			this.performMusicAction();
-		} else if (url.startsWith('/albuns')) {
-			this.performAlbumAction();
-		} else if (url.startsWith('/bandas')) {
-			this.performArtistAction();
-		}
 	}
 }
