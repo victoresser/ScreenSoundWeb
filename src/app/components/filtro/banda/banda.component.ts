@@ -10,8 +10,15 @@ import { Banda } from './models/banda.model';
 	animations: [fadeIn, hoverAnimation],
 })
 export class BandaComponent implements OnInit {
-	@Input() bandas: Banda[] = [];
-	filtro: string = '';
+	bandas: Banda[] = [];
+
+	@Input() filtro: string = '';
+	@Input() listar = true;
+	@Input() add = false;
+	@Input() edit = false;
+	@Input() delete = false;
+	@Input() search = false;
+
 	isHovered: number | null = null;
 	page = 1;
 	pageSize = 20;
@@ -19,8 +26,6 @@ export class BandaComponent implements OnInit {
 	scrollDistance = 2;
 	scrollUpDistance = 1.5;
 	imagemNaoEncontrada = '../../../../assets/Icons/nao-encontrado.png';
-	read = true;
-	addBanda = false;
 
 	constructor(private service: DataService) {}
 	ngOnInit(): void {

@@ -2,7 +2,7 @@
 
 	<div class="menu__container">
 
-		<span class="menu__button adicionar" (click)="log()"></span>
+		<span class="menu__button adicionar" (click)="adicionar()"></span>
 
 		<hr class="separador__menu" />
 
@@ -14,29 +14,15 @@
 
 		<hr class="separador__menu" />
 
-		<span class="menu__button pesquisar" (click)="search = !search"></span>
+		<span class="menu__button pesquisar" (click)="openSearch()"></span>
 
 	</div>
 
-	<div class="pesquisador" *ngIf="search">
+	<app-search [(search)]="search" (searchChange)="onSearchChange($event)" [rotaAtual]="rotaAtual" *ngIf="search"></app-search>
+	<app-add [(add)]="add" (addChange)="onAddChange($event)" [rotaAtual]="rotaAtual" *ngIf="add"></app-add>
 
-		<div class="pesquisador__header">
-
-			<span (click)="search = false" class="fechar__pesquisa"></span>
-			<h3 class="tituloPesquisar">Pesquisar</h3>
-
-		</div>
-
-		<div class="pesquisador__body">
-
-			<input type="search" id="search" placeholder="Pesquise pelo nome"/>
-
-		</div>
-
-	</div>
-
-	<app-add-musica *ngIf="rotaAtual === '/filtro/musicas' && add"></app-add-musica>
-	<router-outlet *ngIf="listar && !add"></router-outlet>
+	<app-add-musica *ngIf="rotaAtual === '/filtro/musicas' && add" [listar]="listar" [add]="add"></app-add-musica>
+	<router-outlet *ngIf="listar && (!add && !edit)" [musicas]="musicas" [albuns]="albuns" [bandas]="bandas"></router-outlet>
 
 	<app-footer *ngIf="musicas.length >= 20 && listar"></app-footer>
 

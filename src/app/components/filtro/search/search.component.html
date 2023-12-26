@@ -1,0 +1,30 @@
+<form class="pesquisador" *ngIf="rotaAtual == '/filtro/musicas'">
+
+	<span (click)="onSearchChange()" class="fechar__janela"></span>
+	<h3 class="tituloPesquisar">Pesquisar</h3>
+
+	<div class="pesquisador__body">
+
+		<div class="search__linput">
+			<label for="search" class="search__label">Pesquisar uma música</label>
+			<input type="search" id="search" placeholder="Pesquise pelo nome" autocapitalize="search" class="search__input"/>
+		</div>
+
+		<div class="artista__linput">
+			<div class="artista">
+
+				<label for="artista">Filtrar por banda</label>
+
+				<select name="banda" id="artista" *ngFor="let banda of bandas">
+
+					<option value="artista"> {{ banda.nome }} </option>
+
+				</select>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</form>

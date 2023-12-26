@@ -10,8 +10,15 @@ import { fadeIn } from 'src/app/animations';
 	animations: [fadeIn],
 })
 export class AlbumComponent implements OnInit {
-	@Input() albuns: Album[] = [];
+	albuns: Album[] = [];
+
 	@Input() filtro: string = '';
+	@Input() listar = true;
+	@Input() add = false;
+	@Input() edit = false;
+	@Input() delete = false;
+	@Input() search = false;
+
 	isHovered: number | null = null;
 	imagemNaoEncontrada = '../../../../assets/Icons/nao-encontrado.png';
 

@@ -19,7 +19,9 @@ import { NovidadesComponent } from './components/home/novidades/novidades.compon
 import { MusicaComponent } from './components/filtro/musica/musica.component';
 import { AlbumComponent } from './components/filtro/album/album.component';
 import { BandaComponent } from './components/filtro/banda/banda.component';
-import { AddMusicaComponent } from './components/filtro/musica/template/add-musica/add-musica.component';
+import { AddComponent } from './components/filtro/add/add.component';
+import { SearchComponent } from './components/filtro/search/search.component';
+import { EditComponent } from './components/filtro/edit/edit.component';
 
 @NgModule({
 	declarations: [
@@ -34,14 +36,16 @@ import { AddMusicaComponent } from './components/filtro/musica/template/add-musi
 		FiltroComponent,
 		MusicaComponent,
 		AlbumComponent,
-		BandaComponent
+		BandaComponent,
+		AddComponent,
+		SearchComponent,
+		EditComponent,
 	],
 	imports: [
 		BrowserModule,
 		HttpClientModule,
 		AppRoutingModule,
 		BrowserAnimationsModule,
-		AddMusicaComponent,
 		FormsModule,
 		IgxCarouselModule,
 		IgxSliderModule,
