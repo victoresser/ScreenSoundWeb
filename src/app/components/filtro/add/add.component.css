@@ -1,0 +1,6 @@
+@import url(../../../../styles.css);
+
+.adicionador {
+	position: relative;
+	font-family: var(--ff-quicksand);
+}

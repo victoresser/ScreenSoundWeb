@@ -1,51 +1,18 @@
-<div class="add__musicas__container" *ngIf="add && rotaAtual == '/filtro/musicas'">
+<div class="adicionador container__painel">
 
-	<form class="add__musicas add" action="submit">
-		<span class="fechar__janela" (click)="onAddChange()"></span>
+	<span class="fechar__janela" (click)="onAddChange()" (keydown)="handler.handleKeyDownPress($event, onAddChange)" tabindex="0"></span>
+	<h2 class="titulo">Adicionar Música</h2>
+	<p class="descricao">Adicione novas músicas à nossa listagem de músicas</p>
 
-		<h1>Adicionar Música</h1>
 
-		<label for="nome_da_musica">Nome da música: </label><br/>
-		<input type="text" id="nome_da_musica" name="nome_da_musica"><br/>
-		<span class="erro nome_da_musica"></span><br/>
+	<form class="form">
 
-		<label for="banda">Autor(a): </label><br/>
-		<input type="text" id="banda" name="banda" autocomplete="banda"/><br/>
-		<span class="erro banda"></span><br/>
-
-		<label for="descricao"></label>
-		<textarea id="descricao" name="descricao" rows="4" cols="50"></textarea><br>
-		<span class="erro descricao"></span><br/>
-		<!-- Aqui vai o upload de imagem -->
-
-		<span class="erro img"></span><br/>
-		<input type="file" accept=".jpg,.png,image/*" id="uploadFile"/><br/>
-		<img src="" alt="Imagem da música" id="preview"/><br/>
-		<progress max="100" value="0" id="progLoad"></progress><br/>
-		<button type="button" id="btnUpload" class="imagem">Enviar Imagem</button><br>
-
-		<button type="reset" class="limpar">Limpar Campos</button>
-
-		<button type="submit" class="submit__button"> Adicionar </button>
+		<div class="nome div__input">
+			<input type="text" id="nome" class="nome__input" required>
+			<label for="nome" class="nome__label">Nome</label>
+			<span class="bar"></span>
+		</div>
 
 	</form>
-</div>
 
-<div class="add__albuns__container" *ngIf="add && rotaAtual == '/filtro/albuns'">
-	<div class="add__albuns add" action="submit">
-		<label for="album">Album: </label>
-
-		<button type="submit" class="submit__button">
-			Adicionar
-		</button>
-	</div>
-</div>
-
-<div class="add__bandas__container" *ngIf="add && rotaAtual == '/filtro/bandas'">
-	<div class="add__bandas add" action="submit">
-
-		<button type="submit" class="submit__button">
-			Adicionar
-		</button>
-	</div>
 </div>

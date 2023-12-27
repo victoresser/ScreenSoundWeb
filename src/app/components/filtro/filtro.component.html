@@ -2,11 +2,11 @@
 
 	<div class="menu__container">
 
-		<span class="menu__button adicionar" (click)="adicionar()"></span>
+		<span class="menu__button adicionar" (click)="openAdd()" tabindex="0" (keydown)="handler.handleKeyDownPress($event, openAdd)"></span>
 
 		<hr class="separador__menu" />
 
-		<span class="menu__button editar"></span>
+		<span class="menu__button editar" (click)="openEdit()" tabindex="1" (keydown)="handler.handleKeyDownPress($event, openEdit)"></span>
 
 		<hr class="separador__menu" />
 
@@ -14,19 +14,19 @@
 
 		<hr class="separador__menu" />
 
-		<span class="menu__button pesquisar" (click)="openSearch()"></span>
+		<span class="menu__button pesquisar" (click)="openSearch()" tabindex="3" (keydown)="handler.handleKeyDownPress($event, openSearch)"></span>
 
 	</div>
 
 	<app-search [(search)]="search" (searchChange)="onSearchChange($event)" [rotaAtual]="rotaAtual" *ngIf="search"></app-search>
+	<app-edit [(edit)]="edit" (editChange)="onEditChange($event)" [rotaAtual]="rotaAtual" *ngIf="edit"></app-edit>
 	<app-add [(add)]="add" (addChange)="onAddChange($event)" [rotaAtual]="rotaAtual" *ngIf="add"></app-add>
 
-	<app-add-musica *ngIf="rotaAtual === '/filtro/musicas' && add" [listar]="listar" [add]="add"></app-add-musica>
 	<router-outlet *ngIf="listar && (!add && !edit)" [musicas]="musicas" [albuns]="albuns" [bandas]="bandas"></router-outlet>
 
 	<app-footer *ngIf="musicas.length >= 20 && listar"></app-footer>
 
-	<video autoplay loop muted>
+	<video autoplay loop muted playsinline>
 
 		<source src="../../../assets/Videos/screensound_video1.mp4" type="video/mp4"/>
 

@@ -1,30 +1,76 @@
-<form class="pesquisador" *ngIf="rotaAtual == '/filtro/musicas'">
+<div class="pesquisador container__painel" *ngIf="rotaAtual === '/filtro/musicas'">
+	<span class="fechar__janela" (click)="onSearchChange()" (keydown)="handler.handleKeyDownPress($event, onSearchChange)" tabindex="0"></span>
+	<h2 class="titulo">Pesquisar</h2>
+	<p class="descricao">Pesquise músicas por nome, banda ou álbum</p><br>
 
-	<span (click)="onSearchChange()" class="fechar__janela"></span>
-	<h3 class="tituloPesquisar">Pesquisar</h3>
+	<form class="form">
+		<div class="search div__input">
 
-	<div class="pesquisador__body">
+			<input type="text" class="search__input" name="search" required tabindex="1" [(ngModel)]="filtro">
+			<label for="form" class="search__label">Música</label>
 
-		<div class="search__linput">
-			<label for="search" class="search__label">Pesquisar uma música</label>
-			<input type="search" id="search" placeholder="Pesquise pelo nome" autocapitalize="search" class="search__input"/>
+			<span class="pesquisar__button" (click)="pesquisar(filtro)" tabindex="2" (keydown)="handler.handleKeyDownPress($event, onSearchChange)"></span>
+
 		</div>
 
-		<div class="artista__linput">
-			<div class="artista">
+		<section class="artist__album">
 
-				<label for="artista">Filtrar por banda</label>
-
-				<select name="banda" id="artista" *ngFor="let banda of bandas">
-
-					<option value="artista"> {{ banda.nome }} </option>
-
-				</select>
-
+			<div class="artist div__input">
+				<input type="text" class="artist__input" required tabindex="3">
+				<label for="form">Artista</label>
 			</div>
 
+			<div class="album div__input">
+				<input type="text" class="album__input" required tabindex="4">
+				<label for="form">Album</label>
+			</div>
+
+		</section>
+
+	</form>
+</div>
+
+<div class="pesquisador container__painel" *ngIf="rotaAtual === '/filtro/albuns'">
+	<span class="fechar__janela" (click)="onSearchChange()" (keydown)="handler.handleKeyDownPress($event, onSearchChange)" tabindex="0"></span>
+	<h2 class="titulo__pesquisador">Pesquisar</h2>
+	<p class="descricao__pesquisador">Pesquise álbuns pelo nome ou pela banda</p><br>
+
+	<form class="form">
+
+		<div class="search div__input">
+
+			<input type="text" class="search__input" name="search" required>
+			<label for="form" class="search__label">Álbum</label>
+
+			<span class="pesquisar__button" (click)="pesquisar(filtro)" tabindex="2" (keydown)="handler.handleKeyDownPress($event, onSearchChange)"></span>
+
 		</div>
 
-	</div>
+		<div class="artist div__input">
 
-</form>
+			<input type="text" class="artist__input" required>
+			<label for="form">Artista</label>
+
+		</div>
+
+	</form>
+</div>
+
+<div class="pesquisador container__painel" *ngIf="rotaAtual === '/filtro/bandas'">
+	<span class="fechar__janela" (click)="onSearchChange()" (keydown)="handler.handleKeyDownPress($event, onSearchChange)" tabindex="0"></span>
+	<h2 class="titulo__pesquisador">Pesquisar</h2>
+	<p class="descricao__pesquisador">Pesquise bandas pelo nome</p><br>
+
+	<form action="" class="form">
+
+		<div class="search div__input">
+
+			<input type="text" class="search__input" name="search" required tabindex="1">
+			<label for="form" class="search__label">Artista / Banda</label>
+
+			<span class="pesquisar__button" (click)="pesquisar(filtro)" tabindex="2" (keydown)="handler.handleKeyDownPress($event, onSearchChange)"></span>
+
+		</div>
+
+	</form>
+</div>

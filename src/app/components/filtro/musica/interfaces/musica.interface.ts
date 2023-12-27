@@ -11,6 +11,11 @@ export interface CreateMusicaDto {
 }
 
 export interface EditMusicaDto {
-	nome: string;
-	descricao: string;
+	nome?: string;
+	duracao?: number;
+	descricao?: string;
+	disponivel?: boolean;
+	banda?: Banda;
+	album?: Album;
+	imagem?: string;
 }

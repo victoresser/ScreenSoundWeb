@@ -1,22 +1,17 @@
-import {
-	Component,
-	EventEmitter,
-	OnDestroy,
-	OnInit,
-	Output,
-} from '@angular/core';
+import { Component, EventEmitter, OnDestroy, Output } from '@angular/core';
 import { Subscription, filter } from 'rxjs';
 import { Musica } from './musica/models/musica.model';
 import { Album } from './album/model/album.model';
 import { Banda } from './banda/models/banda.model';
 import { RouteChangeService } from 'src/app/services/routes/route-change.service';
+import { HandleService } from 'src/app/services/common/handle.service';
 
 @Component({
 	selector: 'app-filtro',
 	templateUrl: './filtro.component.html',
 	styleUrls: ['./filtro.component.css'],
 })
-export class FiltroComponent implements OnInit, OnDestroy {
+export class FiltroComponent implements OnDestroy {
 	private routerSubscription: Subscription = new Subscription();
 
 	rotaAtual = '';
@@ -26,12 +21,16 @@ export class FiltroComponent implements OnInit, OnDestroy {
 	listar = true;
 	edit = false;
 	add = false;
+	handler = this.handle;
 
 	musicas: Musica[] = [];
 	albuns: Album[] = [];
 	bandas: Banda[] = [];
 
-	constructor(private routeChangeService: RouteChangeService) {
+	constructor(
+		private routeChangeService: RouteChangeService,
+		private handle: HandleService
+	) {
 		this.routerSubscription = this.routeChangeService
 			.getRouteChangeObservable()
 			.pipe(filter((route: string) => route !== null))
@@ -42,16 +41,9 @@ export class FiltroComponent implements OnInit, OnDestroy {
 				this.listar = true;
 				this.delete = false;
 			});
-
-		this.add = false;
-		this.edit = false;
-		this.listar = true;
-		this.delete = false;
 	}
 
-	ngOnInit(): void {}
-
-	adicionar() {
+	openAdd() {
 		if (this.listar) this.listar = !this.listar;
 
 		if (!this.listar) this.listar = !this.listar;
@@ -68,11 +60,9 @@ export class FiltroComponent implements OnInit, OnDestroy {
 	}
 
 	openSearch() {
-		this.search = !this.search;
+		if (this.add) this.add = false;
 
-		if (this.add) {
-			this.add = false;
-		}
+		this.search = !this.search;
 	}
 
 	onSearchChange(search: boolean): void {
