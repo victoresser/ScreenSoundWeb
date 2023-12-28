@@ -62,6 +62,8 @@ export class FiltroComponent implements OnDestroy {
 	openSearch() {
 		if (this.add) this.add = false;
 
+		if (this.edit) this.edit = false;
+
 		this.search = !this.search;
 	}
 
@@ -70,6 +72,10 @@ export class FiltroComponent implements OnDestroy {
 	}
 
 	openEdit() {
+		if (this.search) this.search = false;
+
+		if (this.add) this.add = false;
+
 		this.edit = !this.edit;
 	}
 
