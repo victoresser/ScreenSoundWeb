@@ -1,4 +1,4 @@
-<div class="adicionador container__painel">
+<div class="adicionador container__painel" *ngIf="rotaAtual === '/filtro/musicas'">
 
 	<span class="fechar__janela" (click)="onAddChange()" (keydown)="handler.handleKeyDownPress($event, onAddChange)" tabindex="0"></span>
 	<h2 class="titulo">Adicionar Música</h2>
@@ -10,9 +10,52 @@
 		<div class="nome div__input">
 			<input type="text" id="nome" class="nome__input" required>
 			<label for="nome" class="nome__label">Nome</label>
-			<span class="bar"></span>
+		</div>
+
+		<div class="duracao div__input">
+			<input type="number" id="duracao" class="duracao__input" required>
+			<label for="duracao" class="duracao__label">Duração</label>
+		</div>
+
+		<div class="disponivel div__input">
+			<input type="checkbox" id="disponibilidade" class="disponibilidade__input">
+			<label for="disponibilidade" class="disponibilidade__label">Disponível no plano basic?</label>
 		</div>
 
 	</form>
 
+</div>
+
+<div class="adicionador container__painel" *ngIf="rotaAtual === '/filtro/albuns'">
+
+	<span class="fechar__janela" (click)="onAddChange()" (keydown)="handler.handleKeyDownPress($event, onAddChange)" tabindex="0"></span>
+	<h2 class="titulo">Adicionar Álbum</h2>
+	<p class="descricao">Adicione novos Álbuns à nossa listagem de álbuns</p>
+
+	<form class="form">
+
+		<div class="nome div__input">
+			<input type="text" id="nome" class="nome__input" required>
+			<label for="nome" class="nome__label">Nome</label>
+			<span class="bar"></span>
+		</div>
+
+	</form>
+</div>
+
+<div class="adicionador container__painel" *ngIf="rotaAtual === '/filtro/bandas'">
+
+	<span class="fechar__janela" (click)="onAddChange()" (keydown)="handler.handleKeyDownPress($event, onAddChange)" tabindex="0"></span>
+	<h2 class="titulo">Adicionar Banda</h2>
+	<p class="descricao">Adicione novas Bandas à nossa listagem de bandas</p>
+
+	<form action="submit" class="form">
+
+		<div class="nome div__input">
+			<input type="text" id="nome" class="nome__input" required>
+			<label for="nome" class="nome__label">Nome</label>
+			<span class="bar"></span>
+		</div>
+
+	</form>
 </div>
