@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Musica } from 'src/app/components/filtro/musica/models/musica.model';
@@ -26,7 +26,11 @@ export class MusicaService {
   }
 
 	addMusic(musica: Musica): Observable<Musica> {
-		return this.http.post<Musica>(this.API, Musica);
+		const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+
+		return this.http.post<Musica>(this.API + `adicionarMusica`, musica, { headers: headers } );
 	}
 
 	editMusic() {}

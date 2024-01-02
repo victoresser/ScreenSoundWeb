@@ -5,13 +5,32 @@
 	font-family: var(--ff-quicksand);
 	width: 750px;
 
-	.duracao {
-		width: 150px;
+	.segunda__linha {
+		display: flex;
+		gap: 0.5em;
+		margin-bottom: 0.5em;
+
+		.duracao {
+			width: 100%;
+		}
+
+		.banda {
+			width: 100%;
+		}
+
+		.album {
+			width: 100%;
+		}
 	}
 }
 
 .disponibilidade {
 	display: flex;
-	gap: .5em;
+	gap: 0.5em;
 	align-items: center;
+}
+
+.nomeAlbum__banda {
+	display: flex;
+	gap: 0.5em;
 }

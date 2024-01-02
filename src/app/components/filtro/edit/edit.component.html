@@ -3,7 +3,7 @@
 	<h2 class="titulo">Editar Música</h2>
 	<p class="descricao">Edite suas músicas, lembre-se de preencher corretamente às informações</p>
 
-	<form (submit)="onEditMusic()" #formulario="ngForm" class="form">
+	<form (submit)="onEditMusic(musica)" #formulario="ngForm" class="form">
 
 		<div class="nome div__input">
 			<input type="text" id="nome" name="nome" required [(ngModel)]="musica.nome"/>
@@ -16,7 +16,7 @@
 		</div>
 
 		<div class="button">
-			<button class="button__submit">Editar</button>
+			<button (click)="onEditMusic(musica)" class="button__submit">Editar</button>
 		</div>
 
 

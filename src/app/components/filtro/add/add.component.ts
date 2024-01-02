@@ -1,5 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { HandleService } from 'src/app/services/common/handle.service';
+import { CreateMusicaDto } from '../musica/interfaces/musica.interface';
+import { Musica } from '../musica/models/musica.model';
+import { MusicaService } from 'src/app/services/musica/musica.service';
 
 @Component({
 	selector: 'app-add',
@@ -11,13 +15,29 @@ export class AddComponent {
 
 	@Input() add = false;
 	@Input() listar = true;
-	@Input() rotaAtual = '';
+	@Input() rotaAtual?: string;
+	@Input() musica!: CreateMusicaDto;
 	@Output() addChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-	constructor(private handle: HandleService) {}
+	constructor(
+		private handle: HandleService,
+		private musicaService: MusicaService
+	) {}
 
 	onAddChange() {
 		this.add = !this.add;
 		this.addChange.emit(this.add);
+	}
+
+	onAddMusica(musica: CreateMusicaDto) {
+		const newMusic: Musica = {
+			nome: musica.nome,
+			banda: musica.banda,
+			album: musica.album,
+			duracao: musica.duracao,
+			disponivel: musica.disponivel,
+		};
+
+		this.musicaService.addMusic(newMusic);
 	}
 }

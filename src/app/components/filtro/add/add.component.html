@@ -5,28 +5,40 @@
 	<p class="descricao">Adicione novas músicas à nossa listagem de músicas</p>
 
 
-	<form class="form">
+	<form class="form" (submit)="onAddMusica(musica)">
 
 		<div class="nome div__input">
-			<input type="text" id="nome" class="nome__input" required>
+			<input type="text" id="nome" class="nome__input" required [(ngModel)]="musica.nome">
 			<label for="nome" class="nome__label">Nome</label>
 		</div>
 
+		<div class="segunda__linha">
 			<div class="duracao div__input">
-				<input type="number" id="nome" class="nome__input" required>
-				<label for="nome" class="nome__label">Duração</label>
+				<input type="number" id="duracao" class="duracao__input" required [(ngModel)]="musica.duracao">
+				<label for="duracao" class="duracao__label">Duração</label>
 			</div>
+
+			<div class="banda div__input">
+				<input type="search" id="banda" class="banda__input" required [(ngModel)]="musica.banda">
+				<label for="banda" class="banda__label">Banda</label>
+			</div>
+
+			<div class="album div__input">
+				<input type="text" id="album" class="album__input" required [(ngModel)]="musica.album">
+				<label for="album" class="album__label">Álbum</label>
+			</div>
+		</div>
 
 		<div class="disponibilidade">
 			<div class="toggle">
-				<input type="checkbox" id="disponibilidade"/>
+				<input type="checkbox" id="disponibilidade" [(ngModel)]="musica.disponivel"/>
 				<label for="disponibilidade"></label>
 			</div>
 			<p>Disponível no Plano Basic?</p>
 		</div>
 
 		<div class="button">
-			<button class="button__submit">Adicionar</button>
+			<button type="submit" class="button__submit">Adicionar</button>
 		</div>
 
 	</form>
@@ -41,10 +53,21 @@
 
 	<form class="form">
 
-		<div class="nome div__input">
-			<input type="text" id="nome" class="nome__input" required>
-			<label for="nome" class="nome__label">Nome</label>
-			<span class="bar"></span>
+
+		<div class="nomeAlbum__banda">
+			<div class="nome div__input">
+				<input type="text" id="nome" class="nome__input" required>
+				<label for="nome" class="nome__label">Nome</label>
+			</div>
+
+			<div class="banda div__input">
+				<input type="search" id="banda" class="banda__input" required>
+				<label for="banda" class="banda__label">Banda</label>
+			</div>
+		</div>
+
+		<div class="button">
+			<button class="button__submit">Adicionar</button>
 		</div>
 
 	</form>
@@ -62,6 +85,10 @@
 			<input type="text" id="nome" class="nome__input" required>
 			<label for="nome" class="nome__label">Nome</label>
 			<span class="bar"></span>
+		</div>
+
+		<div class="button">
+			<button type="submit" class="button__submit">Adicionar</button>
 		</div>
 
 	</form>

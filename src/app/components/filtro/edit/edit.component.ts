@@ -35,5 +35,7 @@ export class EditComponent {
 		this.editChange.emit(this.edit);
 	}
 
-	onEditMusic() {}
+	protected onEditMusic(musica: EditMusicaDto): void {
+
+	}
 }
