@@ -10,11 +10,6 @@
 	}
 }
 
-.duracao__disponibilidade {
-	display: flex;
-	gap: 1em;
-}
-
 .disponibilidade {
 	display: flex;
 	gap: .5em;
