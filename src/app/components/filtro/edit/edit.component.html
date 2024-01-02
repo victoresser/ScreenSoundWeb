@@ -1,19 +1,24 @@
 <div class="editor container__painel" *ngIf="rotaAtual === '/filtro/musicas'">
 	<span class="fechar__janela" (click)="onEditChange()" (keydown)="handler.handleKeyDownPress($event, onEditChange)" tabindex="0"></span>
 	<h2 class="titulo">Editar Música</h2>
-	<p class="descricao">Edita suas músicas, lembre-se de preencher corretamente às informações</p>
+	<p class="descricao">Edite suas músicas, lembre-se de preencher corretamente às informações</p>
 
 	<form (submit)="onEditMusic()" #formulario="ngForm" class="form">
 
 		<div class="nome div__input">
 			<input type="text" id="nome" name="nome" required [(ngModel)]="musica.nome"/>
-			<label for="nome">Nome da música: </label>
+			<label for="nome">Nome: </label>
 		</div>
 
 		<div class="descricao div__input">
 			<input type="text" id="descricao" name="descricao" rows="5" cols="30" required [(ngModel)]="musica.descricao">
-			<label for="descricao">Descrição</label>
+			<label for="descricao">Descrição:</label>
 		</div>
+
+		<div class="button">
+			<button class="button__submit">Editar</button>
+		</div>
+
 
 	</form>
 

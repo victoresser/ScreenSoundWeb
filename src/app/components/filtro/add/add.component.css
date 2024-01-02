@@ -3,4 +3,20 @@
 .adicionador {
 	position: relative;
 	font-family: var(--ff-quicksand);
+	width: 750px;
+
+	.duracao {
+		width: 150px;
+	}
+}
+
+.duracao__disponibilidade {
+	display: flex;
+	gap: 1em;
+}
+
+.disponibilidade {
+	display: flex;
+	gap: .5em;
+	align-items: center;
 }
