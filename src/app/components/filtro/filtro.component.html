@@ -11,7 +11,7 @@
 		<hr class="separador__menu" />
 
 		<span class="menu__button excluir"></span>
-		
+
 
 		<hr class="separador__menu" />
 
@@ -24,8 +24,6 @@
 	<app-add [(add)]="add" (addChange)="onAddChange($event)" [rotaAtual]="rotaAtual" *ngIf="add"></app-add>
 
 	<router-outlet *ngIf="listar && (!add && !edit)" [musicas]="musicas" [albuns]="albuns" [bandas]="bandas"></router-outlet>
-
-	<app-footer *ngIf="musicas.length >= 20 && listar"></app-footer>
 
 	<video autoplay loop muted playsinline>
 

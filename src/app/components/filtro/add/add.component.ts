@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { HandleService } from 'src/app/services/common/handle.service';
 import { CreateMusicaDto } from '../musica/interfaces/musica.interface';
@@ -12,11 +11,11 @@ import { MusicaService } from 'src/app/services/musica/musica.service';
 })
 export class AddComponent {
 	handler = this.handle;
+	musica!: CreateMusicaDto;
 
 	@Input() add = false;
 	@Input() listar = true;
 	@Input() rotaAtual?: string;
-	@Input() musica!: CreateMusicaDto;
 	@Output() addChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 
 	constructor(
