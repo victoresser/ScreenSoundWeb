@@ -10,7 +10,14 @@
 
         <div class="container__album">
 
-          <img [src]="album.imagem ? album.imagem : imagemNaoEncontrada" [alt]="album.nome" class="imagem__album" (mouseover)="onMouseOver(i)" (mouseout)="onMouseOut()" [class.animate]="isHovered === i"/>
+          <img
+					[src]="album.imagem ? album.imagem : imagemNaoEncontrada"
+					[alt]="album.nome" class="imagem__album"
+					(mouseover)="onMouseOver(i)"
+					(mouseout)="onMouseOut()"
+					[class.animate]="isHovered === i"
+					(focus)="onMouseOver(i)"
+					(blur)="onMouseOut()"/>
 
           <p>
             <b>{{ album.banda }}</b>
@@ -38,7 +45,7 @@
     <img src="../../../../assets/Icons/papagaio.svg" alt="ScreenSound Papagaio" style="height: 250px; width: 250px; margin: 1em"/>
 
     <p style="color: var(--branco)">
-      "Parece que ficamos sem <b>Álbuns</b> capitão!"
+      "Parece que ficamos sem <b style=" font-weight: bold;">Álbuns</b> capitão!"
     </p>
 
   </ng-template>

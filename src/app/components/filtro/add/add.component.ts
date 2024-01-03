@@ -1,8 +1,9 @@
+import { CreateMusicaDto } from './../musica/interfaces/musica.interface';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { HandleService } from 'src/app/services/common/handle.service';
-import { CreateMusicaDto } from '../musica/interfaces/musica.interface';
 import { Musica } from '../musica/models/musica.model';
 import { MusicaService } from 'src/app/services/musica/musica.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
 	selector: 'app-add',
@@ -11,7 +12,8 @@ import { MusicaService } from 'src/app/services/musica/musica.service';
 })
 export class AddComponent {
 	handler = this.handle;
-	musica!: CreateMusicaDto;
+
+	public musica!: CreateMusicaDto;
 
 	@Input() add = false;
 	@Input() listar = true;
@@ -20,7 +22,8 @@ export class AddComponent {
 
 	constructor(
 		private handle: HandleService,
-		private musicaService: MusicaService
+		private musicaService: MusicaService,
+		private toastr: ToastrService
 	) {}
 
 	onAddChange() {
@@ -28,7 +31,12 @@ export class AddComponent {
 		this.addChange.emit(this.add);
 	}
 
-	onAddMusica(musica: CreateMusicaDto) {
+	onAddMusica(musica: CreateMusicaDto): void {
+		if (!musica.nome.trim()) {
+			this.toastr.warning('Nome da música não pode estar vazio.', 'Atenção!');
+			return;
+		}
+
 		const newMusic: Musica = {
 			nome: musica.nome,
 			banda: musica.banda,
@@ -38,5 +46,6 @@ export class AddComponent {
 		};
 
 		this.musicaService.addMusic(newMusic);
+		this.toastr.success('Música Adicionada!');
 	}
 }

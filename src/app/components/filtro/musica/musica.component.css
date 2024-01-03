@@ -69,6 +69,14 @@ p {
 	align-items: center;
 	text-align: center;
 	width: 166px;
+
+	div {
+		height: 100%;
+		display: flex;
+		align-items: center;
+		color: var(--fundo);
+		justify-content: center;
+	}
 }
 
 .container__musica2 {
@@ -86,11 +94,12 @@ p {
 
 .nome__musica {
 	display: flex;
-	word-wrap: break-word;
+	margin: 0.5em;
 	font-size: 100%;
 	color: var(--fundo);
+	word-wrap: break-word;
+	font-weight: bold;
 	font-family: var(--ff-montserrat);
-	margin: 0.5em;
 }
 
 .descricoes {

@@ -3,10 +3,11 @@
 .adicionador {
 	position: relative;
 	font-family: var(--ff-quicksand);
-	width: 750px;
+	width: 100%;
 
 	.segunda__linha {
 		display: flex;
+		flex-direction: column;
 		gap: 0.5em;
 		margin-bottom: 0.5em;
 
@@ -28,9 +29,38 @@
 	display: flex;
 	gap: 0.5em;
 	align-items: center;
+	margin-bottom: 1em;
 }
 
 .nomeAlbum__banda {
 	display: flex;
 	gap: 0.5em;
+	align-items: center;
+	flex-direction: column;
+	margin-bottom: 1em;
+
+	.banda {
+		width: 100%;
+	}
+
+	.nome {
+		width: 100%;
+	}
+}
+
+@media screen and (min-width: 900px) {
+	.adicionador {
+		width: 750px;
+
+		.segunda__linha {
+			flex-direction: row;
+		}
+
+		.form	{
+
+			button {
+				margin: .5em;
+			}
+		}
+	}
 }

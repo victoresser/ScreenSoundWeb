@@ -5,7 +5,7 @@
 	<p class="descricao">Adicione novas músicas à nossa listagem de músicas</p>
 
 
-	<form class="form" (submit)="onAddMusica(musica)">
+	<form class="form" (submit)="onAddMusica(musica)" #form="ngForm">
 
 		<div class="nome div__input">
 			<input type="text" id="nome" class="nome__input" required [(ngModel)]="musica.nome">
@@ -19,12 +19,12 @@
 			</div>
 
 			<div class="banda div__input">
-				<input type="search" id="banda" class="banda__input" required [(ngModel)]="musica.banda">
+				<input type="search" id="banda" class="banda__input" required [(ngModel)]="musica.banda.nome">
 				<label for="banda" class="banda__label">Banda</label>
 			</div>
 
 			<div class="album div__input">
-				<input type="text" id="album" class="album__input" required [(ngModel)]="musica.album">
+				<input type="text" id="album" class="album__input" required [(ngModel)]="musica.album.nome">
 				<label for="album" class="album__label">Álbum</label>
 			</div>
 		</div>

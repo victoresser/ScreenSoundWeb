@@ -11,7 +11,9 @@
           <img [src]="banda.imagem ? banda.imagem : imagemNaoEncontrada" [alt]="banda.nome" class="imagem__banda"
           (mouseover)="onMouseOver(i)"
           (mouseout)="onMouseOut()"
-          [class.animate]="isHovered === i"/>
+          [class.animate]="isHovered === i"
+					(focus)="onMouseOver(i)"
+					(blur)="onMouseOut()"/>
 
           <p> <b>{{ banda.nome }}</b> </p>
 
