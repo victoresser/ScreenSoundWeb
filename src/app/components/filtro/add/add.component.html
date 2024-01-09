@@ -8,7 +8,7 @@
 	<form class="form" (submit)="onAddMusica(musica)" #form="ngForm">
 
 		<div class="nome div__input">
-			<input type="text" id="nome" name="musica.nome" class="nome__input" required [(ngModel)]="musica.nome">
+			<input type="text" id="nome" name="musica.nome" class="nome__input" required [(ngModel)]="musica.nomeMusica">
 			<label for="nome" class="nome__label">Nome</label>
 		</div>
 
@@ -19,12 +19,12 @@
 			</div>
 
 			<div class="banda div__input">
-				<input type="search" id="banda" name="musica.banda" class="banda__input" required [(ngModel)]="musica.banda">
+				<input type="search" id="banda" name="musica.banda" class="banda__input" required [(ngModel)]="musica.nomeBanda">
 				<label for="banda" class="banda__label">Banda</label>
 			</div>
 
 			<div class="album div__input">
-				<input type="text" id="album" name="musica.album" class="album__input" required [(ngModel)]="musica.album">
+				<input type="text" id="album" name="musica.album" class="album__input" required [(ngModel)]="musica.nomeAlbum">
 				<label for="album" class="album__label">Álbum</label>
 			</div>
 		</div>
@@ -51,23 +51,23 @@
 	<h2 class="titulo">Adicionar Álbum</h2>
 	<p class="descricao">Adicione novos Álbuns à nossa listagem de álbuns</p>
 
-	<form class="form">
+	<form class="form" (submit)="onAddAlbum(album)" #form="ngForm">
 
 
 		<div class="nomeAlbum__banda">
 			<div class="nome div__input">
-				<input type="text" id="nome" class="nome__input" required>
+				<input type="text" id="nome" name="nome" class="nome__input" required [(ngModel)]="album.nome">
 				<label for="nome" class="nome__label">Nome</label>
 			</div>
 
 			<div class="banda div__input">
-				<input type="search" id="banda" class="banda__input" required>
+				<input type="search" id="banda" name="banda" class="banda__input" required [(ngModel)]="album.nomeBanda">
 				<label for="banda" class="banda__label">Banda</label>
 			</div>
 		</div>
 
 		<div class="button">
-			<button class="button__submit">Adicionar</button>
+			<button type="submit" class="button__submit">Adicionar</button>
 		</div>
 
 	</form>

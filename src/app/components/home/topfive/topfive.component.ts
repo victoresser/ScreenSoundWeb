@@ -42,7 +42,7 @@ export class TopfiveComponent implements OnInit {
 
 	carregarAlbuns() {
 		this.albumService
-			.listarTopFive()
+			.getTopFive()
 			.subscribe((album) => (this.albuns = album));
 	}
 }

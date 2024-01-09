@@ -1,9 +1,9 @@
 export interface CreateMusicaDto {
-	nome: string;
+	nomeMusica: string;
 	duracao: number;
 	disponivel: boolean;
-	banda: string;
-	album: string;
+	nomeBanda: string;
+	nomeAlbum: string;
 	imagem: string;
 }
 

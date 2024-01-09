@@ -1,24 +1,14 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data/data.service';
 import { Musica } from './models/musica.model';
-import { CreateMusicaDto } from './interfaces/musica.interface';
 
 @Component({
 	selector: 'app-musica',
 	templateUrl: './musica.component.html',
 	styleUrls: ['./musica.component.css'],
 })
-export class MusicaComponent {
+export class MusicaComponent implements OnInit {
 	musicas: Musica[] = [];
-
-	newMusic: CreateMusicaDto = {
-		nome: '',
-		album: '',
-		banda: '',
-		disponivel: true,
-		duracao: 1,
-		imagem: '',
-	};
 
 	@Input() filtro: string = '';
 	@Input() listar = true;
@@ -37,7 +27,7 @@ export class MusicaComponent {
 
 	constructor(private service: DataService) {}
 
-	ngOnInit(): void {
+	ngOnInit() {
 		this.carregarMusica();
 	}
 
