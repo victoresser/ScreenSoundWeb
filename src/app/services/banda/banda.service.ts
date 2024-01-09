@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Banda } from 'src/app/components/filtro/banda/models/banda.model';
@@ -15,7 +15,13 @@ export class BandaService {
 		return this.http.get<Banda[]>(`${this.API}/listarTopFive`);
 	}
 
-	getMusicas(filtro?: string): Observable<Banda[]> {
-		return this.http.get<Banda[]>(`${this.API}/listar`);
+	getForName(name?: string): Observable<Banda> {
+		const params = new HttpParams()
+
+		if (name) {
+			params.set('nomeBanda', name);
+		}
+
+		return this.http.get<Banda>(`${this.API}/listar?${params}`)
 	}
 }

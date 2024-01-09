@@ -1,21 +1,19 @@
-import { Album } from '../../album/model/album.model';
-import { Banda } from '../../banda/models/banda.model';
 
 export class Musica {
 	id?: number;
 	nome: string;
 	duracao: number;
-	disponivel?: boolean = true;
+	disponivel: boolean = false;
 	dataDeCriacao?: Date;
-	album: Album;
-	banda: Banda;
+	album: string;
+	banda: string;
 	imagem?: string;
 
 	constructor(
 		nome: string,
 		duracao: number,
-		album: Album,
-		banda: Banda,
+		album: string,
+		banda: string,
 	) {
 		this.nome = nome;
 		this.duracao = duracao;

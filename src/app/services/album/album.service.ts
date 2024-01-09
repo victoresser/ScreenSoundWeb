@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Album } from 'src/app/components/filtro/album/model/album.model';
@@ -12,15 +12,5 @@ export class AlbumService {
 
   listarTopFive(): Observable<Album[]> {
     return this.http.get<Album[]>(`${this.API}/listarTopFive`);
-  }
-
-  listar(filtro: string): Observable<Album[]> {
-    let params = new HttpParams();
-
-    if (filtro.trim().length > 2) {
-      params = params.set('?nome=', filtro);
-    }
-
-    return this.http.get<Album[]>(`${this.API}/listar`, { params });
   }
 }

@@ -6,8 +6,6 @@
 	width: 100%;
 
 	.segunda__linha {
-		display: flex;
-		flex-direction: column;
 		gap: 0.5em;
 		margin-bottom: 0.5em;
 
@@ -53,13 +51,23 @@
 		width: 750px;
 
 		.segunda__linha {
-			flex-direction: row;
+			display: flex;
 		}
 
-		.form	{
+		.form {
+			.descricao__button {
+				display: flex;
+				justify-content: center;
+				gap: 0.5em;
 
-			button {
-				margin: .5em;
+				.descricaoBanda {
+					width: 100%;
+
+					textarea {
+						width: 100%;
+						padding: .3em;
+					}
+				}
 			}
 		}
 	}

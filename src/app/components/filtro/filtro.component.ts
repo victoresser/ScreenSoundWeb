@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnDestroy, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
 import { Subscription, filter } from 'rxjs';
 import { Musica } from './musica/models/musica.model';
 import { Album } from './album/model/album.model';
@@ -23,9 +23,9 @@ export class FiltroComponent implements OnDestroy {
 	add = false;
 	handler = this.handle;
 
-	musicas: Musica[] = [];
-	albuns: Album[] = [];
-	bandas: Banda[] = [];
+	@Input() musicas: Musica[] = [];
+	@Input() albuns: Album[] = [];
+	@Input() bandas: Banda[] = [];
 
 	constructor(
 		private routeChangeService: RouteChangeService,

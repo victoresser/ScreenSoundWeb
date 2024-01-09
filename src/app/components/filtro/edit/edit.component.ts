@@ -13,8 +13,8 @@ export class EditComponent {
 	@Input() musica: EditMusicaDto = {
 		nome: '',
 		duracao: 0,
-		album: new Album(),
-		banda: new Banda(),
+		album: '',
+		banda: '',
 		disponivel: false,
 		imagem: '',
 	};

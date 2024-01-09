@@ -15,7 +15,7 @@ p {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  width: auto;
+  width: 100%;
   max-width: 1220px;
   height: auto;
   padding: .5em;
@@ -83,10 +83,6 @@ p {
 
 .banda:hover .imagem__banda {
   transform: scale(1.1);
-}
-
-.semBandas p {
-  color: var(--branco);
 }
 
 app-footer {

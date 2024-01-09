@@ -1,5 +1,6 @@
 @import url("../../../styles.css");
 
+
 .filtro__container video {
 	-webkit-filter: brightness(58%);
 	-moz-filter: brightness(58%);
@@ -15,9 +16,15 @@
 .filtro__container {
 	flex-direction: column;
 	align-items: center;
+	padding: 0 .5em;
 	display: flex;
-	padding: .5em;
 	width: 100%;
+
+	app-footer {
+		margin-top: auto;
+		vertical-align: bottom;
+		width: 100%;
+	}
 }
 
 .menu__container {
@@ -60,8 +67,8 @@
 }
 
 app-footer {
-	margin: 0.5em 0 0 0;
 	width: 100%;
+	vertical-align: bottom;
 }
 
 .pesquisar {

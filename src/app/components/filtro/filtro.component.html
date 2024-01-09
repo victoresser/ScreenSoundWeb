@@ -23,8 +23,10 @@
 	<app-edit [(edit)]="edit" (editChange)="onEditChange($event)" [rotaAtual]="rotaAtual" *ngIf="edit"></app-edit>
 	<app-add [(add)]="add" (addChange)="onAddChange($event)" [rotaAtual]="rotaAtual" *ngIf="add"></app-add>
 
-	<router-outlet *ngIf="listar && (!add && !edit)" [musicas]="musicas" [albuns]="albuns" [bandas]="bandas"></router-outlet>
+	<router-outlet *ngIf="listar && (!add && !edit)" (musicas)="musicas" (albuns)="albuns" (bandas)="bandas"></router-outlet>
+	<br>
 
+	<app-footer *ngIf="listar && (musicas.length >= 20 || albuns.length >= 20 || bandas.length >= 20)"></app-footer>
 	<video autoplay loop muted playsinline>
 
 		<source src="../../../assets/Videos/screensound_video1.mp4" type="video/mp4"/>
@@ -32,3 +34,4 @@
 	</video>
 
 </div>
+
