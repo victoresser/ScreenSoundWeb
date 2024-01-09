@@ -86,5 +86,7 @@ export class AddComponent {
 				this.toastr.error('Não foi possível concluir a adição deste Álbum', error)
 			}
 		);
+
+		this.onAddChange();
 	}
 }
