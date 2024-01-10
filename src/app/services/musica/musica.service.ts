@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { Observable } from 'rxjs';
+import { Observable, catchError, tap, throwError } from 'rxjs';
 import {
 	CreateMusicaDto,
 	EditMusicaDto,
@@ -23,20 +23,23 @@ export class MusicaService {
 		return this.http.get<Musica[]>(`${this.API}/listarTopFive`);
 	}
 
-	addMusic(musica: CreateMusicaDto) {
+	onAdd(musica: CreateMusicaDto) {
 		return this.http.post<Musica>(`${this.API}/adicionarMusica`, musica);
-	}
-
-	post(musica: Musica): Observable<Musica> {
-		return this.http.post<Musica>(this.API + '/adicionarMusica', musica);
 	}
 
 	getForId(id: number): Observable<Musica> {
 		return this.http.get<Musica>(`${this.API}/listar/${id}`);
 	}
 
-	editMusic(id: number, musica: EditMusicaDto): Observable<Musica> {
-		return this.http.put<Musica>(`${this.API}/editar/${id}`, musica);
+	onEdit(musica: EditMusicaDto): Observable<Musica> {
+		return this.http.put<Musica>(`${this.API}/editar/${musica.id}`, musica)
+			.pipe(
+				tap(() => this.toastr.success('Música editada com sucesso', 'Sucesso')),
+				catchError((error) => {
+					console.log(error);
+					return throwError(() => new Error('Algo deu errado e foi impossível realizar a requisição PUT'));
+				})
+			);
 	}
 
 	validateMusica(musica: CreateMusicaDto): boolean {

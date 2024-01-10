@@ -6,6 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { BandaService } from 'src/app/services/banda/banda.service';
 import { AlbumService } from 'src/app/services/album/album.service';
 import { CreateAlbumDto } from '../album/interfaces/album.interface';
+import { CreateBandaDto } from '../banda/interface/banda.interface';
 
 @Component({
 	selector: 'app-add',
@@ -27,8 +28,13 @@ export class AddComponent {
 	public album: CreateAlbumDto = {
 		nome: '',
 		nomeBanda: '',
-		imagem: ''
-	}
+		imagem: '',
+	};
+
+	public banda: CreateBandaDto = {
+		nome: '',
+		descricao: '',
+	};
 
 	@Input() add = false;
 	@Input() listar = true;
@@ -54,7 +60,7 @@ export class AddComponent {
 			return;
 		}
 
-		this.musicaService.addMusic(musica).subscribe(
+		this.musicaService.onAdd(musica).subscribe(
 			(success) => {
 				success.nome = musica.nomeMusica;
 				this.toastr.success(
@@ -76,15 +82,41 @@ export class AddComponent {
 	onAddAlbum(album: CreateAlbumDto) {
 		// const musicasSelecionadas = this.musicSelect.selected as any[];
 
-		this.albumService.AddAlbum(album).subscribe(
+		this.albumService.onAdd(album).subscribe(
 			(success) => {
 				success.nome = album.nome;
-				this.toastr.success('Album adicionado com sucesso!', success.nome)
+				this.toastr.success('Album adicionado com sucesso!', success.nome);
 			},
 			(error) => {
-				error = "Erro!";
-				this.toastr.error('Não foi possível concluir a adição deste Álbum', error)
+				error = 'Erro!';
+				this.toastr.error(
+					'Não foi possível concluir a adição deste Álbum',
+					error
+				);
 			}
+		);
+
+		this.onAddChange();
+	}
+
+	onAddBanda(banda: CreateBandaDto) {
+		if (!this.bandaService.validaBanda(banda)) {
+			this.onAddChange();
+			return;
+		}
+
+		this.bandaService.onAdd(banda).subscribe(
+			(success) => {
+				success.nome = banda.nome;
+				this.toastr.success('Banda adicionada com sucesso!', success.nome);
+			},
+			(error) => {
+				error = banda.nome;
+				this.toastr.error(
+					'Não foi possível concluir a adição desta Banda', error
+				);
+			},
+			() => this.toastr.info('Requisição finalizada', 'Info')
 		);
 
 		this.onAddChange();

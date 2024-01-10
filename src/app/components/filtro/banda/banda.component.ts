@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { fadeIn, hoverAnimation } from 'src/app/animations';
 import { DataService } from 'src/app/services/data/data.service';
 import { Banda } from './models/banda.model';
+import { HandleService } from 'src/app/services/common/handle.service';
 
 @Component({
 	selector: 'app-banda',
@@ -11,6 +12,8 @@ import { Banda } from './models/banda.model';
 })
 export class BandaComponent implements OnInit {
 	bandas: Banda[] = [];
+	banda?: Banda;
+	handler = this.handle
 
 	@Input() filtro: string = '';
 	@Input() listar = true;
@@ -27,13 +30,13 @@ export class BandaComponent implements OnInit {
 	scrollUpDistance = 1.5;
 	imagemNaoEncontrada = '../../../../assets/Icons/nao-encontrado.png';
 
-	constructor(private service: DataService) {}
+	constructor(private dataService: DataService, private handle: HandleService) {}
 	ngOnInit(): void {
 		this.carregarBandas();
 	}
 
 	carregarBandas() {
-		this.service.getBandas(this.page, this.filtro).subscribe((x) => {
+		this.dataService.getBandas(this.page, this.filtro).subscribe((x) => {
 			this.bandas = this.bandas.concat(x);
 
 			if (x.length < this.pageSize) {
@@ -53,5 +56,10 @@ export class BandaComponent implements OnInit {
 	onScroll(): void {
 		this.page++;
 		this.carregarBandas();
+	}
+
+	idSelecionado(id?: number) {
+		console.log('Este é o ID selecionado: ' + id);
+		this.dataService.armazenaIdSelecionado(id);
 	}
 }

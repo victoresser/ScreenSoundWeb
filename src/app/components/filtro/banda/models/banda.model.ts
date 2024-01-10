@@ -27,4 +27,15 @@ export class Banda {
 	public setDataDeCriacao(novaData: Date): void {
 		this.dataDeCriacao = new Date(novaData.getDate());
 	}
+	public addAlbum(novoAlbum: Album): void {
+		this.albunsDaBanda.push(novoAlbum);
+	}
+
+	public removeAlbum(index: number): void {
+		this.albunsDaBanda.splice(index, 1);
+	}
+
+	public setImagem(urlImagem: string): void {
+		this.imagem = urlImagem;
+	}
 }

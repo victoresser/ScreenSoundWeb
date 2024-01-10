@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Album } from './model/album.model';
 import { fadeIn } from 'src/app/animations';
 import { DataService } from 'src/app/services/data/data.service';
+import { HandleService } from 'src/app/services/common/handle.service';
 
 @Component({
 	selector: 'app-album',
@@ -11,6 +12,7 @@ import { DataService } from 'src/app/services/data/data.service';
 })
 export class AlbumComponent implements OnInit {
 	albuns: Album[] = [];
+	handler = this.handle
 
 	@Input() filtro: string = '';
 	@Input() listar = true;
@@ -25,7 +27,7 @@ export class AlbumComponent implements OnInit {
 	isHovered: number | null = null;
 	imagemNaoEncontrada = '../../../../assets/Icons/nao-encontrado.png';
 
-	constructor(private dataService: DataService) {}
+	constructor(private dataService: DataService, private handle: HandleService) {}
 
 	ngOnInit(): void {
 		this.carregarAlbuns();
@@ -49,5 +51,10 @@ export class AlbumComponent implements OnInit {
 
 	onMouseOut() {
 		this.isHovered = null;
+	}
+
+	idSelecionado(id?: number) {
+		console.log('Este é o ID selecionado: ' + id);
+		this.dataService.armazenaIdSelecionado(id);
 	}
 }

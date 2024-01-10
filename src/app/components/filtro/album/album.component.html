@@ -6,7 +6,7 @@
   >
     <div class="album" *ngFor="let album of albuns; let i = index" [style.animation-delay]="i * 100 + 'ms'">
 
-			<div class="album__container">
+			<div class="album__container" (click)="idSelecionado(album.id);" (keydown)="handler.handleKeyDownPress($event, idSelecionado)" tabindex="1">
 
         <div class="container__album">
 

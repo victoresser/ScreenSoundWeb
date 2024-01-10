@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data/data.service';
 import { Musica } from './models/musica.model';
+import { HandleService } from 'src/app/services/common/handle.service';
+import { Subscription } from 'rxjs';
 
 @Component({
 	selector: 'app-musica',
@@ -9,6 +11,7 @@ import { Musica } from './models/musica.model';
 })
 export class MusicaComponent implements OnInit {
 	musicas: Musica[] = [];
+	private listSubscription: Subscription = new Subscription();
 
 	@Input() filtro: string = '';
 	@Input() listar = true;
@@ -24,8 +27,9 @@ export class MusicaComponent implements OnInit {
 	scrollDistance = 2;
 	scrollUpDistance = 1.5;
 	imagemNaoEncontrada = '../../../../assets/Icons/nao-encontrado.png';
+	handler = this.handle;
 
-	constructor(private service: DataService) {}
+	constructor(private service: DataService, private handle: HandleService) {}
 
 	ngOnInit() {
 		this.carregarMusica();
@@ -60,5 +64,10 @@ export class MusicaComponent implements OnInit {
 	onScroll(): void {
 		this.page++;
 		this.carregarMusica();
+	}
+
+	idSelecionado(id?: number) {
+		console.log('Este é o ID selecionado: ' + id);
+		this.service.armazenaIdSelecionado(id);
 	}
 }
