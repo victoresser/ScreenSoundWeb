@@ -3,6 +3,7 @@ import { Album } from './model/album.model';
 import { fadeIn } from 'src/app/animations';
 import { DataService } from 'src/app/services/data/data.service';
 import { HandleService } from 'src/app/services/common/handle.service';
+import { AlbumService } from 'src/app/services/album/album.service';
 
 @Component({
 	selector: 'app-album',
@@ -12,7 +13,7 @@ import { HandleService } from 'src/app/services/common/handle.service';
 })
 export class AlbumComponent implements OnInit {
 	albuns: Album[] = [];
-	handler = this.handle
+	handler = this.handle;
 
 	@Input() filtro: string = '';
 	@Input() listar = true;
@@ -27,22 +28,24 @@ export class AlbumComponent implements OnInit {
 	isHovered: number | null = null;
 	imagemNaoEncontrada = '../../../../assets/Icons/nao-encontrado.png';
 
-	constructor(private dataService: DataService, private handle: HandleService) {}
+	constructor(
+		private dataService: DataService,
+		private handle: HandleService,
+		private albumService: AlbumService
+	) {}
 
 	ngOnInit(): void {
 		this.carregarAlbuns();
 	}
 
 	carregarAlbuns() {
-		this.dataService
-			.getAlbuns(1, this.filtro)
-			.subscribe((album) => {
-				this.albuns = this.albuns.concat(album);
+		this.albumService.getAlbuns(1, this.filtro).subscribe((album) => {
+			this.albuns = this.albuns.concat(album);
 
-				if (album.length < this.pageSize) {
-					this.hasMoreData = false;
-				}
-			});
+			if (album.length < this.pageSize) {
+				this.hasMoreData = false;
+			}
+		});
 	}
 
 	onMouseOver(index: number) {

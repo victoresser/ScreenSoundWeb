@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { Observable, catchError, tap, throwError } from 'rxjs';
+import { Observable, Subject, catchError, tap, throwError } from 'rxjs';
 import {
 	CreateBandaDto,
 	EditBandaDto,
@@ -13,8 +13,24 @@ import { Banda } from 'src/app/components/filtro/banda/models/banda.model';
 })
 export class BandaService {
 	private API = 'https://localhost:7049/api/Banda';
+	private pageSize = 20;
+	private bandasSubject = new Subject<Banda[]>();
+	private bandaSubject = new Subject<Banda>();
 
 	constructor(private http: HttpClient, private toastr: ToastrService) {}
+
+	getBandas(page: number, filtro?: string): Observable<Banda[]> {
+		const skip = (page - 1) * this.pageSize;
+		const params = new HttpParams()
+			.set('skip', skip.toString())
+			.set('take', this.pageSize.toString());
+
+		if (filtro) {
+			params.set('nomeBanda', filtro);
+		}
+		const url = `${this.API}/listar?${params}`;
+		return this.http.get<Banda[]>(url);
+	}
 
 	listarTopFive(): Observable<Banda[]> {
 		return this.http.get<Banda[]>(`${this.API}/listarTopFive`);

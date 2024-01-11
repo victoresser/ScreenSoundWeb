@@ -60,11 +60,12 @@ export class EditComponent implements OnInit {
 
 	onEditChange() {
 		this.edit = !this.edit;
+		this.dataService.notificarAtualizacaoLista();
 		this.dataService.armazenaIdSelecionado(0);
 		this.editChange.emit(this.edit);
 	}
 
-	protected onEdit(entity: any, entityService: any) {
+	protected async onEdit(entity: any, entityService: any) {
 		entity.id = this.dataService.obterIdSelecionado()!;
 		entityService.onEdit(entity).subscribe();
 		this.onEditChange();

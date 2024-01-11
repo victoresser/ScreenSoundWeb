@@ -6,9 +6,10 @@
   </div>
 
   <div class="container__buttons">
-    <a href="#" class="buttons__button"><img src="../../../assets/Icons/Windows_white.png" alt="Download for Windows"><p class="buttons__text">Windows</p></a>
-    <a href="#" class="buttons__button"><img src="../../../assets/Icons/apple-white.png" alt="Download for MacOS"><p class="buttons__text">MacOS</p></a>
-    <a href="#" class="buttons__button"><img src="../../../assets/Icons/linux-white.png" alt="Download for Linux"><p class="buttons__text">Linux</p></a>
-  </div>
+		<button class="buttons__button" *ngFor="let os of operatingSystems" (click)="getAgradecimento()">
+			<img [src]="os.icon" alt="{{os.name}} for {{os.platform}}">
+			<p class="buttons__text">{{os.name}}</p>
+		</button>
+	</div>
 </div>
 <hr class="hr_separador">

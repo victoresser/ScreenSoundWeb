@@ -1,17 +1,18 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { DataService } from 'src/app/services/data/data.service';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Musica } from './models/musica.model';
 import { HandleService } from 'src/app/services/common/handle.service';
-import { Subscription } from 'rxjs';
+import { MusicaService } from 'src/app/services/musica/musica.service';
+import { DataService } from 'src/app/services/data/data.service';
+import { Subscription, debounceTime } from 'rxjs';
 
 @Component({
 	selector: 'app-musica',
 	templateUrl: './musica.component.html',
 	styleUrls: ['./musica.component.css'],
 })
-export class MusicaComponent implements OnInit {
-	musicas: Musica[] = [];
-	private listSubscription: Subscription = new Subscription();
+export class MusicaComponent implements OnInit, OnDestroy {
+	@Input() musicas: Musica[] = [];
+	statusLista = new Subscription();
 
 	@Input() filtro: string = '';
 	@Input() listar = true;
@@ -29,20 +30,40 @@ export class MusicaComponent implements OnInit {
 	imagemNaoEncontrada = '../../../../assets/Icons/nao-encontrado.png';
 	handler = this.handle;
 
-	constructor(private service: DataService, private handle: HandleService) {}
+	constructor(
+		private musicaService: MusicaService,
+		private handle: HandleService,
+		private dataService: DataService
+	) {}
 
-	ngOnInit() {
-		this.carregarMusica();
+	async ngOnInit(): Promise<void> {
+		await this.carregarMusica();
+
+		this.statusLista = this.musicaService
+			.obterAtualizacao()
+			.pipe(debounceTime(300))
+			.subscribe(() => {
+				if (this.musicas.length === 0) {
+					this.musicas = [];
+					this.carregarMusica();
+				}
+			});
 	}
 
-	carregarMusica() {
-		this.service.getMusicas(this.page, this.filtro).subscribe((musicas) => {
-			this.musicas = this.musicas.concat(musicas);
+	ngOnDestroy(): void {
+		this.statusLista.unsubscribe();
+	}
 
-			if (musicas.length < this.pageSize) {
-				this.hasMoreData = false;
+	async carregarMusica() {
+		(await this.musicaService.getMusicas(this.page, this.filtro)).subscribe(
+			(musicas) => {
+				this.musicas = this.musicas.concat(musicas);
+
+				if (musicas.length < this.pageSize) {
+					this.hasMoreData = false;
+				}
 			}
-		});
+		);
 	}
 
 	tratarDisponibilidade(disponivel?: boolean): string {
@@ -68,6 +89,6 @@ export class MusicaComponent implements OnInit {
 
 	idSelecionado(id?: number) {
 		console.log('Este é o ID selecionado: ' + id);
-		this.service.armazenaIdSelecionado(id);
+		this.dataService.armazenaIdSelecionado(id);
 	}
 }

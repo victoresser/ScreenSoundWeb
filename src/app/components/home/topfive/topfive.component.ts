@@ -30,7 +30,7 @@ export class TopfiveComponent implements OnInit {
 
 	carregarMusica() {
 		this.musicaService
-			.listarTopFive()
+			.getTopFive()
 			.subscribe((musica) => (this.musicas = musica));
 	}
 

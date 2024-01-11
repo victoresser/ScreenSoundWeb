@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
 	Component,
 	EventEmitter,
@@ -13,6 +14,9 @@ import { Banda } from './banda/models/banda.model';
 import { RouteChangeService } from 'src/app/services/routes/route-change.service';
 import { HandleService } from 'src/app/services/common/handle.service';
 import { DataService } from 'src/app/services/data/data.service';
+import { MusicaService } from 'src/app/services/musica/musica.service';
+import { AlbumService } from 'src/app/services/album/album.service';
+import { BandaService } from 'src/app/services/banda/banda.service';
 
 @Component({
 	selector: 'app-filtro',
@@ -21,25 +25,30 @@ import { DataService } from 'src/app/services/data/data.service';
 })
 export class FiltroComponent implements OnDestroy, OnInit {
 	private routerSubscription: Subscription = new Subscription();
-
-	rotaAtual = '';
+	private listSubscription: Subscription = new Subscription();
 	@Output() rotaChange: EventEmitter<string> = new EventEmitter<string>();
+
+	handler = this.handle;
+	id?: number = 0;
+	rotaAtual = '';
 	search = false;
 	delete = false;
 	listar = true;
 	edit = false;
 	add = false;
-	handler = this.handle;
-	id?: number = 0;
+	filtro = '';
 
 	@Input() musicas: Musica[] = [];
 	@Input() albuns: Album[] = [];
 	@Input() bandas: Banda[] = [];
 
 	constructor(
-		private routeChangeService: RouteChangeService,
 		private handle: HandleService,
-		private dataService: DataService
+		private dataService: DataService,
+		private albumService: AlbumService,
+		private bandaService: BandaService,
+		private musicaService: MusicaService,
+		private routeChangeService: RouteChangeService
 	) {
 		this.routerSubscription = this.routeChangeService
 			.getRouteChangeObservable()
@@ -53,8 +62,13 @@ export class FiltroComponent implements OnDestroy, OnInit {
 			});
 	}
 
-	ngOnInit() {
+	ngOnInit(): void {
 		this.id = this.dataService.obterIdSelecionado();
+	}
+
+	ngOnDestroy() {
+		this.routerSubscription.unsubscribe();
+		this.listSubscription.unsubscribe();
 	}
 
 	openAdd() {
@@ -66,7 +80,6 @@ export class FiltroComponent implements OnDestroy, OnInit {
 
 		if (this.edit) this.edit = !this.edit;
 
-		this.dataService.armazenaIdSelecionado(0);
 		this.add = !this.add;
 	}
 
@@ -107,7 +120,11 @@ export class FiltroComponent implements OnDestroy, OnInit {
 		this.edit = edit;
 	}
 
-	ngOnDestroy() {
-		this.routerSubscription.unsubscribe();
+	onDelete(id: number, rotaAtual: string) {
+		return rotaAtual === '/filtro/musicas'
+			? this.musicaService.onDelete(id)
+			: rotaAtual === '/filtro/albuns'
+			? this.albumService.onDelete(id)
+			: this.bandaService.onDelete(id);
 	}
 }

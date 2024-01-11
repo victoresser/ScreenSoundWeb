@@ -10,7 +10,7 @@
 
 		<hr class="separador__menu" />
 
-		<span class="menu__button excluir"></span>
+		<span class="menu__button excluir" (click)="onDelete(id!, rotaAtual)" tabindex="2" (keydown)="handler.handleKeyDownPress($event, openEdit)"></span>
 
 
 		<hr class="separador__menu" />
@@ -23,7 +23,9 @@
 	<app-edit [(edit)]="edit" (editChange)="onEditChange($event)" [rotaAtual]="rotaAtual" *ngIf="edit"></app-edit>
 	<app-add [(add)]="add" (addChange)="onAddChange($event)" [rotaAtual]="rotaAtual" *ngIf="add"></app-add>
 
-	<router-outlet *ngIf="listar && (!add && !edit)" (musicas)="musicas" (albuns)="albuns" (bandas)="bandas"></router-outlet>
+	<app-musica *ngIf="rotaAtual === '/filtro/musicas' && listar && (!add && !edit)" [musicas]="musicas"></app-musica>
+	<app-album *ngIf="rotaAtual === '/filtro/albuns' && listar && (!add && !edit)" [albuns]="albuns"></app-album>
+	<app-banda *ngIf="rotaAtual === '/filtro/bandas' && listar && (!add && !edit)" [bandas]="bandas"></app-banda>
 	<br>
 
 	<video autoplay loop muted playsinline>
@@ -33,5 +35,5 @@
 	</video>
 
 </div>
-<app-footer [hidden]="false"></app-footer>
+<app-footer *ngIf="musicas.length >= 20"></app-footer>
 

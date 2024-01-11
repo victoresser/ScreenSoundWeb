@@ -3,6 +3,7 @@ import { fadeIn, hoverAnimation } from 'src/app/animations';
 import { DataService } from 'src/app/services/data/data.service';
 import { Banda } from './models/banda.model';
 import { HandleService } from 'src/app/services/common/handle.service';
+import { BandaService } from 'src/app/services/banda/banda.service';
 
 @Component({
 	selector: 'app-banda',
@@ -30,13 +31,13 @@ export class BandaComponent implements OnInit {
 	scrollUpDistance = 1.5;
 	imagemNaoEncontrada = '../../../../assets/Icons/nao-encontrado.png';
 
-	constructor(private dataService: DataService, private handle: HandleService) {}
+	constructor(private dataService: DataService, private handle: HandleService, private bandaService: BandaService) {}
 	ngOnInit(): void {
 		this.carregarBandas();
 	}
 
 	carregarBandas() {
-		this.dataService.getBandas(this.page, this.filtro).subscribe((x) => {
+		this.bandaService.getBandas(this.page, this.filtro).subscribe((x) => {
 			this.bandas = this.bandas.concat(x);
 
 			if (x.length < this.pageSize) {
