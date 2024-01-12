@@ -14,19 +14,18 @@ import { Banda } from 'src/app/components/filtro/banda/models/banda.model';
 export class BandaService {
 	private API = 'https://localhost:7049/api/Banda';
 	private pageSize = 20;
-	private bandasSubject = new Subject<Banda[]>();
-	private bandaSubject = new Subject<Banda>();
+	private listaSubject = new Subject<void>();
 
 	constructor(private http: HttpClient, private toastr: ToastrService) {}
 
-	getBandas(page: number, filtro?: string): Observable<Banda[]> {
+	async getBandas(page: number, filtro?: string): Promise<Observable<Banda[]>> {
 		const skip = (page - 1) * this.pageSize;
-		const params = new HttpParams()
+		let params = new HttpParams()
 			.set('skip', skip.toString())
 			.set('take', this.pageSize.toString());
 
 		if (filtro) {
-			params.set('nomeBanda', filtro);
+			params = params.set('nomeBanda', filtro);
 		}
 		const url = `${this.API}/listar?${params}`;
 		return this.http.get<Banda[]>(url);
@@ -37,12 +36,20 @@ export class BandaService {
 	}
 
 	onAdd(banda: CreateBandaDto): Observable<Banda> {
-		return this.http.post<Banda>(`${this.API}/adicionarBanda`, banda);
+		return this.http.post<Banda>(`${this.API}/adicionarBanda`, banda).pipe(
+			tap(() => {
+				this.toastr.success('Banda adicionada com sucesso!', 'Sucesso');
+				this.notificarAtualizacao();
+			})
+		);
 	}
 
 	onEdit(banda: EditBandaDto): Observable<Banda> {
 		return this.http.put<Banda>(`${this.API}/editar/${banda.id}`, banda).pipe(
-			tap(() => this.toastr.success('Banda editada com sucesso', 'Sucesso')),
+			tap(() => {
+				this.toastr.success('Banda editada com sucesso', 'Sucesso');
+				this.notificarAtualizacao();
+			}),
 			catchError((error) => {
 				console.log(error);
 				return throwError(
@@ -55,10 +62,13 @@ export class BandaService {
 		);
 	}
 
-	onDelete(id: number): Observable<Banda> {
+	async onDelete(id: number) {
 		window.confirm('Ten certeza que deseja excluir esta banda?');
 		return this.http.delete<Banda>(`${this.API}/excluir/${id}`).pipe(
-			tap(() => this.toastr.success('Banda deletada com sucesso', 'Sucesso')),
+			tap(() => {
+				this.toastr.success('Banda deletada com sucesso', 'Sucesso');
+				this.notificarAtualizacao();
+			}),
 			catchError((error) => {
 				this.toastr.error(error.toString(), 'Erro');
 				return throwError(
@@ -86,5 +96,13 @@ export class BandaService {
 		}
 
 		return true;
+	}
+
+	private notificarAtualizacao() {
+		this.listaSubject.next();
+	}
+
+	public obterAtualizacao() {
+		return this.listaSubject.asObservable();
 	}
 }

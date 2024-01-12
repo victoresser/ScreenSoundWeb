@@ -120,11 +120,11 @@ export class FiltroComponent implements OnDestroy, OnInit {
 		this.edit = edit;
 	}
 
-	onDelete(id: number, rotaAtual: string) {
+	async onDelete(id: number, rotaAtual: string) {
 		return rotaAtual === '/filtro/musicas'
-			? this.musicaService.onDelete(id)
+			? (await this.musicaService.onDelete(id)).subscribe()
 			: rotaAtual === '/filtro/albuns'
-			? this.albumService.onDelete(id)
-			: this.bandaService.onDelete(id);
+			? (await this.albumService.onDelete(id)).subscribe()
+			: (await this.bandaService.onDelete(id)).subscribe();
 	}
 }

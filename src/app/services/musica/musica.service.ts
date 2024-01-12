@@ -15,8 +15,8 @@ import { DataService } from '../data/data.service';
 export class MusicaService {
 	private readonly API = 'https://localhost:7049/api/Musica';
 	public musicas: Musica[] = [];
-	private musicaSubject = new Subject<Musica>();
 	private listaAtualizada = new Subject<void>();
+	public musicaEditada = false;
 	private pageSize = 20;
 
 	constructor(
@@ -25,23 +25,19 @@ export class MusicaService {
 		private dataService: DataService
 	) {}
 
-	async getMusicas(page: number, filtro?: string): Promise<Observable<Musica[]>> {
+	async getMusicas(
+		page: number,
+		filtro?: string
+	): Promise<Observable<Musica[]>> {
 		const skip = (page - 1) * this.pageSize;
-		let params = new HttpParams()
-			.set('skip', skip.toString())
-			.set('take', this.pageSize.toString());
+		let params = new HttpParams().set('skip', skip).set('take', this.pageSize);
 
 		if (filtro) {
 			params = params.set('nomeMusica', filtro);
 		}
 
 		const url = `${this.API}/listar?${params}`;
-		return this.http.get<Musica[]>(url).pipe(
-			tap((musicas) => {
-				this.musicas = this.musicas.concat(musicas);
-				this.notificarAtualizacao();
-			})
-		);
+		return this.http.get<Musica[]>(url);
 	}
 
 	getTopFive(): Observable<Musica[]> {
@@ -53,25 +49,29 @@ export class MusicaService {
 		);
 	}
 
-	onAdd(musica: CreateMusicaDto) {
-		return this.http
-			.post<Musica>(`${this.API}/adicionarMusica`, musica)
-			.pipe(tap((musica: Musica) => {
-				this.musicaSubject.next(musica)
-				this.notificarAtualizacao();
-			}));
-	}
-
 	getForId(id: number): Observable<Musica> {
-		return this.http
-			.get<Musica>(`${this.API}/listar/${id}`)
-			.pipe(tap((musica: Musica) => {
-				this.musicaSubject.next(musica)
+		return this.http.get<Musica>(`${this.API}/listar/${id}`).pipe(
+			tap(() => {
 				this.notificarAtualizacao();
-			}));
+			})
+		);
 	}
 
-	onEdit(musica: EditMusicaDto): Observable<Musica> {
+	async onAdd(musica: CreateMusicaDto) {
+		return this.http.post<Musica>(`${this.API}/adicionarMusica`, musica).pipe(
+			tap(() => {
+				this.toastr.success('Música adicionada com sucesso', 'Sucesso');
+				this.notificarAtualizacao();
+			}),
+			catchError((error) => {
+				console.log(error);
+				this.toastr.error('Houve um problema para adicionar esta música', 'Erro');
+				return error;
+			})
+		);
+	}
+
+	async onEdit(musica: EditMusicaDto) {
 		return this.http
 			.put<Musica>(`${this.API}/editar/${musica.id}`, musica)
 			.pipe(
@@ -91,8 +91,8 @@ export class MusicaService {
 			);
 	}
 
-	onDelete(id: number) {
-		return this.http.delete(`${this.API}/deletar/${id}`).pipe(
+	async onDelete(id: number) {
+		return this.http.delete<Musica>(`${this.API}/deletar/${id}`).pipe(
 			tap(() => {
 				this.toastr.info(
 					`A música de id ${id} foi excluida`,

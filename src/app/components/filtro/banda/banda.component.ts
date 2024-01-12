@@ -4,6 +4,7 @@ import { DataService } from 'src/app/services/data/data.service';
 import { Banda } from './models/banda.model';
 import { HandleService } from 'src/app/services/common/handle.service';
 import { BandaService } from 'src/app/services/banda/banda.service';
+import { Subscription } from 'rxjs';
 
 @Component({
 	selector: 'app-banda',
@@ -13,8 +14,8 @@ import { BandaService } from 'src/app/services/banda/banda.service';
 })
 export class BandaComponent implements OnInit {
 	bandas: Banda[] = [];
-	banda?: Banda;
-	handler = this.handle
+	listaSubscription = new Subscription();
+	handler = this.handle;
 
 	@Input() filtro: string = '';
 	@Input() listar = true;
@@ -31,13 +32,36 @@ export class BandaComponent implements OnInit {
 	scrollUpDistance = 1.5;
 	imagemNaoEncontrada = '../../../../assets/Icons/nao-encontrado.png';
 
-	constructor(private dataService: DataService, private handle: HandleService, private bandaService: BandaService) {}
-	ngOnInit(): void {
-		this.carregarBandas();
+	constructor(
+		private dataService: DataService,
+		private handle: HandleService,
+		private bandaService: BandaService
+	) {
+		this.listaSubscription = this.bandaService
+			.obterAtualizacao()
+			.subscribe(async () => {
+				await this.recarregarLista();
+			});
 	}
 
-	carregarBandas() {
-		this.bandaService.getBandas(this.page, this.filtro).subscribe((x) => {
+	async ngOnInit(): Promise<void> {
+		await this.carregarBandas();
+	}
+
+	private async recarregarLista() {
+		return (
+			await this.bandaService.getBandas(this.page, this.filtro)
+		).subscribe((bandas) => {
+			this.page = 1;
+			this.bandas = [];
+			this.bandas = bandas;
+		});
+	}
+
+	async carregarBandas() {
+		return (
+			await this.bandaService.getBandas(this.page, this.filtro)
+		).subscribe((x) => {
 			this.bandas = this.bandas.concat(x);
 
 			if (x.length < this.pageSize) {

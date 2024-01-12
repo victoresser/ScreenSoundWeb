@@ -3,7 +3,7 @@ import { Musica } from './models/musica.model';
 import { HandleService } from 'src/app/services/common/handle.service';
 import { MusicaService } from 'src/app/services/musica/musica.service';
 import { DataService } from 'src/app/services/data/data.service';
-import { Subscription, debounceTime } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 @Component({
 	selector: 'app-musica',
@@ -34,27 +34,32 @@ export class MusicaComponent implements OnInit, OnDestroy {
 		private musicaService: MusicaService,
 		private handle: HandleService,
 		private dataService: DataService
-	) {}
+	) {
+		this.statusLista = this.musicaService.obterAtualizacao()
+			.subscribe(async () => {
+				await this.recarregarLista();
+			});
+	}
 
 	async ngOnInit(): Promise<void> {
-		await this.carregarMusica();
-
-		this.statusLista = this.musicaService
-			.obterAtualizacao()
-			.pipe(debounceTime(300))
-			.subscribe(() => {
-				if (this.musicas.length === 0) {
-					this.musicas = [];
-					this.carregarMusica();
-				}
-			});
+		await this.carregarMusicas();
 	}
 
 	ngOnDestroy(): void {
 		this.statusLista.unsubscribe();
 	}
 
-	async carregarMusica() {
+	async recarregarLista() {
+		(await this.musicaService.getMusicas(this.page, this.filtro)).subscribe(
+			(musicas) => {
+				this.page = 1;
+				this.musicas = [];
+				this.musicas = musicas;
+			}
+		);
+	}
+
+	async carregarMusicas() {
 		(await this.musicaService.getMusicas(this.page, this.filtro)).subscribe(
 			(musicas) => {
 				this.musicas = this.musicas.concat(musicas);
@@ -84,7 +89,7 @@ export class MusicaComponent implements OnInit, OnDestroy {
 
 	onScroll(): void {
 		this.page++;
-		this.carregarMusica();
+		this.carregarMusicas();
 	}
 
 	idSelecionado(id?: number) {

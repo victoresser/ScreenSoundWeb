@@ -38,7 +38,8 @@
       <hr class="separador__album" />
 
     </div>
-  </div>
+		<infinite-scroll infinite-scroll [infiniteScrollDistance]="scrollDistance" [infiniteScrollUpDistance]="scrollUpDistance" *ngIf="hasMoreData" (scrolled)="onScroll()"></infinite-scroll>
+  </div><br>
 
   <ng-template #semAlbuns class="semAlbuns">
 

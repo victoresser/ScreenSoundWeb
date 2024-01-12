@@ -13,20 +13,19 @@ import { Album } from 'src/app/components/filtro/album/model/album.model';
 })
 export class AlbumService {
 	private API = 'https://localhost:7049/api/Album';
-	private albumSubject = new Subject<Album>();
-	private albunsSubject = new Subject<Album[]>();
+	private listaSubject = new Subject<void>();
 	private pageSize = 20;
 
 	constructor(private http: HttpClient, private toastr: ToastrService) {}
 
-	getAlbuns(page: number, filtro?: string): Observable<Album[]> {
+	async getAlbuns(page: number, filtro?: string): Promise<Observable<Album[]>> {
 		const skip = (page - 1) * this.pageSize;
-		const params = new HttpParams()
+		let params = new HttpParams()
 			.set('skip', skip.toString())
 			.set('take', this.pageSize.toString());
 
 		if (filtro) {
-			params.set('nomeMusica', filtro);
+			params = params.set('nomeMusica', filtro);
 		}
 		const url = `${this.API}/listar?${params}`;
 		return this.http.get<Album[]>(url);
@@ -37,12 +36,20 @@ export class AlbumService {
 	}
 
 	onAdd(album: CreateAlbumDto): Observable<Album> {
-		return this.http.post<Album>(`${this.API}/adicionarAlbum`, album);
+		return this.http.post<Album>(`${this.API}/adicionarAlbum`, album).pipe(
+			tap(() => {
+				this.toastr.success('Álbum adicionado com sucesso', 'Sucesso');
+				this.listaSubject.next();
+			})
+		);
 	}
 
 	onEdit(album: EditAlbumDto): Observable<Album> {
 		return this.http.put<Album>(`${this.API}/editar/${album.id}`, album).pipe(
-			tap(() => this.toastr.success('Album editado com sucesso', 'Sucesso')),
+			tap(() => {
+				this.toastr.success('Album editado com sucesso', 'Sucesso');
+				this.notificarAtualizacao();
+			}),
 			catchError((error) => {
 				console.log(error);
 				return throwError(
@@ -55,14 +62,22 @@ export class AlbumService {
 		);
 	}
 
-	onDelete(id: number) {
+	async onDelete(id: number) {
 		return this.http.delete<Album>(`${this.API}/excluir/${id}`).pipe(
 			tap(() => this.toastr.warning('Album excluído com sucesso!', 'Atenção')),
 			catchError((err) => {
 				const errorMessage = `Erro ao tentar deletar o álbum do id ${id}`;
-				this.toastr.warning(errorMessage, 'Error')
+				this.toastr.warning(errorMessage, 'Error');
 				return throwError(err);
 			})
 		);
+	}
+
+	private notificarAtualizacao() {
+		this.listaSubject.next();
+	}
+
+	public obterAtualizacao() {
+		return this.listaSubject.asObservable();
 	}
 }

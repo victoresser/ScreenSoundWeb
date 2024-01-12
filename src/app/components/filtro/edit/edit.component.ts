@@ -39,7 +39,7 @@ export class EditComponent implements OnInit {
 		imagem: '',
 	};
 
-	@Input() idMusica?: number = 0;
+	@Input() id?: number = 0;
 	@Input() rotaAtual = '';
 	@Input() edit = false;
 	@Output() editChange = new EventEmitter<boolean>();
@@ -55,19 +55,18 @@ export class EditComponent implements OnInit {
 	) {}
 
 	ngOnInit(): void {
-		this.idMusica = this.dataService.obterIdSelecionado();
+		this.id = this.dataService.obterIdSelecionado();
 	}
 
 	onEditChange() {
 		this.edit = !this.edit;
-		this.dataService.notificarAtualizacaoLista();
 		this.dataService.armazenaIdSelecionado(0);
 		this.editChange.emit(this.edit);
 	}
 
 	protected async onEdit(entity: any, entityService: any) {
 		entity.id = this.dataService.obterIdSelecionado()!;
-		entityService.onEdit(entity).subscribe();
+		(await entityService.onEdit(entity)).subscribe();
 		this.onEditChange();
 	}
 
