@@ -112,10 +112,23 @@ app-footer {
 	width: 2px;
 }
 
+app-search {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+app-edit {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
 @keyframes scale-up-center {
 	0% {
 		transform: scale(1);
 	}
+
 	100% {
 		transform: scale(1.01);
 	}
@@ -125,6 +138,7 @@ app-footer {
 	0% {
 		transform: scale(1.01);
 	}
+
 	100% {
 		transform: scale(1);
 	}
@@ -136,18 +150,21 @@ app-footer {
 		transform: translateZ(80px);
 		opacity: 0;
 	}
+
 	100% {
 		-webkit-transform: translateZ(0);
 		transform: translateZ(0);
 		opacity: 1;
 	}
 }
+
 @keyframes fade-in-bck {
 	0% {
 		-webkit-transform: translateZ(80px);
 		transform: translateZ(80px);
 		opacity: 0;
 	}
+
 	100% {
 		-webkit-transform: translateZ(0);
 		transform: translateZ(0);

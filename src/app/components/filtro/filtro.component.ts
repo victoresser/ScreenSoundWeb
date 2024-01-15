@@ -59,6 +59,7 @@ export class FiltroComponent implements OnDestroy, OnInit {
 				this.edit = false;
 				this.listar = true;
 				this.delete = false;
+				this.search = false;
 			});
 	}
 

@@ -1,1 +1,44 @@
 @import url(../../../../styles.css);
+
+.editor {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+
+	.segunda__linha {
+		display: flex;
+		gap: .5em;
+		margin-bottom: 0.5em;
+
+		.duracao {
+			width: 100%;
+		}
+
+		.banda {
+			width: 100%;
+		}
+
+		.album {
+			width: 100%;
+		}
+	}
+
+	.disponibilidade {
+		display: flex;
+		gap: 0.5em;
+		align-items: center;
+		margin-bottom: 1em;
+	}
+
+	.banda__button {
+		display: flex;
+		gap: 1em;
+	}
+}
+
+
+@media screen and (min-width: 900px) {
+	.editor {
+		width: 700px;
+	}
+}

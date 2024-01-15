@@ -36,7 +36,7 @@
 		</div>
 
 		<div class="button">
-			<button type="submit" class="button__submit">Adicionar</button>
+			<button type="submit" class="button__submit">Editar</button>
 		</div>
 
 	</form>
@@ -46,7 +46,7 @@
 <div class="editor container__painel" *ngIf="rotaAtual === '/filtro/albuns'">
 	<span class="fechar__janela" (click)="onEditChange()" (keydown)="handler.handleKeyDownPress($event, onEditChange)" tabindex="0"></span>
 	<h2 class="titulo">Adicionar Álbum</h2>
-	<p class="descricao">Adicione novos Álbuns à nossa listagem de álbuns</p>
+	<p class="descricao">Edite os Álbuns da nossa listagem de álbuns</p>
 
 	<form class="form" (submit)="onEditAlbum(album)" #form="ngForm">
 
@@ -55,18 +55,47 @@
 				<input type="text" id="nome" name="nome" class="nome__input" required [(ngModel)]="album.nome">
 				<label for="nome" class="nome__label">Nome</label>
 			</div>
+		</div>
 
+		<div class="banda__button">
 			<div class="banda div__input">
 				<input type="search" id="banda" name="banda" class="banda__input" required [(ngModel)]="album.nomeBanda">
 				<label for="banda" class="banda__label">Banda</label>
 			</div>
-		</div>
 
-		<div class="button">
-			<button type="submit" class="button__submit">Editar</button>
+			<div class="button">
+				<button type="submit" class="button__submit">Editar</button>
+			</div>
 		</div>
 
 	</form>
 </div>
 
-<div class="editor container__painel" *ngIf="rotaAtual === '/filtro/bandas'"></div>
+<div class="editor container__painel" *ngIf="rotaAtual === '/filtro/bandas'">
+	<span class="fechar__janela" (click)="onEditChange()" (keydown)="handler.handleKeyDownPress($event, onEditChange)" tabindex="0"></span>
+	<h2 class="titulo">Adicionar Banda</h2>
+	<p class="descricao">Edite as informações das Bandas da nossa listagem de bandas</p>
+
+	<form action="submit" (submit)="onEditBanda(banda)" class="form" #form="ngForm">
+
+		<div class="nome div__input">
+			<input type="text" id="nome" name="nomeBanda" class="nome__input" required [(ngModel)]="banda.nome">
+			<label for="nome" class="nome__label">Nome</label>
+			<span class="bar"></span>
+		</div>
+
+		<div class="descricao__button">
+
+			<div class="descricaoBanda">
+				<textarea name="descricao" name="descricaoBanda" id="descricao" rows="8" [(ngModel)]="banda.descricao"></textarea>
+				<label for="descricao" class="descricao__label">Descrição (opcional)</label>
+			</div>
+
+			<div class="button">
+				<button type="submit" class="button__submit">Editar</button>
+			</div>
+
+		</div>
+
+	</form>
+</div>

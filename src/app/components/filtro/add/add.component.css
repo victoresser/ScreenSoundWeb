@@ -23,6 +23,18 @@
 	}
 }
 
+.descricao__button {
+	gap: .5em;
+	display: flex;
+	justify-content: space-between;
+
+	.descricaoBanda {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+	}
+}
+
 .disponibilidade {
 	display: flex;
 	gap: 0.5em;
@@ -48,7 +60,7 @@
 
 @media screen and (min-width: 900px) {
 	.adicionador {
-		width: 750px;
+		width: 700px;
 
 		.segunda__linha {
 			display: flex;
