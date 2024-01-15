@@ -102,9 +102,9 @@ export class FiltroComponent implements OnDestroy, OnInit {
 	}
 
 	openEdit() {
-		if (!this.dataService.validaRota(this.rotaAtual)) {
-			return;
-		}
+		// if (!this.dataService.validaRota(this.rotaAtual)) {
+		// 	return;
+		// }
 
 		if (this.search) this.search = false;
 
