@@ -7,7 +7,6 @@ import {
 	EditMusicaDto,
 } from 'src/app/components/filtro/musica/interfaces/musica.interface';
 import { Musica } from 'src/app/components/filtro/musica/models/musica.model';
-import { DataService } from '../data/data.service';
 
 @Injectable({
 	providedIn: 'root',
@@ -16,19 +15,16 @@ export class MusicaService {
 	private readonly API = 'https://localhost:7049/api/Musica';
 	public musicas: Musica[] = [];
 	private listaAtualizada = new Subject<void>();
+	private listaFiltrada = new Subject<void>();
 	public musicaEditada = false;
 	private pageSize = 20;
 
 	constructor(
 		private readonly http: HttpClient,
-		private toastr: ToastrService,
-		private dataService: DataService
+		private toastr: ToastrService
 	) {}
 
-	async getMusicas(
-		page: number,
-		filtro?: string
-	): Promise<Observable<Musica[]>> {
+	async getMusicas(page: number, filtro?: string): Promise<Observable<Musica[]>> {
 		const skip = (page - 1) * this.pageSize;
 		let params = new HttpParams().set('skip', skip).set('take', this.pageSize);
 
@@ -36,17 +32,11 @@ export class MusicaService {
 			params = params.set('nomeMusica', filtro);
 		}
 
-		const url = `${this.API}/listar?${params}`;
-		return this.http.get<Musica[]>(url);
+		return this.http.get<Musica[]>(`${this.API}/listar`, { params: params });
 	}
 
 	getTopFive(): Observable<Musica[]> {
-		return this.http.get<Musica[]>(`${this.API}/listarTopFive`).pipe(
-			tap((musicas: Musica[]) => {
-				this.dataService.listSubject.next(musicas);
-				this.notificarAtualizacao();
-			})
-		);
+		return this.http.get<Musica[]>(`${this.API}/listarTopFive`);
 	}
 
 	getForId(id: number): Observable<Musica> {
@@ -65,7 +55,10 @@ export class MusicaService {
 			}),
 			catchError((error) => {
 				console.log(error);
-				this.toastr.error('Houve um problema para adicionar esta música', 'Erro');
+				this.toastr.error(
+					'Houve um problema para adicionar esta música',
+					'Erro'
+				);
 				return error;
 			})
 		);

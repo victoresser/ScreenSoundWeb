@@ -36,7 +36,6 @@ export class FiltroComponent implements OnDestroy, OnInit {
 	listar = true;
 	edit = false;
 	add = false;
-	filtro = '';
 
 	@Input() musicas: Musica[] = [];
 	@Input() albuns: Album[] = [];
@@ -60,6 +59,7 @@ export class FiltroComponent implements OnDestroy, OnInit {
 				this.listar = true;
 				this.delete = false;
 				this.search = false;
+				this.dataService.armazenaFiltro('');
 			});
 	}
 
@@ -93,7 +93,8 @@ export class FiltroComponent implements OnDestroy, OnInit {
 
 		if (this.edit) this.edit = false;
 
-		this.dataService.armazenaIdSelecionado(0);
+		if (!this.listar) this.listar = !this.listar;
+
 		this.search = !this.search;
 	}
 
@@ -102,9 +103,9 @@ export class FiltroComponent implements OnDestroy, OnInit {
 	}
 
 	openEdit() {
-		// if (!this.dataService.validaRota(this.rotaAtual)) {
-		// 	return;
-		// }
+		if (!this.dataService.validaRota(this.rotaAtual)) {
+			return;
+		}
 
 		if (this.search) this.search = false;
 
@@ -121,11 +122,12 @@ export class FiltroComponent implements OnDestroy, OnInit {
 		this.edit = edit;
 	}
 
-	async onDelete(id: number, rotaAtual: string) {
+	async onDelete(rotaAtual: string) {
+		this.id = this.dataService.obterIdSelecionado();
 		return rotaAtual === '/filtro/musicas'
-			? (await this.musicaService.onDelete(id)).subscribe()
+			? (await this.musicaService.onDelete(this.id!)).subscribe()
 			: rotaAtual === '/filtro/albuns'
-			? (await this.albumService.onDelete(id)).subscribe()
-			: (await this.bandaService.onDelete(id)).subscribe();
+			? (await this.albumService.onDelete(this.id!)).subscribe()
+			: (await this.bandaService.onDelete(this.id!)).subscribe();
 	}
 }

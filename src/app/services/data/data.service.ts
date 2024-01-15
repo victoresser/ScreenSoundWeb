@@ -7,19 +7,14 @@ import { Subject } from 'rxjs';
 	providedIn: 'root',
 })
 export class DataService {
-	public listSubject = new Subject<any[]>();
-	public listaFoiAlterada = false;
 	protected selectedId?: number = 0;
+	public filtro: string = '';
+	private listaFiltrada = new Subject<void>();
 
 	constructor(private toastr: ToastrService) {
 		this.toastr.toastrConfig.preventDuplicates = true;
 		this.toastr.toastrConfig.progressBar = true;
 		this.toastr.toastrConfig.progressAnimation = 'decreasing';
-	}
-
-	notificarAtualizacaoLista() {
-		this.listaFoiAlterada = true;
-		return this.listSubject.asObservable();
 	}
 
 	// Métodos utilitários.
@@ -66,5 +61,14 @@ export class DataService {
 		}
 
 		return true;
+	}
+
+	armazenaFiltro(filtro: string) {
+		this.filtro = filtro;
+		this.listaFiltrada.next();
+	}
+
+	obterFiltro() {
+		return this.filtro;
 	}
 }

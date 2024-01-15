@@ -14,21 +14,31 @@ import { Album } from 'src/app/components/filtro/album/model/album.model';
 export class AlbumService {
 	private API = 'https://localhost:7049/api/Album';
 	private listaSubject = new Subject<void>();
+	private listaFiltrada = new Subject<void>();
 	private pageSize = 20;
 
 	constructor(private http: HttpClient, private toastr: ToastrService) {}
 
-	async getAlbuns(page: number, filtro?: string): Promise<Observable<Album[]>> {
+	async getAlbuns(page: number): Promise<Observable<Album[]>> {
+		const skip = (page - 1) * this.pageSize;
+		const params = new HttpParams()
+			.set('skip', skip)
+			.set('take', this.pageSize);
+
+		return this.http.get<Album[]>(`${this.API}/listar`, {params: params});
+	}
+
+	async onSearch(page: number, filtro?: string) {
 		const skip = (page - 1) * this.pageSize;
 		let params = new HttpParams()
-			.set('skip', skip.toString())
-			.set('take', this.pageSize.toString());
+			.set('skip', skip)
+			.set('take', this.pageSize)
 
 		if (filtro) {
-			params = params.set('nomeMusica', filtro);
+			params = params.set('nome', filtro);
 		}
-		const url = `${this.API}/listar?${params}`;
-		return this.http.get<Album[]>(url);
+
+		return this.http.get<Album[]>(`${this.API}/listar`, {params: params})
 	}
 
 	getTopFive(): Observable<Album[]> {
@@ -39,7 +49,7 @@ export class AlbumService {
 		return this.http.post<Album>(`${this.API}/adicionarAlbum`, album).pipe(
 			tap(() => {
 				this.toastr.success('Álbum adicionado com sucesso', 'Sucesso');
-				this.listaSubject.next();
+				this.notificarAtualizacao();
 			})
 		);
 	}
@@ -63,8 +73,12 @@ export class AlbumService {
 	}
 
 	async onDelete(id: number) {
+		window.confirm('Tem certeza que deseja excluir esta banda?');
 		return this.http.delete<Album>(`${this.API}/excluir/${id}`).pipe(
-			tap(() => this.toastr.warning('Album excluído com sucesso!', 'Atenção')),
+			tap(() => {
+				this.toastr.success('Album excluído com sucesso!', 'Atenção')
+				this.notificarAtualizacao();
+			}),
 			catchError((err) => {
 				const errorMessage = `Erro ao tentar deletar o álbum do id ${id}`;
 				this.toastr.warning(errorMessage, 'Error');

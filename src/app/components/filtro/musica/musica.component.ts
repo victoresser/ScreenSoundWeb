@@ -50,6 +50,10 @@ export class MusicaComponent implements OnInit, OnDestroy {
 	}
 
 	async recarregarLista() {
+		if (this.dataService.obterFiltro()){
+			this.filtro = this.dataService.obterFiltro();
+		}
+
 		(await this.musicaService.getMusicas(this.page, this.filtro)).subscribe(
 			(musicas) => {
 				this.page = 1;

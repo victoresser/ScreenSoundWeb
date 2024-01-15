@@ -37,28 +37,35 @@ export class AlbumComponent implements OnInit {
 		private handle: HandleService,
 		private albumService: AlbumService
 	) {
-		this.albumSubscription = this.albumService.obterAtualizacao()
+		this.albumSubscription = this.albumService
+			.obterAtualizacao()
 			.subscribe(async () => {
-				this.page = 1;
-				this.albuns = []
+				if (this.filtro) {
+					this.filtro = this.dataService.obterFiltro();
+				}
 				await this.recarregarLista();
-			})
+			});
 	}
 
 	async ngOnInit(): Promise<void> {
+		// this.filtro = this.dataService.obterFiltro();
 		await this.carregarAlbuns();
 	}
 
 	private async recarregarLista() {
-		return (await this.albumService.getAlbuns(this.page, this.filtro)).subscribe((albuns) => {
+		return (
+			await this.albumService.getAlbuns(this.page)
+		).subscribe((albuns) => {
 			this.page = 1;
 			this.albuns = [];
 			this.albuns = albuns;
-		})
+		});
 	}
 
 	async carregarAlbuns() {
-		return (await this.albumService.getAlbuns(this.page, this.filtro)).subscribe((album) => {
+		return (
+			await this.albumService.getAlbuns(this.page)
+		).subscribe((album) => {
 			this.albuns = this.albuns.concat(album);
 
 			if (album.length < this.pageSize) {

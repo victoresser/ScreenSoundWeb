@@ -17,26 +17,26 @@ import { BandaService } from 'src/app/services/banda/banda.service';
 export class EditComponent implements OnInit {
 	musica: EditMusicaDto = {
 		id: 0,
-		nomeMusica: '',
+		imagem: '',
 		duracao: 0,
 		nomeAlbum: '',
 		nomeBanda: '',
+		nomeMusica: '',
 		disponivel: false,
-		imagem: '',
 	};
 
 	banda: EditBandaDto = {
 		id: 0,
 		nome: '',
-		descricao: '',
 		imagem: '',
+		descricao: '',
 	};
 
 	album: EditAlbumDto = {
 		id: 0,
 		nome: '',
-		nomeBanda: '',
 		imagem: '',
+		nomeBanda: '',
 	};
 
 	@Input() id?: number = 0;
@@ -66,8 +66,9 @@ export class EditComponent implements OnInit {
 
 	protected async onEdit(entity: any, entityService: any) {
 		entity.id = this.dataService.obterIdSelecionado()!;
-		(await entityService.onEdit(entity)).subscribe();
-		this.onEditChange();
+		(await entityService.onEdit(entity)).subscribe(() => {
+			this.onEditChange();
+		});
 	}
 
 	protected onEditMusica(musica: EditMusicaDto) {

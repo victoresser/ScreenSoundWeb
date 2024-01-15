@@ -54,8 +54,9 @@ export class AddComponent {
 	}
 
 	protected async onAdd(entity: object, entityService: any) {
-		(await entityService.onAdd(entity)).subscribe();
-		this.onAddChange;
+		(await entityService.onAdd(entity)).subscribe(() => {
+			this.onAddChange();
+		});
 	}
 
 	async onAddMusica(musica: CreateMusicaDto) {
