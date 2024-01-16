@@ -1,3 +1,4 @@
+<!-- eslint-disable @angular-eslint/template/elements-content -->
 <div class="pesquisador container__painel" *ngIf="rotaAtual === '/filtro/musicas'">
 	<span class="fechar__janela" (click)="onSearchChange()" (keydown)="handler.handleKeyDownPress($event, onSearchChange)" tabindex="0"></span>
 	<h2 class="titulo">Pesquisar</h2>
@@ -6,7 +7,7 @@
 	<form class="form" (submit)="onSearchMusicas()">
 		<div class="search div__input">
 
-			<input type="text" class="search__input" name="search" required tabindex="1" [(ngModel)]="filtro">
+			<input type="text" class="search__input" name="search" required tabindex="1" (keyup)="onSearchMusicas()" [(ngModel)]="filtro">
 			<label for="form" class="search__label">Música</label>
 
 			<button type="submit" class="pesquisar__button" tabindex="2"></button>
@@ -39,10 +40,10 @@
 
 		<div class="search div__input">
 
-			<input type="text" class="search__input" name="search" required>
+			<input type="text" class="search__input" name="search" required (keyup)="onSearchAlbum()" [(ngModel)]="filtro">
 			<label for="form" class="search__label">Álbum</label>
 
-			<span class="pesquisar__button" tabindex="2"></span>
+			<button type="submit" class="pesquisar__button" tabindex="2"></button>
 
 		</div>
 
@@ -65,10 +66,10 @@
 
 		<div class="search div__input">
 
-			<input type="text" class="search__input" name="search" required tabindex="1">
+			<input type="text" class="search__input" name="search" required tabindex="1" (keyup)="onSearchBanda()" [(ngModel)]="filtro">
 			<label for="form" class="search__label">Artista / Banda</label>
 
-			<span class="pesquisar__button" tabindex="2"></span>
+			<button type="submit" class="pesquisar__button" tabindex="2"></button>
 
 		</div>
 

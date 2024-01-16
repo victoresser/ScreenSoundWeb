@@ -15,6 +15,7 @@ import { Subscription } from 'rxjs';
 export class BandaComponent implements OnInit {
 	bandas: Banda[] = [];
 	listaSubscription = new Subscription();
+	filtroSubscription = new Subscription();
 	handler = this.handle;
 
 	@Input() filtro: string = '';
@@ -40,6 +41,13 @@ export class BandaComponent implements OnInit {
 		this.listaSubscription = this.bandaService
 			.obterAtualizacao()
 			.subscribe(async () => {
+				await this.recarregarLista();
+			});
+
+		this.filtroSubscription = this.dataService
+			.obterFiltroNotification()
+			.subscribe(async () => {
+				this.filtro = this.dataService.obterFiltro();
 				await this.recarregarLista();
 			});
 	}

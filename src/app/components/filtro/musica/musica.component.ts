@@ -12,7 +12,8 @@ import { Subscription } from 'rxjs';
 })
 export class MusicaComponent implements OnInit, OnDestroy {
 	@Input() musicas: Musica[] = [];
-	statusLista = new Subscription();
+	listaSubscription = new Subscription();
+	filtroSubscription = new Subscription();
 
 	@Input() filtro: string = '';
 	@Input() listar = true;
@@ -35,10 +36,15 @@ export class MusicaComponent implements OnInit, OnDestroy {
 		private handle: HandleService,
 		private dataService: DataService
 	) {
-		this.statusLista = this.musicaService.obterAtualizacao()
+		this.listaSubscription = this.musicaService.obterAtualizacao()
 			.subscribe(async () => {
 				await this.recarregarLista();
 			});
+
+		this.filtroSubscription = this.dataService.obterFiltroNotification().subscribe(async () => {
+			this.filtro = this.dataService.obterFiltro();
+			await this.recarregarLista();
+		})
 	}
 
 	async ngOnInit(): Promise<void> {
@@ -46,14 +52,10 @@ export class MusicaComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnDestroy(): void {
-		this.statusLista.unsubscribe();
+		this.listaSubscription.unsubscribe();
 	}
 
 	async recarregarLista() {
-		if (this.dataService.obterFiltro()){
-			this.filtro = this.dataService.obterFiltro();
-		}
-
 		(await this.musicaService.getMusicas(this.page, this.filtro)).subscribe(
 			(musicas) => {
 				this.page = 1;

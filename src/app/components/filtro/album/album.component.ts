@@ -16,6 +16,7 @@ export class AlbumComponent implements OnInit {
 	albuns: Album[] = [];
 	handler = this.handle;
 	albumSubscription = new Subscription();
+	filtroSubscription = new Subscription();
 
 	@Input() filtro: string = '';
 	@Input() listar = true;
@@ -40,32 +41,33 @@ export class AlbumComponent implements OnInit {
 		this.albumSubscription = this.albumService
 			.obterAtualizacao()
 			.subscribe(async () => {
-				if (this.filtro) {
-					this.filtro = this.dataService.obterFiltro();
-				}
+				await this.recarregarLista();
+			});
+
+		this.filtroSubscription = this.dataService
+			.obterFiltroNotification()
+			.subscribe(async () => {
+				this.filtro = this.dataService.obterFiltro();
 				await this.recarregarLista();
 			});
 	}
 
 	async ngOnInit(): Promise<void> {
-		// this.filtro = this.dataService.obterFiltro();
 		await this.carregarAlbuns();
 	}
 
 	private async recarregarLista() {
-		return (
-			await this.albumService.getAlbuns(this.page)
-		).subscribe((albuns) => {
-			this.page = 1;
-			this.albuns = [];
-			this.albuns = albuns;
-		});
+		return (await this.albumService.getAlbuns(this.page, this.filtro)).subscribe(
+			(albuns) => {
+				this.page = 1;
+				this.albuns = [];
+				this.albuns = albuns;
+			}
+		);
 	}
 
 	async carregarAlbuns() {
-		return (
-			await this.albumService.getAlbuns(this.page)
-		).subscribe((album) => {
+		return (await this.albumService.getAlbuns(this.page, this.filtro)).subscribe((album) => {
 			this.albuns = this.albuns.concat(album);
 
 			if (album.length < this.pageSize) {

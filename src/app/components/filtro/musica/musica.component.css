@@ -81,9 +81,9 @@ p {
 }
 
 .container__musica2 {
+	width: 100%;
 	display: flex;
 	flex-direction: column;
-	width: 100%;
 }
 
 .musica__container hr {

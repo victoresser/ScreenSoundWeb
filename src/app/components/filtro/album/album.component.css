@@ -1,120 +1,121 @@
-@import url('../../../../styles.css');
+@import url("../../../../styles.css");
 
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	box-sizing: border-box;
 }
 
 .lista__container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  width: 100%;
-  height: auto;
-  border-radius: 0.5em;
-  background-color: rgba(255, 255, 255, 0.55);
-  box-shadow: 0px 0px 36px 0px rgba(0, 0, 0, 0.45) inset;
-  -webkit-box-shadow: 0px 0px 36px 0px rgba(0, 0, 0, 0.45) inset;
-  -moz-box-shadow: 0px 0px 36px 0px rgba(0, 0, 0, 0.45) inset;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 1);
-  overflow: hidden;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	width: 100%;
+	height: auto;
+	border-radius: 0.5em;
+	background-color: rgba(255, 255, 255, 0.55);
+	box-shadow: 0px 0px 36px 0px rgba(0, 0, 0, 0.45) inset;
+	-webkit-box-shadow: 0px 0px 36px 0px rgba(0, 0, 0, 0.45) inset;
+	-moz-box-shadow: 0px 0px 36px 0px rgba(0, 0, 0, 0.45) inset;
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	border: 1px solid rgba(255, 255, 255, 1);
+	overflow: hidden;
 }
 
 .album {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  -webkit-animation: fade-in-bck 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-  animation: fade-in-bck 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeIn 500ms forwards;
-  transition: transform 0.5s ease;
-}
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	-webkit-animation: fade-in-bck 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+	animation: fade-in-bck 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+	opacity: 0;
+	transform: translateY(20px);
+	animation: fadeIn 500ms forwards;
+	transition: transform 0.5s ease;
 
-.album:hover {
-  background-color: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(5.5px);
-  -webkit-backdrop-filter: blur(5.5px);
-  transition: all ease-in-out 2s both;
-}
+	&:hover {
+		background-color: rgba(255, 255, 255, 0.25);
+		backdrop-filter: blur(5.5px);
+		-webkit-backdrop-filter: blur(5.5px);
+		transition: all ease-in-out 2s both;
+	}
 
-.album:hover .imagem__album {
-  transform: scale(1.1);
-}
+	&:hover .imagem__album {
+		transform: scale(1.1);
+	}
 
-.album:hover .descricoes {
-  color: var(--verde-escuro);
-}
+	&:hover .descricoes {
+		color: var(--verde-escuro);
+	}
 
-.container__album {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  width: 166px;
-  height: 100%;
-}
+	.container__album {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		width: 160px;
+		height: 100%;
+		gap: 0.3em;
 
-.container__album p {
-  color: var(--fundo);
-  margin: 0;
-}
+		p {
+			color: var(--fundo);
+			margin: 0;
+		}
+	}
 
-.album__container {
-  display: flex;
-  align-items: center;
-  padding: .5em;
-}
+	.album__container {
+		display: flex;
+		align-items: center;
+		padding: 0.5em;
 
-.album__container hr {
-  height: 100%;
-  width: 2px;
-  background-color: white;
-  margin: 0.5em;
-}
+		hr {
+			height: 100%;
+			width: 2px;
+			background-color: white;
+			margin: 0.5em;
+		}
+	}
 
-.imagem__album {
-  height: 100px;
-  width: 100px;
-  border-radius: 0.5em;
-  transition: transform 0.5s ease;
-}
+	.imagem__album {
+		height: 100px;
+		width: 100px;
+		border-radius: 0.5em;
+		transition: transform 0.5s ease;
+	}
 
-.descricoes {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  color: var(--fundo);
-  transition: transform 0.5s ease;
-}
+	.descricoes {
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		color: var(--fundo);
+		transition: transform 0.5s ease;
+	}
 
-.separador__album {
-  width: 100%;
-  height: 2px;
+	.separador__album {
+		width: 100%;
+		height: 2px;
+	}
 }
 
 app-footer {
-  margin-top: .5em;
-  width: 100%;
+	margin-top: 0.5em;
+	width: 100%;
 }
 
 @keyframes fadeIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
 @keyframes scale-up-center {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.01);
-  }
+	0% {
+		transform: scale(1);
+	}
+	100% {
+		transform: scale(1.01);
+	}
 }

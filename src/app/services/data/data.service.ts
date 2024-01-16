@@ -71,4 +71,12 @@ export class DataService {
 	obterFiltro() {
 		return this.filtro;
 	}
+
+	public notificarFiltro() {
+		this.listaFiltrada.next();
+	}
+
+	public obterFiltroNotification() {
+		return this.listaFiltrada.asObservable();
+	}
 }

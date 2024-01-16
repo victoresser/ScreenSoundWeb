@@ -8,6 +8,9 @@ import { EditAlbumDto } from '../album/interfaces/album.interface';
 import { DataService } from 'src/app/services/data/data.service';
 import { AlbumService } from 'src/app/services/album/album.service';
 import { BandaService } from 'src/app/services/banda/banda.service';
+import { Banda } from '../banda/models/banda.model';
+import { Album } from '../album/model/album.model';
+import { Musica } from '../musica/models/musica.model';
 
 @Component({
 	selector: 'app-edit',
@@ -15,24 +18,28 @@ import { BandaService } from 'src/app/services/banda/banda.service';
 	styleUrl: './edit.component.css',
 })
 export class EditComponent implements OnInit {
-	musica: EditMusicaDto = {
+	musica!: Musica;
+	banda!: Banda;
+	album!: Album;
+
+	musicaDto: EditMusicaDto = {
 		id: 0,
 		imagem: '',
 		duracao: 0,
 		nomeAlbum: '',
 		nomeBanda: '',
 		nomeMusica: '',
-		disponivel: false,
+		disponivel: true,
 	};
 
-	banda: EditBandaDto = {
+	bandaDto: EditBandaDto = {
 		id: 0,
 		nome: '',
 		imagem: '',
 		descricao: '',
 	};
 
-	album: EditAlbumDto = {
+	albumDto: EditAlbumDto = {
 		id: 0,
 		nome: '',
 		imagem: '',
@@ -71,7 +78,11 @@ export class EditComponent implements OnInit {
 		});
 	}
 
-	protected onEditMusica(musica: EditMusicaDto) {
+	protected async onEditMusica(musica: EditMusicaDto) {
+
+		(await this.musicaService.getForId(this.id!)).subscribe((res) => {
+			this.musica = res;
+		});
 		this.onEdit(musica, this.musicaService);
 	}
 

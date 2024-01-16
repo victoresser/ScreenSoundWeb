@@ -19,26 +19,17 @@ export class AlbumService {
 
 	constructor(private http: HttpClient, private toastr: ToastrService) {}
 
-	async getAlbuns(page: number): Promise<Observable<Album[]>> {
-		const skip = (page - 1) * this.pageSize;
-		const params = new HttpParams()
-			.set('skip', skip)
-			.set('take', this.pageSize);
-
-		return this.http.get<Album[]>(`${this.API}/listar`, {params: params});
-	}
-
-	async onSearch(page: number, filtro?: string) {
+	async getAlbuns(page: number, filtro?: string): Promise<Observable<Album[]>> {
 		const skip = (page - 1) * this.pageSize;
 		let params = new HttpParams()
 			.set('skip', skip)
-			.set('take', this.pageSize)
+			.set('take', this.pageSize);
 
 		if (filtro) {
-			params = params.set('nome', filtro);
+			params = params.set('nomeAlbum', filtro);
 		}
 
-		return this.http.get<Album[]>(`${this.API}/listar`, {params: params})
+		return this.http.get<Album[]>(`${this.API}/listar`, { params: params });
 	}
 
 	getTopFive(): Observable<Album[]> {
@@ -76,7 +67,7 @@ export class AlbumService {
 		window.confirm('Tem certeza que deseja excluir esta banda?');
 		return this.http.delete<Album>(`${this.API}/excluir/${id}`).pipe(
 			tap(() => {
-				this.toastr.success('Album excluído com sucesso!', 'Atenção')
+				this.toastr.success('Album excluído com sucesso!', 'Atenção');
 				this.notificarAtualizacao();
 			}),
 			catchError((err) => {

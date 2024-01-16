@@ -100,7 +100,7 @@ export class MusicaService {
 		this.listaAtualizada.next();
 	}
 
-	obterAtualizacao(): Observable<void> {
+	obterAtualizacao() {
 		return this.listaAtualizada.asObservable();
 	}
 

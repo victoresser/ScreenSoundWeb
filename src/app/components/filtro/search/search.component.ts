@@ -48,19 +48,16 @@ export class SearchComponent implements OnInit {
 
 	onSearchChange() {
 		this.search = !this.search;
-		this.filtro = '';
+		this.dataService.armazenaFiltro('');
 		this.searchChange.emit(this.search);
 	}
 
 	async onSearch(filtro: string, entityService: any) {
-		filtro = this.dataService.obterFiltro();
-		return (await entityService.onSearch(1, filtro)).subscribe(() => {
-			this.onSearchChange();
-		});
+		this.dataService.armazenaFiltro(filtro);
+		entityService.notificarFiltro();
 	}
 
 	onSearchMusicas() {
-		this.dataService.armazenaFiltro(this.filtro);
 		return this.onSearch(this.filtro, this.musicaService);
 	}
 
