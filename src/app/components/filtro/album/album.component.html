@@ -9,33 +9,34 @@
 			<div class="album__container" (click)="idSelecionado(album.id);" (keydown)="handler.handleKeyDownPress($event, idSelecionado)" tabindex="1">
 
         <div class="container__album">
+					<img
+						[src]="album.imagem ? album.imagem : imagemNaoEncontrada"
+						[alt]="album.nome"
+						class="imagem__album"
+						(mouseover)="onMouseOver(i)"
+						(mouseout)="onMouseOut()"
+						[class.animate]="isHovered === i"
+						(focus)="onMouseOver(i)"
+						(blur)="onMouseOut()"
+					/>
 
-          <img
-					[src]="album.imagem ? album.imagem : imagemNaoEncontrada"
-					[alt]="album.nome" class="imagem__album"
-					(mouseover)="onMouseOver(i)"
-					(mouseout)="onMouseOut()"
-					[class.animate]="isHovered === i"
-					(focus)="onMouseOver(i)"
-					(blur)="onMouseOut()"/>
+					<div>
+						<b style="font-weight: bold; color: black;">{{ album.banda }}</b>
+					</div>
 
-          <p>
-            <b>{{ album.banda }}</b>
-          </p>
+				</div>
 
-        </div>
+				<hr />
 
-        <hr />
+				<div class="descricoes">
 
-        <p class="descricoes">
+					<b class="nome__album">{{ album.nome }}</b>
 
-          <b>{{ album.nome }}</b>
+				</div>
 
-        </p>
+			</div>
 
-      </div>
-
-      <hr class="separador__album" />
+			<hr class="separador__album" />
 
     </div>
 		<infinite-scroll infinite-scroll [infiniteScrollDistance]="scrollDistance" [infiniteScrollUpDistance]="scrollUpDistance" *ngIf="hasMoreData" (scrolled)="onScroll()"></infinite-scroll>

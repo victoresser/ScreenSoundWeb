@@ -36,15 +36,19 @@ export class MusicaComponent implements OnInit, OnDestroy {
 		private handle: HandleService,
 		private dataService: DataService
 	) {
-		this.listaSubscription = this.musicaService.obterAtualizacao()
+		this.listaSubscription = this.musicaService
+			.obterAtualizacao()
 			.subscribe(async () => {
 				await this.recarregarLista();
 			});
 
-		this.filtroSubscription = this.dataService.obterFiltroNotification().subscribe(async () => {
-			this.filtro = this.dataService.obterFiltro();
-			await this.recarregarLista();
-		})
+		this.filtroSubscription = this.dataService
+			.obterFiltroNotification()
+			.subscribe(async () => {
+				this.page = 1;
+				this.filtro = this.dataService.obterFiltro();
+				await this.recarregarLista();
+			});
 	}
 
 	async ngOnInit(): Promise<void> {
@@ -60,6 +64,7 @@ export class MusicaComponent implements OnInit, OnDestroy {
 			(musicas) => {
 				this.page = 1;
 				this.musicas = [];
+				this.hasMoreData = true;
 				this.musicas = musicas;
 			}
 		);
@@ -95,6 +100,7 @@ export class MusicaComponent implements OnInit, OnDestroy {
 
 	onScroll(): void {
 		this.page++;
+		console.log(`Página: ${this.page}`);
 		this.carregarMusicas();
 	}
 

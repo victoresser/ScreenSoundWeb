@@ -62,6 +62,7 @@ export class BandaComponent implements OnInit {
 		).subscribe((bandas) => {
 			this.page = 1;
 			this.bandas = [];
+			this.hasMoreData = true;
 			this.bandas = bandas;
 		});
 	}

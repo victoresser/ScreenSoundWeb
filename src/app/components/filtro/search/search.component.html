@@ -7,7 +7,7 @@
 	<form class="form" (submit)="onSearchMusicas()">
 		<div class="search div__input">
 
-			<input type="text" class="search__input" name="search" required tabindex="1" (keyup)="onSearchMusicas()" [(ngModel)]="filtro">
+			<input type="text" class="search__input" name="search" required tabindex="1" [(ngModel)]="filtro">
 			<label for="form" class="search__label">Música</label>
 
 			<button type="submit" class="pesquisar__button" tabindex="2"></button>
@@ -40,7 +40,7 @@
 
 		<div class="search div__input">
 
-			<input type="text" class="search__input" name="search" required (keyup)="onSearchAlbum()" [(ngModel)]="filtro">
+			<input type="text" class="search__input" name="search" required [(ngModel)]="filtro">
 			<label for="form" class="search__label">Álbum</label>
 
 			<button type="submit" class="pesquisar__button" tabindex="2"></button>
@@ -66,7 +66,7 @@
 
 		<div class="search div__input">
 
-			<input type="text" class="search__input" name="search" required tabindex="1" (keyup)="onSearchBanda()" [(ngModel)]="filtro">
+			<input type="text" class="search__input" name="search" required tabindex="1" [(ngModel)]="filtro">
 			<label for="form" class="search__label">Artista / Banda</label>
 
 			<button type="submit" class="pesquisar__button" tabindex="2"></button>
