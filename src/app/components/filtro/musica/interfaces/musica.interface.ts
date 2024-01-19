@@ -1,5 +1,5 @@
 export interface CreateMusicaDto {
-	nomeMusica: string;
+	nome: string;
 	duracao: number;
 	disponivel: boolean;
 	nomeBanda: string;

@@ -285,6 +285,7 @@ h3 {
 			background-color: transparent;
 			font-family: var(--ff-quicksand);
 			border: 1px solid var(--cor-principal);
+			margin-top: 2em;
 
 			&:hover,
 			&:focus {

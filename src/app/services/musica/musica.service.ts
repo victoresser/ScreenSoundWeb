@@ -105,7 +105,7 @@ export class MusicaService {
 	}
 
 	validateMusica(musica: CreateMusicaDto): boolean {
-		if (!musica.nomeMusica.trim()) {
+		if (!musica.nome.trim()) {
 			this.toastr.warning(
 				'O nome da música não pode ser vazío, por favor, informe um nome para à música.',
 				'Atenção'

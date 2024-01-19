@@ -7,6 +7,7 @@ import { BandaService } from 'src/app/services/banda/banda.service';
 import { AlbumService } from 'src/app/services/album/album.service';
 import { CreateAlbumDto } from '../album/interfaces/album.interface';
 import { CreateBandaDto } from '../banda/interface/banda.interface';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
 	selector: 'app-add',
@@ -15,9 +16,11 @@ import { CreateBandaDto } from '../banda/interface/banda.interface';
 })
 export class AddComponent {
 	handler = this.handle;
+	imagem?: File;
+	nenhumaImagem = '../../../../assets/musicas/nenhuma-imagem.png';
 
 	public musica: CreateMusicaDto = {
-		nomeMusica: '',
+		nome: '',
 		duracao: 0,
 		nomeBanda: '',
 		nomeAlbum: '',
@@ -43,6 +46,7 @@ export class AddComponent {
 
 	constructor(
 		private handle: HandleService,
+		private toastr: ToastrService,
 		private musicaService: MusicaService,
 		private bandaService: BandaService,
 		private albumService: AlbumService
@@ -53,6 +57,40 @@ export class AddComponent {
 		this.addChange.emit(this.add);
 	}
 
+	onImageChange(event: any) {
+		const file: File = event.target.files[0];
+
+		if (file) {
+			this.imagem = file;
+			const reader = new FileReader();
+
+			reader.onload = (e: any) => {
+				this.imagem = e.target.result;
+			};
+
+			reader.readAsDataURL(file);
+		}
+	}
+
+	private async onFileSelected(dto: any, entity: string) {
+		if (dto) {
+			const url = this.formataNomeCamelCase(dto.nome, entity);
+			dto.imagem = url;
+
+			console.log(`Camingo da imagem: ${dto.imagem}`);
+			this.toastr.info(`Url de imagem alterada para ${url}`, 'Caminho da imagem alterado!');
+		}
+
+		return;
+	}
+
+	private formataNomeCamelCase(nome: string, entity: string) {
+		const format = nome;
+		const nomeFormatado = format.replace(/\s+(\w)/g, (_, p1) => p1.toUpperCase());
+		const url = `../../../../assets/${entity}/${nomeFormatado}`;
+		return url;
+	}
+
 	protected async onAdd(entity: object, entityService: any) {
 		(await entityService.onAdd(entity)).subscribe(() => {
 			this.onAddChange();
@@ -60,16 +98,18 @@ export class AddComponent {
 	}
 
 	async onAddMusica(musica: CreateMusicaDto) {
-		if (!this.musicaService.validateMusica(musica))
-			return this.onAddChange();
-		await this.onAdd(musica, this.musicaService);
+		// if (!this.musicaService.validateMusica(musica)) return this.onAddChange();
+		await this.onFileSelected(musica, 'musicas');
+		// return await this.onAdd(musica, this.musicaService);
 	}
 
 	async onAddAlbum(album: CreateAlbumDto) {
-		await this.onAdd(album, this.albumService);
+		await this.onFileSelected(album, 'albuns');
+		return await this.onAdd(album, this.albumService);
 	}
 
 	async onAddBanda(banda: CreateBandaDto) {
-		await this.onAdd(banda, this.bandaService);
+		await this.onFileSelected(banda, 'bandas');
+		return await this.onAdd(banda, this.bandaService);
 	}
 }

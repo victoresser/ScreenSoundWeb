@@ -8,7 +8,7 @@
 	<form class="form" (submit)="onAddMusica(musica)" #form="ngForm">
 
 		<div class="nome div__input">
-			<input type="text" id="nome" name="musica.nome" class="nome__input" required [(ngModel)]="musica.nomeMusica">
+			<input type="text" id="nome" name="musica.nome" class="nome__input" required [(ngModel)]="musica.nome">
 			<label for="nome" class="nome__label">Nome</label>
 		</div>
 
@@ -29,15 +29,27 @@
 			</div>
 		</div>
 
-		<div class="disponibilidade">
-			<div class="toggle">
-				<input type="checkbox" id="disponibilidade" name="musica.disponivel" [(ngModel)]="musica.disponivel"/>
-				<label for="disponibilidade"></label>
+		<div class="container__disponibilidadeImagem">
+			<div class="container__disponibilidade__imagem">
+				<div class="disponibilidade">
+					<div class="toggle">
+						<input type="checkbox" id="disponibilidade" name="musica.disponivel" [(ngModel)]="musica.disponivel"/>
+						<label for="disponibilidade"></label>
+					</div>
+					<p>Disponível no Plano Basic?</p>
+				</div>
+
+				<div class="imagem div__input">
+						<input type="file" id="imagem" name="musica.imagem" class="imagem__input" (change)="onImageChange($event)" accept="image/*" [(ngModel)]="imagem">
+						<label for="imagem" class="imagem__label">Capa da Música</label>
+				</div>
 			</div>
-			<p>Disponível no Plano Basic?</p>
+
+			<img [src]="this.imagem ? this.imagem : nenhumaImagem" [alt]="musica.nome" class="imagem__preview">
 		</div>
 
 		<div class="button">
+			<button type="reset" class="button__submit limpar">Limpar Campos</button>
 			<button type="submit" class="button__submit">Adicionar</button>
 		</div>
 
