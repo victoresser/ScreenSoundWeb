@@ -24,7 +24,10 @@ export class MusicaService {
 		private toastr: ToastrService
 	) {}
 
-	async getMusicas(page: number, filtro?: string): Promise<Observable<Musica[]>> {
+	async getMusicas(
+		page: number,
+		filtro?: string
+	): Promise<Observable<Musica[]>> {
 		const skip = (page - 1) * this.pageSize;
 		let params = new HttpParams().set('skip', skip).set('take', this.pageSize);
 
@@ -39,12 +42,16 @@ export class MusicaService {
 		return this.http.get<Musica[]>(`${this.API}/listarTopFive`);
 	}
 
-	getForId(id: number): Observable<Musica> {
+	async getForId(id: number) {
 		return this.http.get<Musica>(`${this.API}/listar/${id}`).pipe(
 			tap(() => {
 				this.notificarAtualizacao();
 			})
 		);
+	}
+
+	async saveImage(id: number, imagem: File) {
+		return this.http.post(`${this.API}/salvarImagem/${id}`, imagem);
 	}
 
 	async onAdd(musica: CreateMusicaDto) {

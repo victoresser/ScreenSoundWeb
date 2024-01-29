@@ -4,11 +4,13 @@ import { HandleService } from 'src/app/services/common/handle.service';
 import { MusicaService } from 'src/app/services/musica/musica.service';
 import { DataService } from 'src/app/services/data/data.service';
 import { Subscription } from 'rxjs';
+import { hoverAnimation, fadeIn } from 'src/app/animations';
 
 @Component({
 	selector: 'app-musica',
 	templateUrl: './musica.component.html',
 	styleUrls: ['./musica.component.css'],
+	animations: [hoverAnimation, fadeIn]
 })
 export class MusicaComponent implements OnInit, OnDestroy {
 	@Input() musicas: Musica[] = [];
@@ -84,7 +86,7 @@ export class MusicaComponent implements OnInit, OnDestroy {
 
 	tratarDisponibilidade(disponivel?: boolean): string {
 		if (disponivel) {
-			return 'Disponível no plano basic';
+			return 'Disponível no plano Basic';
 		} else {
 			return 'Disponível no plano Plus+';
 		}

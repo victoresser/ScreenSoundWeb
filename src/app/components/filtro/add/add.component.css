@@ -4,6 +4,7 @@
 	position: relative;
 	font-family: var(--ff-quicksand);
 	width: 100%;
+	border: 1px solid var(--cor-principal);
 
 	.segunda__linha {
 		gap: 0.5em;
@@ -59,6 +60,25 @@
 	}
 }
 
+.container__disponibilidadeImagem {
+	display: flex;
+	gap: 0.5em;
+	margin-bottom: 2.5rem;
+
+	.container__disponibilidade__imagem {
+		display: flex;
+		flex-direction: column;
+		gap: .5em;
+		width: 100%;
+	}
+
+	.imagem__preview {
+		width: 100px;
+		height: 100px;
+		border-radius: .5em;
+	}
+}
+
 @media screen and (min-width: 900px) {
 	.adicionador {
 		width: 700px;
@@ -97,6 +117,7 @@
 			.container__disponibilidadeImagem {
 				display: flex;
 				gap: 0.5em;
+				margin-bottom: 2.5rem;
 
 				.container__disponibilidade__imagem {
 					display: flex;

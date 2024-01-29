@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { hoverAnimation } from 'src/app/animations';
 
 @Component({
 	selector: 'app-downloads',
 	templateUrl: './downloads.component.html',
 	styleUrls: ['./downloads.component.css'],
+	animations: [hoverAnimation]
 })
 export class DownloadsComponent {
 	constructor(private toastr: ToastrService) {}

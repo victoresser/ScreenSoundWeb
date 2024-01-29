@@ -22,6 +22,8 @@ import { AddComponent } from './components/filtro/add/add.component';
 import { EditComponent } from './components/filtro/edit/edit.component';
 import { SearchComponent } from './components/filtro/search/search.component';
 import { FiltroComponent } from './components/filtro/filtro.component';
+import { ExcluirModalComponent } from './components/filtro/modal/excluir-modal/excluir-modal.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
 	declarations: [
@@ -39,9 +41,11 @@ import { FiltroComponent } from './components/filtro/filtro.component';
 		AddComponent,
 		EditComponent,
 		SearchComponent,
-		FiltroComponent
+		FiltroComponent,
+		ExcluirModalComponent,
 	],
 	imports: [
+		MatFormFieldModule,
 		BrowserModule,
 		HttpClientModule,
 		AppRoutingModule,

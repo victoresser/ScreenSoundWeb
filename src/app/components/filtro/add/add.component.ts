@@ -7,7 +7,6 @@ import { BandaService } from 'src/app/services/banda/banda.service';
 import { AlbumService } from 'src/app/services/album/album.service';
 import { CreateAlbumDto } from '../album/interfaces/album.interface';
 import { CreateBandaDto } from '../banda/interface/banda.interface';
-import { ToastrService } from 'ngx-toastr';
 
 @Component({
 	selector: 'app-add',
@@ -46,7 +45,6 @@ export class AddComponent {
 
 	constructor(
 		private handle: HandleService,
-		private toastr: ToastrService,
 		private musicaService: MusicaService,
 		private bandaService: BandaService,
 		private albumService: AlbumService
@@ -78,7 +76,7 @@ export class AddComponent {
 			dto.imagem = url;
 
 			console.log(`Camingo da imagem: ${dto.imagem}`);
-			this.toastr.info(`Url de imagem alterada para ${url}`, 'Caminho da imagem alterado!');
+			// this.toastr.info(`Url de imagem alterada para ${url}`, 'Caminho da imagem alterado!');
 		}
 
 		return;
@@ -87,7 +85,7 @@ export class AddComponent {
 	private formataNomeCamelCase(nome: string, entity: string) {
 		const format = nome;
 		const nomeFormatado = format.replace(/\s+(\w)/g, (_, p1) => p1.toUpperCase());
-		const url = `../../../../assets/${entity}/${nomeFormatado}`;
+		const url = `../../../../assets/${entity}/${nomeFormatado.charAt(0).toLocaleLowerCase()}.png`;
 		return url;
 	}
 
@@ -98,9 +96,9 @@ export class AddComponent {
 	}
 
 	async onAddMusica(musica: CreateMusicaDto) {
-		// if (!this.musicaService.validateMusica(musica)) return this.onAddChange();
+		if (!this.musicaService.validateMusica(musica)) return this.onAddChange();
 		await this.onFileSelected(musica, 'musicas');
-		// return await this.onAdd(musica, this.musicaService);
+		return await this.onAdd(musica, this.musicaService);
 	}
 
 	async onAddAlbum(album: CreateAlbumDto) {

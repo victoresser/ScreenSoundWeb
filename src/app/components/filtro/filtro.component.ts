@@ -17,6 +17,7 @@ import { DataService } from 'src/app/services/data/data.service';
 import { MusicaService } from 'src/app/services/musica/musica.service';
 import { AlbumService } from 'src/app/services/album/album.service';
 import { BandaService } from 'src/app/services/banda/banda.service';
+import { ModalService } from 'src/app/services/common/modal.service';
 
 @Component({
 	selector: 'app-filtro',
@@ -47,7 +48,8 @@ export class FiltroComponent implements OnDestroy, OnInit {
 		private albumService: AlbumService,
 		private bandaService: BandaService,
 		private musicaService: MusicaService,
-		private routeChangeService: RouteChangeService
+		private routeChangeService: RouteChangeService,
+		private modalService: ModalService
 	) {
 		this.routerSubscription = this.routeChangeService
 			.getRouteChangeObservable()

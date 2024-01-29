@@ -126,10 +126,9 @@ app-footer {
 
 @media screen and (min-width: 980px) {
 	.lista__container {
-		justify-content: flex-start;
-		padding: .5em;
+		justify-content: space-between;
 		max-width: 855px;
-		gap: .5em;
+		padding: .5rem;
 	}
 
 	.separador__album {
@@ -152,8 +151,13 @@ app-footer {
 
 @media screen and (min-width: 1690px) {
 	.lista__container {
-		justify-content: flex-start;
-		min-width: 1642px;
-		gap: .5em;
+		justify-content: center;
+		max-width: 1600px;
+		padding: .3em;
+	}
+
+	.album {
+		margin: .2rem;
+		width: 390px;
 	}
 }

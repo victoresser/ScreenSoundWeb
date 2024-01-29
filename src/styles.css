@@ -177,22 +177,23 @@ h3 {
 			background: transparent;
 			border-bottom: 1px solid var(--primary-dark);
 			transition: all 0.4s ease both;
-		}
+			cursor: default;
 
-		input:focus {
-			border-bottom: 2px solid var(--cor-principal);
-			-webkit-animation: scale-up-hor-center 0.4s
-				cubic-bezier(0.39, 0.575, 0.565, 1) both;
-			animation: scale-up-hor-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1)
-				both;
-		}
+			&:focus {
+				border-bottom: 2px solid var(--cor-principal);
+				/* -webkit-animation: scale-up-hor-center 0.4s
+					cubic-bezier(0.39, 0.575, 0.565, 1) both; */
+				/* animation: scale-up-hor-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1)
+					both; */
+			}
 
-		input:focus ~ label,
-		input:valid ~ label {
-			left: 0;
-			top: -20px;
-			font-size: 12px;
-			color: var(--primary-light);
+			&:focus ~ label,
+			&:valid ~ label {
+				left: 0;
+				top: -20px;
+				font-size: 12px;
+				color: var(--primary-light);
+			}
 		}
 
 		label {
@@ -272,6 +273,7 @@ h3 {
 	.button {
 		display: flex;
 		justify-content: flex-end;
+		gap: .5em;
 
 		.button__submit {
 			width: 100px;
@@ -285,13 +287,16 @@ h3 {
 			background-color: transparent;
 			font-family: var(--ff-quicksand);
 			border: 1px solid var(--cor-principal);
-			margin-top: 2em;
 
 			&:hover,
 			&:focus {
 				box-shadow: 0 0.5em 0.5em -0.4em var(--cor-principal);
 				transform: translateY(-0.25em);
 			}
+		}
+
+		.limpar {
+			width: 135px;
 		}
 	}
 }
@@ -336,11 +341,13 @@ h3 {
 		width: 16px;
 		left: 2px;
 		top: 2px;
+
+		&:hover {
+			scale: 1.1;
+		}
 	}
 
-	.fechar__janela:hover {
-		scale: 1.1;
-	}
+
 }
 
 @media screen and (min-width: 900px) {
@@ -369,3 +376,11 @@ h3 {
 		transform: scaleX(1);
 	}
 }
+
+@keyframes fadeIn {
+	from { opacity: 0; }
+	to   { opacity: 1; animation-timing-function: ease; }
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

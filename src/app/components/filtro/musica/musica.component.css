@@ -50,13 +50,14 @@ p {
 	}
 
 	&:hover .imagem__musica {
-		transition: scale(1.1);
+		transform: scale(1.1);
 	}
 
 	&:hover .nome__musica {
-		color: #55a162;
-		animation: scale-up-center 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-			alternate both;
+		color: var(--verde-escuro);
+		font-weight: bold;
+		/* animation: scale-up-center 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+			alternate both; */
 	}
 
 	.musica__container {
@@ -98,18 +99,31 @@ p {
 			display: flex;
 			flex-direction: column;
 
-			.nome__musica {
-				display: flex;
-				margin: 0.5em;
-				font-size: 100%;
-				color: var(--fundo);
-				word-wrap: break-word;
+			&:hover .nome__musica {
+				color: var(--verde-escuro);
 				font-weight: bold;
-				font-family: var(--ff-montserrat);
 			}
 
-			.descricoes {
-				margin: 0 0.5em;
+			.nome__musica {
+				display: flex;
+				font-size: 100%;
+				margin: 1rem .5rem;
+				word-wrap: break-word;
+				/* color: var(--fundo); */
+				/* font-weight: bold; */
+				font-family: var(--ff-quicksand);
+			}
+
+			p {
+				font-size: 14px;
+				margin-left: .5rem;
+			}
+
+			.descricao {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				font-size: 12px;
 			}
 		}
 
@@ -138,10 +152,9 @@ p {
 
 @media screen and (min-width: 980px) {
 	.lista__container {
-		justify-content: flex-start;
+		justify-content: space-between;
 		padding: 0.5em;
 		max-width: 855px;
-		gap: 0.5em;
 	}
 
 	.separador__musica {
@@ -151,10 +164,10 @@ p {
 	.musica {
 		height: 100%;
 		width: 400px;
-	}
 
-	.musica:hover {
-		border-radius: 0.5em;
+		&:hover {
+			border-radius: 0.5em;
+		}
 	}
 
 	.musica__container {
@@ -173,8 +186,13 @@ p {
 
 @media screen and (min-width: 1690px) {
 	.lista__container {
-		justify-content: flex-start;
-		min-width: 1642px;
-		gap: 0.5em;
+		justify-content: center;
+		padding: .3em;
+		max-width: 1600px;
+	}
+
+	.musica {
+		margin: .2rem;
+		width: 390px;
 	}
 }
