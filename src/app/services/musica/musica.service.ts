@@ -15,7 +15,6 @@ export class MusicaService {
 	private readonly API = 'https://localhost:7049/api/Musica';
 	public musicas: Musica[] = [];
 	private listaAtualizada = new Subject<void>();
-	private listaFiltrada = new Subject<void>();
 	public musicaEditada = false;
 	private pageSize = 20;
 

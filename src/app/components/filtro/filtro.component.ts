@@ -75,9 +75,7 @@ export class FiltroComponent implements OnDestroy, OnInit {
 	}
 
 	openAdd() {
-		if (this.listar) this.listar = !this.listar;
-
-		if (!this.listar) this.listar = !this.listar;
+		this.listar = !this.listar;
 
 		if (this.search) this.search = !this.search;
 
