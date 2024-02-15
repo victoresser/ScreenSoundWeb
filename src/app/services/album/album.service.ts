@@ -14,16 +14,13 @@ import { Album } from 'src/app/components/filtro/album/model/album.model';
 export class AlbumService {
 	private API = 'https://localhost:7049/api/Album';
 	private listaSubject = new Subject<void>();
-	private listaFiltrada = new Subject<void>();
 	private pageSize = 20;
 
 	constructor(private http: HttpClient, private toastr: ToastrService) {}
 
 	async getAlbuns(page: number, filtro?: string): Promise<Observable<Album[]>> {
 		const skip = (page - 1) * this.pageSize;
-		let params = new HttpParams()
-			.set('skip', skip)
-			.set('take', this.pageSize);
+		let params = new HttpParams().set('skip', skip).set('take', this.pageSize);
 
 		if (filtro) {
 			params = params.set('nomeAlbum', filtro);

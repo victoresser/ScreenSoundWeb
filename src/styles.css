@@ -273,7 +273,7 @@ h3 {
 	.button {
 		display: flex;
 		justify-content: flex-end;
-		gap: .5em;
+		gap: 0.5em;
 
 		.button__submit {
 			width: 100px;
@@ -346,8 +346,6 @@ h3 {
 			scale: 1.1;
 		}
 	}
-
-
 }
 
 @media screen and (min-width: 900px) {
@@ -378,9 +376,20 @@ h3 {
 }
 
 @keyframes fadeIn {
-	from { opacity: 0; }
-	to   { opacity: 1; animation-timing-function: ease; }
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+		animation-timing-function: ease;
+	}
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+	height: 100%;
+}
+body {
+	margin: 0;
+	font-family: Roboto, "Helvetica Neue", sans-serif;
+}

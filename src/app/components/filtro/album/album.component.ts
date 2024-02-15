@@ -57,17 +57,19 @@ export class AlbumComponent implements OnInit {
 	}
 
 	private async recarregarLista() {
-		return (await this.albumService.getAlbuns(this.page, this.filtro)).subscribe(
-			(albuns) => {
-				this.page = 1;
-				this.albuns = [];
-				this.albuns = albuns;
-			}
-		);
+		return (
+			await this.albumService.getAlbuns(this.page, this.filtro)
+		).subscribe((albuns) => {
+			this.page = 1;
+			this.albuns = [];
+			this.albuns = albuns;
+		});
 	}
 
 	async carregarAlbuns() {
-		return (await this.albumService.getAlbuns(this.page, this.filtro)).subscribe((album) => {
+		return (
+			await this.albumService.getAlbuns(this.page, this.filtro)
+		).subscribe((album) => {
 			this.albuns = this.albuns.concat(album);
 
 			if (album.length < this.pageSize) {

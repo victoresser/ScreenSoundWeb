@@ -13,7 +13,10 @@ export class AppComponent implements OnInit, OnDestroy {
 	routeChangeSubscription: Subscription = new Subscription();
 	currentRoute: string | undefined;
 
-	constructor(private routeChangeService: RouteChangeService, private dataService: DataService) {}
+	constructor(
+		private routeChangeService: RouteChangeService,
+		private dataService: DataService
+	) {}
 
 	ngOnInit() {
 		this.routeChangeSubscription = this.routeChangeService

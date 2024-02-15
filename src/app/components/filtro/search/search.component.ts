@@ -1,12 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { AlbumService } from 'src/app/services/album/album.service';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Subscription, filter } from 'rxjs';
 import { RouteChangeService } from 'src/app/services/routes/route-change.service';
 import { HandleService } from 'src/app/services/common/handle.service';
 import { DataService } from 'src/app/services/data/data.service';
-import { MusicaService } from 'src/app/services/musica/musica.service';
-import { BandaService } from 'src/app/services/banda/banda.service';
 
 @Component({
 	selector: 'app-search',
@@ -28,9 +25,6 @@ export class SearchComponent implements OnInit {
 	constructor(
 		private routeChangeService: RouteChangeService,
 		private dataService: DataService,
-		private musicaService: MusicaService,
-		private bandaService: BandaService,
-		private albumService: AlbumService,
 		private handle: HandleService
 	) {
 		this.routerSubscription = this.routeChangeService

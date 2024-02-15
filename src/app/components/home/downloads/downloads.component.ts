@@ -6,15 +6,27 @@ import { hoverAnimation } from 'src/app/animations';
 	selector: 'app-downloads',
 	templateUrl: './downloads.component.html',
 	styleUrls: ['./downloads.component.css'],
-	animations: [hoverAnimation]
+	animations: [hoverAnimation],
 })
 export class DownloadsComponent {
 	constructor(private toastr: ToastrService) {}
 
 	operatingSystems = [
-		{ name: 'Windows', platform: 'Windows', icon: '../../../assets/Icons/Windows_white.png' },
-		{ name: 'MacOS', platform: 'MacOS', icon: '../../../assets/Icons/apple-white.png' },
-		{ name: 'Linux', platform: 'Linux', icon: '../../../assets/Icons/linux-white.png' },
+		{
+			name: 'Windows',
+			platform: 'Windows',
+			icon: '../../../assets/Icons/Windows_white.png',
+		},
+		{
+			name: 'MacOS',
+			platform: 'MacOS',
+			icon: '../../../assets/Icons/apple-white.png',
+		},
+		{
+			name: 'Linux',
+			platform: 'Linux',
+			icon: '../../../assets/Icons/linux-white.png',
+		},
 	];
 
 	getAgradecimento() {

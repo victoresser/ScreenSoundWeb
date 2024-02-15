@@ -3,14 +3,14 @@ import { TestBed } from '@angular/core/testing';
 import { HandleService } from './handle.service';
 
 describe('HandleService', () => {
-  let service: HandleService;
+	let service: HandleService;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(HandleService);
-  });
+	beforeEach(() => {
+		TestBed.configureTestingModule({});
+		service = TestBed.inject(HandleService);
+	});
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
+	it('should be created', () => {
+		expect(service).toBeTruthy();
+	});
 });

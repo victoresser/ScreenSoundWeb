@@ -24,7 +24,7 @@ const routes: Routes = [
 			{ path: 'albuns', component: AlbumComponent },
 			{ path: 'bandas', component: BandaComponent },
 		],
-	}
+	},
 ];
 
 @NgModule({

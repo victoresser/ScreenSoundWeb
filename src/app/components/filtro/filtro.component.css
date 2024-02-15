@@ -1,6 +1,5 @@
 @import url("../../../styles.css");
 
-
 .filtro__container video {
 	-webkit-filter: brightness(58%);
 	-moz-filter: brightness(58%);
@@ -16,7 +15,7 @@
 .filtro__container {
 	flex-direction: column;
 	align-items: center;
-	padding: 0 .5em;
+	padding: 0 0.5em;
 	display: flex;
 	width: 100%;
 

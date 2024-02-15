@@ -41,8 +41,6 @@ export class TopfiveComponent implements OnInit {
 	}
 
 	carregarAlbuns() {
-		this.albumService
-			.getTopFive()
-			.subscribe((album) => (this.albuns = album));
+		this.albumService.getTopFive().subscribe((album) => (this.albuns = album));
 	}
 }

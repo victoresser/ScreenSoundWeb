@@ -79,7 +79,6 @@ export class EditComponent implements OnInit {
 	}
 
 	protected async onEditMusica(musica: EditMusicaDto) {
-
 		(await this.musicaService.getForId(this.id!)).subscribe((res) => {
 			this.musica = res;
 		});

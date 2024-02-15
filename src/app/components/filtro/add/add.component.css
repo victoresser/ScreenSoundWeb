@@ -68,14 +68,14 @@
 	.container__disponibilidade__imagem {
 		display: flex;
 		flex-direction: column;
-		gap: .5em;
+		gap: 0.5em;
 		width: 100%;
 	}
 
 	.imagem__preview {
 		width: 100px;
 		height: 100px;
-		border-radius: .5em;
+		border-radius: 0.5em;
 	}
 }
 
@@ -92,7 +92,7 @@
 			width: 90%;
 
 			.button {
-				gap: .5em;
+				gap: 0.5em;
 
 				.limpar {
 					width: 135px;
@@ -122,14 +122,14 @@
 				.container__disponibilidade__imagem {
 					display: flex;
 					flex-direction: column;
-					gap: .5em;
+					gap: 0.5em;
 					width: 100%;
 				}
 
 				.imagem__preview {
 					width: 100px;
 					height: 100px;
-					border-radius: .5em;
+					border-radius: 0.5em;
 				}
 			}
 		}

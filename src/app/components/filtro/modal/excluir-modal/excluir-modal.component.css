@@ -1,0 +1,17 @@
+@import url('../../../../../styles.css');
+
+.excluir-modal {
+	width: 700px;
+	box-sizing: border-box;
+
+	&_titulo {
+		font-size: 16px;
+		font-weight: 600;
+		font-family: var(--ff-quicksand);
+	}
+
+	&_descricao {
+		font-size: 12px;
+		font-family: var(--ff-montserrat);
+	}
+}
