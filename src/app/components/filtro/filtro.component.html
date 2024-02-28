@@ -12,16 +12,15 @@
 
 		<span class="menu__button excluir" (click)="onDelete(rotaAtual)" tabindex="2" (keydown)="handler.handleKeyDownPress($event, openEdit)"></span>
 
-
 		<hr class="separador__menu" />
 
 		<span class="menu__button pesquisar" (click)="openSearch()" tabindex="3" (keydown)="handler.handleKeyDownPress($event, openSearch)"></span>
 
 	</div>
 
-	<app-search [(search)]="search" (searchChange)="onSearchChange($event)" [rotaAtual]="rotaAtual" *ngIf="search"></app-search>
-	<app-edit [(edit)]="edit" (editChange)="onEditChange($event)" [rotaAtual]="rotaAtual" *ngIf="edit"></app-edit>
-	<app-add [(add)]="add" (addChange)="onAddChange($event)" [rotaAtual]="rotaAtual" *ngIf="add"></app-add>
+	<app-search (searchChange)="onSearchChange($event)" [rotaAtual]="rotaAtual" *ngIf="search"></app-search>
+	<app-edit (editChange)="onEditChange($event)" [rotaAtual]="rotaAtual" *ngIf="edit"></app-edit>
+	<app-add (addChange)="onAddChange($event)" [rotaAtual]="rotaAtual" *ngIf="add"></app-add>
 
 	<app-musica *ngIf="rotaAtual === '/filtro/musicas' && listar && (!add && !edit)" [musicas]="musicas"></app-musica>
 	<app-album *ngIf="rotaAtual === '/filtro/albuns' && listar && (!add && !edit)" [albuns]="albuns"></app-album>
