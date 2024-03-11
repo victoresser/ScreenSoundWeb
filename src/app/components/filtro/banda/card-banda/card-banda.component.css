@@ -1,0 +1,28 @@
+.card {
+	display: flex;
+	flex-direction: column;
+	height: 7.813rem;
+	width: 3.438rem;
+
+	&:hover .imagem_banda {
+		transform: scale(1.03);
+	}
+
+	.card_container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		.imagem_banda {
+			display: flex;
+			height: 6.25rem;
+			width: 6.25rem;
+			transition: all ease 0.5s;
+		}
+
+		.nome_banda {
+			display: flex;
+			font-size: 1rem;
+		}
+	}
+}

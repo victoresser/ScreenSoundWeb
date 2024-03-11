@@ -5,17 +5,16 @@ import { FiltroComponent } from './components/filtro/filtro.component';
 import { AlbumComponent } from './components/filtro/album/album.component';
 import { BandaComponent } from './components/filtro/banda/banda.component';
 import { MusicaComponent } from './components/filtro/musica/musica.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
 	{
 		path: '',
-		redirectTo: 'home',
 		pathMatch: 'full',
+		redirectTo: 'login',
 	},
-	{
-		path: 'home',
-		component: HomeComponent,
-	},
+	{ path: 'home', component: HomeComponent },
+	{ path: 'login', component: LoginComponent },
 	{
 		path: 'filtro',
 		component: FiltroComponent,

@@ -23,7 +23,15 @@ import { EditComponent } from './components/filtro/edit/edit.component';
 import { SearchComponent } from './components/filtro/search/search.component';
 import { FiltroComponent } from './components/filtro/filtro.component';
 import { ExcluirModalComponent } from './components/filtro/modal/excluir-modal/excluir-modal.component';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import {
+	MAT_FORM_FIELD_DEFAULT_OPTIONS,
+	MatFormFieldModule,
+} from '@angular/material/form-field';
+import { LoginComponent } from './components/login/login.component';
+import { LoginFormComponent } from './components/login/login-form/login-form.component';
+import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
+import { SharedModule } from './shared/shared.module';
+import { CardMusicaComponent } from './components/filtro/musica/card-musica/card-musica.component';
 
 @NgModule({
 	declarations: [
@@ -43,8 +51,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 		SearchComponent,
 		FiltroComponent,
 		ExcluirModalComponent,
+		LoginComponent,
+		LoginFormComponent,
+		CardMusicaComponent
 	],
 	imports: [
+		SharedModule,
 		MatFormFieldModule,
 		BrowserModule,
 		HttpClientModule,
@@ -56,7 +68,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 		InfiniteScrollModule,
 		ToastrModule.forRoot({}),
 	],
-	providers: [],
+	providers: [
+		{
+			provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
+			useValue: { appearance: 'outline' },
+		},
+		{ provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher },
+	],
 	bootstrap: [AppComponent],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

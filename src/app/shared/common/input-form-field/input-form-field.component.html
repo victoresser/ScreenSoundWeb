@@ -1,0 +1,14 @@
+<mat-form-field appearence="outline" [formGroup]="internalForm">
+	<mat-label for="typeable-input" class="label-input">{{ label }}</mat-label>
+	<input
+    matInput
+    formControlName="typeableInput"
+    [required]="required"
+    (blur)="onBlur($event)"
+    (keyup)="onKeyUp($event)"
+    (keydown)="onKeyDown($event)"
+    (keypress)="onKeypress($event)"
+    (focus)="onFocus($event)"
+    [type]="type"
+  />
+</mat-form-field>

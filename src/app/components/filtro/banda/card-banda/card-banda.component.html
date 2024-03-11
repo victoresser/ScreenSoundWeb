@@ -1,0 +1,16 @@
+<div class="card" [style.animation-delay]="index * 50 + 'ms'">
+	<div class="card_container">
+		<img
+			[src]="banda.imagem ? banda.imagem : imagemNaoEncontrada"
+			[alt]="banda.nome"
+			class="imagem_banda"
+			(mouseover)="onMouseOver(index)"
+			(mouseout)="onMouseOut()"
+			[class.animate]="isHovered === index"
+			(focus)="onMouseOver(index)"
+			(blur)="onMouseOut()"
+		/>
+
+		<div class="nome_banda">{{ banda.nome }}</div>
+	</div>
+</div>

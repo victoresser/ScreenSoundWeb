@@ -2,7 +2,7 @@
   <igx-carousel #carousel animationType="fade" [interval]="2000" [navigation]="false">
       <igx-slide *ngFor="let imagem of imagens;">
           <div class="image-container">
-              <img [src]="imagem.src">
+              <img [src]="imagem.src" alt="carrossel">
           </div>
       </igx-slide>
   </igx-carousel>

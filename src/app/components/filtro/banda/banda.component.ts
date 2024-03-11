@@ -25,13 +25,11 @@ export class BandaComponent implements OnInit {
 	@Input() delete = false;
 	@Input() search = false;
 
-	isHovered: number | null = null;
 	page = 1;
 	pageSize = 20;
 	hasMoreData = true;
 	scrollDistance = 2;
 	scrollUpDistance = 1.5;
-	imagemNaoEncontrada = '../../../../assets/Icons/nao-encontrado.png';
 
 	constructor(
 		private dataService: DataService,
@@ -70,21 +68,13 @@ export class BandaComponent implements OnInit {
 	async carregarBandas() {
 		return (
 			await this.bandaService.getBandas(this.page, this.filtro)
-		).subscribe((x) => {
-			this.bandas = this.bandas.concat(x);
+		).subscribe((bandas) => {
+			this.bandas = this.bandas.concat(bandas);
 
-			if (x.length < this.pageSize) {
+			if (bandas.length < this.pageSize) {
 				this.hasMoreData = false;
 			}
 		});
-	}
-
-	onMouseOver(index: number) {
-		this.isHovered = index;
-	}
-
-	onMouseOut() {
-		this.isHovered = null;
 	}
 
 	onScroll(): void {

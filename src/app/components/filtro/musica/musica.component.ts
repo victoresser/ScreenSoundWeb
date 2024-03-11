@@ -10,7 +10,7 @@ import { hoverAnimation, fadeIn } from 'src/app/animations';
 	selector: 'app-musica',
 	templateUrl: './musica.component.html',
 	styleUrls: ['./musica.component.css'],
-	animations: [hoverAnimation, fadeIn]
+	animations: [hoverAnimation, fadeIn],
 })
 export class MusicaComponent implements OnInit, OnDestroy {
 	@Input() musicas: Musica[] = [];
@@ -30,7 +30,7 @@ export class MusicaComponent implements OnInit, OnDestroy {
 	hasMoreData = true;
 	scrollDistance = 2;
 	scrollUpDistance = 1.5;
-	imagemNaoEncontrada = '../../../../assets/Icons/nao-encontrado.png';
+
 	handler = this.handle;
 
 	constructor(
@@ -82,22 +82,6 @@ export class MusicaComponent implements OnInit, OnDestroy {
 				}
 			}
 		);
-	}
-
-	tratarDisponibilidade(disponivel?: boolean): string {
-		if (disponivel) {
-			return 'Disponível no plano Basic';
-		} else {
-			return 'Disponível no plano Plus+';
-		}
-	}
-
-	onMouseOver(index: number) {
-		this.isHovered = index;
-	}
-
-	onMouseOut() {
-		this.isHovered = null;
 	}
 
 	onScroll(): void {

@@ -10,6 +10,9 @@ export class NovidadesComponent {
 	constructor() {}
 
 	@HostListener('window:scroll', ['$event'])
+	onScroll(): void {
+    this.offset = window.scrollY;
+  }
 
 	calculateBackgroundPositionY(): string {
 		const adjustedOffset = Math.min(this.offset, this.maxOffset);

@@ -1,62 +1,28 @@
 <div class="container">
 	<div class="lista__container" *ngIf="musicas.length > 0; else semMusicas">
-
-		<div class="musica" *ngFor="let musica of musicas; let i = index" [style.animation-delay]="i * 100 + 'ms'">
-
-			<div class="musica__container" (click)="idSelecionado(musica.id);" (keydown)="handler.handleKeyDownPress($event, idSelecionado)" tabindex="1">
-
-				<div class="container__musica">
-
-					<img
-						[src]="musica.imagem ? musica.imagem : imagemNaoEncontrada"
-						[alt]="musica.nome"
-						class="imagem__musica"
-						(mouseover)="onMouseOver(i)"
-						(mouseout)="onMouseOut()"
-						[class.animate]="isHovered === i"
-						(focus)="onMouseOver(i)"
-						(blur)="onMouseOut()"
-					/>
-
-					<div>
-						<b style="font-weight: bold;">{{ musica.banda }}</b>
-					</div>
-
-				</div>
-
-				<hr />
-
-				<div class="container__musica2">
-
-					<b class="nome__musica">{{ musica.nome }}</b>
-
-					<p class="descricoes">
-						Duração: {{ musica.duracao }} segundos <br>
-						Álbum: {{ musica.album }} <br>
-						{{ tratarDisponibilidade(musica.disponivel) }}
-					</p>
-
-				</div>
-
-			</div>
-
-			<hr class="separador__musica" />
+		<div class="cards" *ngFor="let musica of musicas; let i = index">
+			<app-card-musica [musica]="musica" [index]="i"></app-card-musica>
 		</div>
 
-		<infinite-scroll infinite-scroll [infiniteScrollDistance]="scrollDistance" [infiniteScrollUpDistance]="scrollUpDistance" *ngIf="hasMoreData" (scrolled)="onScroll()"></infinite-scroll>
-	</div><br>
-
+		<infinite-scroll
+			infinite-scroll
+			[infiniteScrollDistance]="scrollDistance"
+			[infiniteScrollUpDistance]="scrollUpDistance"
+			*ngIf="hasMoreData"
+			(scrolled)="onScroll()"
+		></infinite-scroll>
+	</div>
+	<br />
 
 	<ng-template #semMusicas class="semMusicas">
 		<img
-		src="../../../../assets/Icons/papagaio.svg"
-		alt="ScreenSound Papagaio"
-		style="height: 250px; width: 250px; margin: 1em"
+			src="../../../../assets/Icons/papagaio.svg"
+			alt="ScreenSound Papagaio"
+			style="height: 250px; width: 250px; margin: 1em"
 		/>
 
 		<p style="color: var(--branco)">
-			"Parece que ficamos sem <b style="font-weight: bold;">Músicas</b> capitão!"
+			"Parece que ficamos sem <b style="font-weight: bold">Músicas</b> capitão!"
 		</p>
 	</ng-template>
-
 </div>

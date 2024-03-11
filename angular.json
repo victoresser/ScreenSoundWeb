@@ -82,10 +82,11 @@
 						"tsConfig": "tsconfig.spec.json",
 						"assets": ["./src/assets/favicon.svg", "src/assets"],
 						"styles": [
-							"src/styles.css",
-							"node_modules/igniteui-angular/styles/igniteui-angular.css",
-							"node_modules/ngx-toastr/toastr.css"
-						],
+              "@angular/material/prebuilt-themes/purple-green.css",
+              "src/styles.css",
+              "node_modules/igniteui-angular/styles/igniteui-angular.css",
+              "node_modules/ngx-toastr/toastr.css"
+            ],
 						"scripts": ["./node_modules/hammerjs/hammer.min.js"],
 						"stylePreprocessorOptions": {
 							"includePaths": ["node_modules"]
