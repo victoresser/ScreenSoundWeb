@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InputFormFieldComponent } from './input-form-field.component';
+import { CardAlbumComponent } from './card-album.component';
 
-describe('InputFormFieldComponent', () => {
-  let component: InputFormFieldComponent;
-  let fixture: ComponentFixture<InputFormFieldComponent>;
+describe('CardAlbumComponent', () => {
+  let component: CardAlbumComponent;
+  let fixture: ComponentFixture<CardAlbumComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [InputFormFieldComponent]
+      imports: [CardAlbumComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(InputFormFieldComponent);
+    fixture = TestBed.createComponent(CardAlbumComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

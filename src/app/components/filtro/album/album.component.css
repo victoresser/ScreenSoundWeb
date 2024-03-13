@@ -10,11 +10,12 @@
 
 .lista__container {
 	display: flex;
-	justify-content: center;
 	flex-wrap: wrap;
+	justify-content: center;
 	width: 100%;
 	height: auto;
-	border-radius: 0.7em;
+	padding: 0.3rem 0;
+	border-radius: 0.7rem;
 	background-color: rgba(255, 255, 255, 0.55);
 	box-shadow: 0px 0px 36px 0px rgba(0, 0, 0, 0.45) inset;
 	-webkit-box-shadow: 0px 0px 36px 0px rgba(0, 0, 0, 0.45) inset;
@@ -23,104 +24,31 @@
 	-webkit-backdrop-filter: blur(5px);
 	border: 1px solid rgba(255, 255, 255, 1);
 	overflow: hidden;
+
+	.cards {
+		display: inline-flex;
+	}
 }
 
-.album {
+.semAlbuns {
 	display: flex;
-	justify-content: flex-start;
 	flex-direction: column;
-	width: 100%;
-	-webkit-animation: fade-in-bck 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-	animation: fade-in-bck 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-	opacity: 0;
-	transform: translateY(20px);
-	animation: fadeIn 500ms forwards;
-	transition: transform 0.5s ease;
-	cursor: default;
+	align-items: center;
 
-	&:hover {
-		background-color: rgba(255, 255, 255, 0.25);
-		backdrop-filter: blur(5.5px);
-		-webkit-backdrop-filter: blur(5.5px);
-		transition: all ease-in-out 2s both;
+	.imagem_semAlbuns {
+		height: 250px;
+		width: 250px;
+		margin: 1em;
 	}
 
-	&:hover .imagem__album {
-		transform: scale(1.1);
-	}
+	.texto_semAlbuns {
+		color: white;
+		font-family: var(--ff-quicksand);
 
-	&:hover .descricoes {
-		color: var(--verde-escuro);
-		font-weight: bold;
-	}
-
-	.container__album {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		text-align: center;
-		width: 166px;
-		height: 100%;
-		gap: 0.3em;
-
-		p {
-			color: var(--fundo);
-			margin: 0;
+		.destaque_texto {
+			font-weight: 600;
+			color: var(--primary-light);
 		}
-	}
-
-	.album__container {
-		display: flex;
-		align-items: center;
-		padding: 0.3em;
-
-		hr {
-			height: 125px;
-			width: 2px;
-			background-color: white;
-			margin: 0.5em;
-		}
-	}
-
-	.imagem__album {
-		height: 100px;
-		width: 100px;
-		border-radius: 0.5em;
-		transition: transform 0.5s ease;
-	}
-
-	.descricoes {
-		width: 100%;
-		display: flex;
-		flex-wrap: wrap;
-		color: var(--fundo);
-		transition: transform 0.5s ease;
-	}
-
-	.separador__album {
-		width: 100%;
-		height: 2px;
-	}
-}
-
-app-footer {
-	margin-top: 0.5em;
-	width: 100%;
-}
-
-@keyframes fadeIn {
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-
-@keyframes scale-up-center {
-	0% {
-		transform: scale(1);
-	}
-	100% {
-		transform: scale(1.01);
 	}
 }
 
@@ -152,12 +80,12 @@ app-footer {
 @media screen and (min-width: 1690px) {
 	.lista__container {
 		justify-content: center;
+		gap: 0.52rem;
 		max-width: 1600px;
-		padding: 0.3em;
+		padding: 0.3rem;
 	}
 
-	.album {
-		margin: 0.2rem;
-		width: 390px;
+	.texto_semAlbuns {
+		font-size: 1.4rem;
 	}
 }

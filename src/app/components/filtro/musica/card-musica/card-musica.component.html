@@ -1,7 +1,5 @@
-<!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
 <div class="card" [style.animation-delay]="index * 50 + 'ms'">
-	<div class="container_card" (keydown)="handler.handleKeyDownPress($event, idSelecionado)" [tabIndex]="index">
-
+	<div class="container_card">
 		<div class="card_titulo">
 			<img
 				class="imagem_musica"
@@ -22,8 +20,9 @@
 		<div class="card_informacoes">
 			<h3 class="titulo_musica">{{ musica.nome }}</h3>
 			<div class="duracao_musica">Duração: {{ musica.duracao }} segundos</div>
-			<span class="disponibilidade_musica">{{tratarDisponibilidade(musica.disponivel)}}</span>
+			<div class="disponibilidade_musica">{{
+				tratarDisponibilidade(musica.disponivel)
+			}}</div>
 		</div>
-
 	</div>
 </div>

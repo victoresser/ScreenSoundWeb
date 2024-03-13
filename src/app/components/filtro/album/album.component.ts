@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Album } from './model/album.model';
-import { fadeIn } from 'src/app/animations';
+import { fadeIn, hoverAnimation } from 'src/app/animations';
 import { DataService } from 'src/app/services/data/data.service';
 import { HandleService } from 'src/app/services/common/handle.service';
 import { AlbumService } from 'src/app/services/album/album.service';
@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
 	selector: 'app-album',
 	templateUrl: './album.component.html',
 	styleUrls: ['./album.component.css'],
-	animations: [fadeIn],
+	animations: [fadeIn, hoverAnimation],
 })
 export class AlbumComponent implements OnInit {
 	albuns: Album[] = [];
@@ -31,7 +31,6 @@ export class AlbumComponent implements OnInit {
 	scrollDistance = 2;
 	scrollUpDistance = 1.5;
 	isHovered: number | null = null;
-	imagemNaoEncontrada = '../../../../assets/Icons/nao-encontrado.png';
 
 	constructor(
 		private dataService: DataService,
@@ -76,14 +75,6 @@ export class AlbumComponent implements OnInit {
 				this.hasMoreData = false;
 			}
 		});
-	}
-
-	onMouseOver(index: number) {
-		this.isHovered = index;
-	}
-
-	onMouseOut() {
-		this.isHovered = null;
 	}
 
 	idSelecionado(id?: number) {

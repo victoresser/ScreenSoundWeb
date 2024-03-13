@@ -1,7 +1,13 @@
 <div class="container">
 	<div class="lista__container" *ngIf="musicas.length > 0; else semMusicas">
 		<div class="cards" *ngFor="let musica of musicas; let i = index">
-			<app-card-musica [musica]="musica" [index]="i"></app-card-musica>
+			<app-card-musica
+				[musica]="musica"
+				[index]="i"
+				(click)="idSelecionado(musica.id)"
+				(keydown)="handler.handleKeyDownPress($event, idSelecionado)"
+				[tabIndex]="i"
+			></app-card-musica>
 		</div>
 
 		<infinite-scroll
@@ -14,15 +20,17 @@
 	</div>
 	<br />
 
-	<ng-template #semMusicas class="semMusicas">
-		<img
-			src="../../../../assets/Icons/papagaio.svg"
-			alt="ScreenSound Papagaio"
-			style="height: 250px; width: 250px; margin: 1em"
-		/>
+	<ng-template #semMusicas>
+		<div class="semMusicas">
+			<img
+				class="imagem_semMusicas"
+				src="../../../../assets/Icons/papagaio.svg"
+				alt="ScreenSound Papagaio"
+			/>
 
-		<p style="color: var(--branco)">
-			"Parece que ficamos sem <b style="font-weight: bold">Músicas</b> capitão!"
-		</p>
+			<div class="texto_semMusicas">
+				"Parece que ficamos sem <b class="destaque_texto">Músicas</b> capitão!"
+			</div>
+		</div>
 	</ng-template>
 </div>

@@ -1,20 +1,12 @@
-<div class="container" *ngIf="listar">
-	<div
-		class="lista__container"
-		*ngIf="bandas.length > 0; else semBandas"
-		[@fadeIn]
-	>
-		<div
-			class="cards"
-			*ngFor="let banda of bandas; let i = index"
-		>
+<div class="container">
+	<div class="lista__container" *ngIf="bandas.length > 0; else semBandas">
+		<div class="cards" *ngFor="let banda of bandas; let i = index">
 			<app-card-banda
 				[banda]="banda"
 				[index]="i"
 				(click)="idSelecionado(banda.id)"
 				(keydown)="handler.handleKeyDownPress($event, idSelecionado)"
-				[tabindex]="i"
-				[@hoverAnimation]
+				[tabIndex]="i"
 			></app-card-banda>
 		</div>
 
@@ -27,14 +19,16 @@
 	</div>
 
 	<ng-template #semBandas class="semBandas">
-		<img
-			src="../../../../assets/Icons/papagaio.svg"
-			alt="ScreenSound Papagaio"
-			style="height: 250px; width: 250px; margin: 1em"
-		/>
+		<div class="semBandas">
+			<img
+				class="imagem_semBandas"
+				src="../../../../assets/Icons/papagaio.svg"
+				alt="ScreenSound Papagaio"
+			/>
 
-		<p style="color: white">
-			"Parece que ficamos sem <b style="font-weight: bold">Bandas</b> capitão!"
-		</p>
+			<div class="texto_semBandas">
+				"Parece que ficamos sem <b class="destaque_texto">Bandas</b> capitão!"
+			</div>
+		</div>
 	</ng-template>
 </div>

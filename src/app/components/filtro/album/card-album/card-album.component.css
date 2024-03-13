@@ -1,4 +1,4 @@
-@import url("../../../../../styles.css");
+@import "../../../../../styles.css";
 
 .card {
 	display: flex;
@@ -17,72 +17,54 @@
 		background-color: rgba(255, 255, 255, 0.25);
 		backdrop-filter: blur(5.5px);
 		-webkit-backdrop-filter: blur(5.5px);
-		transition: transform ease-in-out 2s both;
 	}
 
-	&:hover .imagem_musica {
+	&:hover .imagem_album {
 		transform: scale(1.1);
 	}
 
-	&:hover .titulo_musica {
-		color: var(--verde-escuro);
+	&:hover .nome_album {
+		color: var(--primary-dark);
 		font-weight: 600;
 	}
 
-	.container_card {
+	.card_container {
 		display: flex;
+		align-items: center;
 
 		.card_titulo {
-			height: 100%;
 			display: flex;
-			align-items: center;
 			flex-direction: column;
-			justify-content: space-between;
+			justify-content: center;
+			align-items: center;
+			width: 100px;
+			margin: 0 0.5rem;
 
-			.imagem_musica {
+			.imagem_album {
 				display: flex;
-				width: 100px;
+				border-radius: 0.5rem;
 				height: 100px;
-				border-radius: 0.3rem;
+				width: 100px;
 				transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 0.5s;
 			}
 
 			.nome_banda {
 				display: flex;
-				font-size: 1.2rem;
-				color: black;
-				font-weight: 500;
-			}
-		}
-
-		.separador {
-			display: flex;
-			margin: 0 0.5rem;
-		}
-
-		.card_informacoes {
-			display: flex;
-			width: 250px;
-			font-size: 1rem;
-			flex-direction: column;
-			font-family: var(--ff-quicksand);
-
-			.titulo_musica {
-				display: flex;
-				text-wrap: wrap;
 				font-size: 1rem;
-				font-family: var(--ff-quicksand);
-			}
-
-			.duracao_musica {
-				display: flex;
 				color: var(--fundo);
+				font-weight: 600;
+				margin-top: 0.5rem;
 			}
+		}
 
-			.disponibilidade_musica {
-				display: flex;
-				color: var(--fundo);
-			}
+		hr {
+			height: 100%;
+			margin: 1rem;
+		}
+
+		.nome_album {
+			display: flex;
+			font-family: var(--ff-quicksand);
 		}
 	}
 }
@@ -99,22 +81,7 @@
 		transform: scale(1);
 	}
 	100% {
-		transform: scale(1.02);
-	}
-}
-
-@media screen and (min-width: 980px) {
-	.card {
-		height: 100%;
-		width: 400px;
-
-		&:hover {
-			border-radius: 0.5em;
-		}
-	}
-
-	.card_container {
-		margin: 0.2em;
+		transform: scale(1.01);
 	}
 }
 

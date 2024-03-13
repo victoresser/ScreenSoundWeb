@@ -30,8 +30,9 @@ import {
 import { LoginComponent } from './components/login/login.component';
 import { LoginFormComponent } from './components/login/login-form/login-form.component';
 import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
-import { SharedModule } from './shared/shared.module';
 import { CardMusicaComponent } from './components/filtro/musica/card-musica/card-musica.component';
+import { CardBandaComponent } from './components/filtro/banda/card-banda/card-banda.component';
+import { CardAlbumComponent } from './components/filtro/album/card-album/card-album.component';
 
 @NgModule({
 	declarations: [
@@ -53,10 +54,11 @@ import { CardMusicaComponent } from './components/filtro/musica/card-musica/card
 		ExcluirModalComponent,
 		LoginComponent,
 		LoginFormComponent,
-		CardMusicaComponent
+		CardMusicaComponent,
+		CardBandaComponent,
+		CardAlbumComponent
 	],
 	imports: [
-		SharedModule,
 		MatFormFieldModule,
 		BrowserModule,
 		HttpClientModule,

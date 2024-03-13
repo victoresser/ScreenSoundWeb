@@ -15,7 +15,11 @@
 	border: 1px solid rgba(255, 255, 255, 1);
 	overflow: hidden;
 
-
+	:host {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+	}
 }
 
 

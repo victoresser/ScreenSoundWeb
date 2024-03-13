@@ -15,6 +15,7 @@ p {
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
+	padding: 0.3rem 0;
 	width: 100%;
 	height: auto;
 	border-radius: 0.7em;
@@ -29,23 +30,29 @@ p {
 
 	.cards {
 		display: inline-flex;
-		flex-wrap: wrap;
+		justify-content: center;
 	}
 }
 
-@keyframes fadeIn {
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
+.semMusicas {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 
-@keyframes scale-up-center {
-	0% {
-		transform: scale(1);
+	.imagem_semMusicas {
+		height: 250px;
+		width: 250px;
+		margin: 1em;
 	}
-	100% {
-		transform: scale(1.02);
+
+	.texto_semMusicas {
+		color: white;
+		font-family: var(--ff-quicksand);
+
+		.destaque_texto {
+			font-weight: 600;
+			color: var(--primary-light);
+		}
 	}
 }
 
@@ -55,17 +62,26 @@ p {
 		padding: 0.5em;
 		max-width: 855px;
 	}
+
+	.texto_semMusicas {
+		font-size: 1.2rem;
+	}
 }
 
 @media screen and (min-width: 1690px) {
 	.lista__container {
 		justify-content: center;
-		padding: .3em;
+		gap: 0.52rem;
 		max-width: 1600px;
+		padding: 0.3rem;
 	}
 
-	.musica {
-		margin: .2rem;
-		width: 390px;
+	.texto_semMusicas {
+		font-size: 1.4rem;
+	}
+
+	.imagem_semMusicas {
+		height: 350px;
+		width: 350px;
 	}
 }
