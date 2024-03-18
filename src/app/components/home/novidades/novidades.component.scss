@@ -1,4 +1,5 @@
-@import url("../../../../styles.css");
+@import "src/scss/vars/_colors.scss";
+@import "src/scss/vars/_fonts.scss";
 
 a {
 	text-decoration: none;
@@ -11,12 +12,12 @@ hr {
 p,
 h2 {
 	margin: 0;
-	color: var(--branco);
-	font-size: var(--ff-montserrat);
+	color: $branco;
+	font-size: $ff-montserrat;
 }
 
 b {
-	color: var(--verde-escuro);
+	color: $primary-dark;
 }
 
 .container {
@@ -60,12 +61,12 @@ b {
 .titulo {
 	display: flex;
 	font-size: 24px;
-	font-family: var(--ff-montserrat);
-	color: var(--branco);
+	font-family: $ff-montserrat;
+	color: $branco;
 	text-align: center;
 	justify-content: center;
 	align-items: center;
-	background-color: var(--verde-escuro);
+	background-color: $primary-dark;
 	border-radius: 0.5em 0.5em 0 0;
 	height: 45px;
 	width: 100%;
@@ -75,9 +76,9 @@ b {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: var(--verde-escuro);
+	background-color: $primary-dark;
 	font-size: 26px;
-	font-family: var(--ff-montserrat);
+	font-family: $ff-montserrat;
 	height: 45px;
 	width: 100%;
 	border-radius: 0 0 0.5em 0.5em;
@@ -86,10 +87,10 @@ b {
 .texto__novidade {
 	margin: 0 0.5em;
 	text-align: justify;
-	color: var(--fundo);
+	color: $fundo;
 	font-size: 12px;
-	font-family: var(--ff-montserrat);
-	background-color: var(--branco);
+	font-family: $ff-montserrat;
+	background-color: $branco;
 }
 
 .imagem__container__any {
@@ -147,9 +148,9 @@ b {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		background-color: var(--verde-escuro);
+		background-color: $primary-dark;
 		font-size: 26px;
-		font-family: var(--ff-montserrat);
+		font-family: $ff-montserrat;
 		height: 45px;
 		width: 100%;
 		border-radius: 0 0 0.5em 0.5em;

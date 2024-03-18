@@ -1,8 +1,9 @@
-@import url(../../../../styles.css);
+@import "src/scss/vars/_colors.scss";
+@import "src/scss/vars/_fonts.scss";
 
 .adicionador {
 	position: relative;
-	font-family: var(--ff-quicksand);
+	font-family: $ff-quicksand;
 	width: 100%;
 	border: 1px solid var(--cor-principal);
 

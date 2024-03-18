@@ -3,8 +3,12 @@ import { Component } from '@angular/core';
 @Component({
 	selector: 'app-excluir-modal',
 	templateUrl: './excluir-modal.component.html',
-	styleUrl: './excluir-modal.component.css',
+	styleUrl: './excluir-modal.component.scss',
 })
 export class ExcluirModalComponent {
-	objeto = '';
+	entidade!: object;
+
+	constructor() {}
+
+
 }

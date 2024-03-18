@@ -15,7 +15,7 @@ import { Musica } from '../musica/models/musica.model';
 @Component({
 	selector: 'app-edit',
 	templateUrl: './edit.component.html',
-	styleUrl: './edit.component.css',
+	styleUrl: './edit.component.scss',
 })
 export class EditComponent implements OnInit {
 	musica!: Musica;

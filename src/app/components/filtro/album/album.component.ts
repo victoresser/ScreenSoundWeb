@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
 @Component({
 	selector: 'app-album',
 	templateUrl: './album.component.html',
-	styleUrls: ['./album.component.css'],
+	styleUrls: ['./album.component.scss'],
 	animations: [fadeIn, hoverAnimation],
 })
 export class AlbumComponent implements OnInit {

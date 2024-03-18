@@ -1,4 +1,10 @@
-<div class="excluir-modal">
-	<h1 class="excluir-modal_titulo">Excluir {{objeto}}</h1><br />
-	<p class="excluir-modal_descricao">Você tem certeza de que deseja excluir este registro?</p>
-</div>
+<h1 matDialogTitle>Excluir {{ entidade }}</h1>
+
+<mat-dialog-content>
+	Você realmente deseja excluir {{ entidade }}
+</mat-dialog-content>
+
+<mat-dialog-actions>
+	<button mat-button matDialogClose>Cancelar</button>
+	<button mat-button>Confirmar</button>
+</mat-dialog-actions>

@@ -9,7 +9,7 @@ import { Musica } from '../../filtro/musica/models/musica.model';
 @Component({
 	selector: 'app-topfive',
 	templateUrl: './topfive.component.html',
-	styleUrls: ['./topfive.component.css'],
+	styleUrls: ['./topfive.component.scss'],
 })
 export class TopfiveComponent implements OnInit {
 	musicas: Array<Musica> = [];

@@ -7,7 +7,7 @@ import { fadeIn, hoverAnimation } from 'src/app/animations';
 @Component({
 	selector: 'app-card-musica',
 	templateUrl: './card-musica.component.html',
-	styleUrls: ['./card-musica.component.css'],
+	styleUrls: ['./card-musica.component.scss'],
 	animations: [hoverAnimation, fadeIn]
 })
 export class CardMusicaComponent {

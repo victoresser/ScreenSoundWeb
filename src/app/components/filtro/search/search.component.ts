@@ -8,7 +8,7 @@ import { DataService } from 'src/app/services/data/data.service';
 @Component({
 	selector: 'app-search',
 	templateUrl: './search.component.html',
-	styleUrl: './search.component.css',
+	styleUrl: './search.component.scss',
 })
 export class SearchComponent implements OnInit {
 	@Input() rotaAtual = '';

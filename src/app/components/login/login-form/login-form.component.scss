@@ -1,0 +1,67 @@
+@import "src/scss/vars/_colors.scss";
+@import "src/scss/vars/_fonts.scss";
+@import "src/scss/customs/_buttons.scss";
+@import "src/scss/customs/_input.scss";
+
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	padding: 0.5rem;
+	width: 100%;
+	height: 100%;
+	max-height: 450px;
+	border-radius: 0.7em;
+	background-color: rgba(255, 255, 255, 0.55);
+	box-shadow: 0px 0px 36px 0px rgba(0, 0, 0, 0.45) inset;
+	-webkit-box-shadow: 0px 0px 36px 0px rgba(0, 0, 0, 0.45) inset;
+	-moz-box-shadow: 0px 0px 36px 0px rgba(0, 0, 0, 0.45) inset;
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	border: 1px solid rgba(255, 255, 255, 1);
+	overflow: hidden;
+
+	.imagem_form {
+		width: 150px;
+		margin: 1rem;
+	}
+
+	.form_container {
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		align-items: center;
+		max-width: max-content;
+		width: 100%;
+
+		.form_buttons {
+			display: flex;
+			gap: 0.5rem;
+			padding: 0.5rem;
+			margin: 0.5rem;
+
+			&_button {
+				color: $primary-light;
+				border: solid 1px $primary-light;
+				border-radius: .3rem;
+
+				&:active {
+					color: $primary-dark;
+				}
+			}
+		}
+	}
+}
+
+
+mat-input-container {
+	width: 100%;
+	height: 100%;
+	max-width: 250px;
+	max-height: 150px;
+
+	input {
+		
+	}
+}

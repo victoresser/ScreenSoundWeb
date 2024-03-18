@@ -5,7 +5,7 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'app-card-banda',
   templateUrl: './card-banda.component.html',
-  styleUrl: './card-banda.component.css',
+  styleUrl: './card-banda.component.scss',
 	animations: [hoverAnimation, fadeIn]
 })
 export class CardBandaComponent {

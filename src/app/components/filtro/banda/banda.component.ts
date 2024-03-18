@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
 @Component({
 	selector: 'app-banda',
 	templateUrl: './banda.component.html',
-	styleUrls: ['./banda.component.css'],
+	styleUrls: ['./banda.component.scss'],
 	animations: [fadeIn, hoverAnimation],
 })
 export class BandaComponent implements OnInit {

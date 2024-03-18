@@ -1,8 +1,11 @@
+@import "src/scss/vars/_colors.scss";
+@import "src/scss/vars/_fonts.scss";
+
 * {
 	margin: 0;
 	padding: 0;
-	color: var(--branco);
-	font-family: var(--ff-montserrat);
+	color: $branco;
+	font-family: $ff-montserrat;
 }
 
 p {
@@ -17,7 +20,7 @@ p {
 	align-items: center;
 	justify-content: center;
 	text-align: center;
-	background-color: var(--verde-escuro);
+	background-color: $primary-dark;
 	box-shadow: inset 0px -4px 0px 0px rgba(0, 0, 0, 25%);
 }
 

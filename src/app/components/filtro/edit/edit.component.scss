@@ -1,10 +1,10 @@
-@import url(../../../../styles.css);
+@import url(../../../../styles.scss);
 
 .editor {
 	width: 100%;
 	display: flex;
 	justify-content: center;
-	font-family: var(--ff-quicksand);
+	font-family: $ff-quicksand;
 
 	.segunda__linha {
 		display: flex;

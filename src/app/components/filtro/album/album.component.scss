@@ -1,19 +1,22 @@
-@import url("../../../../styles.css");
+@import "src/scss/vars/_colors.scss";
+@import "src/scss/vars/_fonts.scss";
 
 .container {
 	display: flex;
+	width: 100%;
 	align-items: center;
 	flex-direction: column;
+	box-sizing: border-box;
 }
 
 .lista__container {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: center;
 	width: 100%;
 	height: auto;
 	padding: 0.3rem;
-	border-radius: 0.8rem;
+	border-radius: 0.7rem;
 	background-color: rgba(255, 255, 255, 0.55);
 	box-shadow: 0px 0px 36px 0px rgba(0, 0, 0, 0.45) inset;
 	-webkit-box-shadow: 0px 0px 36px 0px rgba(0, 0, 0, 0.45) inset;
@@ -24,36 +27,65 @@
 	overflow: hidden;
 
 	.cards {
-		display: flex;
-		justify-content: center;
-		gap: 1rem;
+		display: inline-flex;
 	}
 }
 
-.semBandas {
+.semAlbuns {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 
-	.imagem_semBandas {
+	.imagem_semAlbuns {
 		height: 250px;
 		width: 250px;
-		margin: 1rem;
+		margin: 1em;
 	}
 
-	.texto_semBandas {
-		color: white;
-		font-family: var(--ff-quicksand);
+	.texto_semAlbuns {
+		color: $branco;
+		font-family: $ff-quicksand;
 
 		.destaque_texto {
 			font-weight: 600;
-			color: var(--primary-light);
+			color: $primary-light;
+		}
+	}
+}
+
+@media screen and (min-width: 980px) {
+	.lista__container {
+		justify-content: space-between;
+		max-width: 855px;
+		padding: 0.5rem;
+	}
+
+	.separador__album {
+		display: none;
+	}
+
+	.album {
+		height: 100%;
+		width: 400px;
+
+		&:hover {
+			border-radius: 0.5em;
+		}
+
+		.album__container {
+			margin: 0.2em;
 		}
 	}
 }
 
 @media screen and (min-width: 1690px) {
-	.texto_semBandas {
+	.lista__container {
+		justify-content: center;
+		max-width: 1580px;
+		padding: 0.5rem;
+	}
+
+	.texto_semAlbuns {
 		font-size: 1.4rem;
 	}
 }

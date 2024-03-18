@@ -8,7 +8,7 @@
 	<form class="form" (submit)="onAddMusica(musica)" #form="ngForm">
 
 		<div class="nome div__input">
-			<input mat-form-field type="text" id="nome" name="musica.nome" class="nome__input" required [(ngModel)]="musica.nome">
+			<input type="text" id="nome" name="musica.nome" class="nome__input" required [(ngModel)]="musica.nome">
 			<label for="nome" class="nome__label">Nome</label>
 		</div>
 

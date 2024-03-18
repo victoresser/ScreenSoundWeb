@@ -1,4 +1,5 @@
-@import url("../../../../../styles.css");
+@import "src/scss/vars/_colors.scss";
+@import "src/scss/vars/_fonts.scss";
 
 .card {
 	display: flex;
@@ -27,7 +28,7 @@
 	}
 
 	&:hover .nome_banda {
-		color: var(--primary-dark);
+		color: $primary-dark;
 		font-weight: 600;
 	}
 
@@ -49,7 +50,7 @@
 		.nome_banda {
 			display: flex;
 			font-size: 1rem;
-			color: var(--fundo);
+			color: $fundo;
 		}
 	}
 }

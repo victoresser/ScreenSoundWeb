@@ -20,11 +20,11 @@
 						"tsConfig": "tsconfig.app.json",
 						"assets": ["src/favicon.ico", "src/assets"],
 						"styles": [
-							"src/custom-theme.scss",
-							"node_modules/minireset.css/minireset.css",
-							"src/styles.css",
-							"node_modules/igniteui-angular/styles/igniteui-angular.css"
-						],
+              "@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "node_modules/minireset.scss/minireset.scss",
+              "src/styles.scss",
+              "node_modules/igniteui-angular/styles/igniteui-angular.scss"
+            ],
 						"scripts": ["./node_modules/hammerjs/hammer.min.js"],
 						"stylePreprocessorOptions": {
 							"includePaths": ["node_modules"]
@@ -82,10 +82,10 @@
 						"tsConfig": "tsconfig.spec.json",
 						"assets": ["./src/assets/favicon.svg", "src/assets"],
 						"styles": [
-              "@angular/material/prebuilt-themes/purple-green.css",
-              "src/styles.css",
-              "node_modules/igniteui-angular/styles/igniteui-angular.css",
-              "node_modules/ngx-toastr/toastr.css"
+              "@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "src/styles.scss",
+              "node_modules/igniteui-angular/styles/igniteui-angular.scss",
+              "node_modules/ngx-toastr/toastr.scss"
             ],
 						"scripts": ["./node_modules/hammerjs/hammer.min.js"],
 						"stylePreprocessorOptions": {

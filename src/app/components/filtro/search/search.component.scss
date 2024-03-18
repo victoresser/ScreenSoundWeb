@@ -1,4 +1,5 @@
-@import url(../../../../styles.css);
+@import "src/scss/vars/_colors.scss";
+@import "src/scss/vars/_fonts.scss";
 
 .pesquisador {
 	flex-direction: column;
@@ -19,7 +20,6 @@
 	}
 
 	.descricao__pesquisador {
-		font-family: var(--ff-quicksand);
 		justify-content: center;
 		text-align: center;
 		font-size: 16px;
@@ -82,7 +82,7 @@
 
 @-webkit-keyframes inputHighlighter {
 	from {
-		background: #5aed83;
+		background: $primary-light;
 	}
 	to {
 		width: 0;
@@ -91,7 +91,7 @@
 }
 @-moz-keyframes inputHighlighter {
 	from {
-		background: #5aed83;
+		background: $primary-light;
 	}
 	to {
 		width: 0;
@@ -100,7 +100,7 @@
 }
 @keyframes inputHighlighter {
 	from {
-		background: #5aed83;
+		background: $primary-light;
 	}
 	to {
 		width: 0;

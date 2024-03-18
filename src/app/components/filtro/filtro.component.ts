@@ -24,7 +24,7 @@ import { ExcluirModalComponent } from './modal/excluir-modal/excluir-modal.compo
 @Component({
 	selector: 'app-filtro',
 	templateUrl: './filtro.component.html',
-	styleUrls: ['./filtro.component.css'],
+	styleUrls: ['./filtro.component.scss'],
 })
 export class FiltroComponent implements OnDestroy, OnInit {
 	private routerSubscription: Subscription = new Subscription();

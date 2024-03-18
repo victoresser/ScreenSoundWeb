@@ -5,7 +5,7 @@ import { fadeIn, hoverAnimation } from 'src/app/animations';
 @Component({
 	selector: 'app-card-album',
 	templateUrl: './card-album.component.html',
-	styleUrl: './card-album.component.css',
+	styleUrl: './card-album.component.scss',
 	animations: [hoverAnimation, fadeIn]
 })
 export class CardAlbumComponent {

@@ -9,7 +9,7 @@ import { hoverAnimation, fadeIn } from 'src/app/animations';
 @Component({
 	selector: 'app-musica',
 	templateUrl: './musica.component.html',
-	styleUrls: ['./musica.component.css'],
+	styleUrls: ['./musica.component.scss'],
 	animations: [hoverAnimation, fadeIn],
 })
 export class MusicaComponent implements OnInit, OnDestroy {

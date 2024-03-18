@@ -1,0 +1,8 @@
+@import 'src/scss/vars/_fonts.scss';
+@import 'src/scss/vars/_colors.scss';
+
+.mat-raised-button {
+	background-color: $primary-light;
+	font-size: .8rem;
+	font-family: $ff-quicksand;
+}

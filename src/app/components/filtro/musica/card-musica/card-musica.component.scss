@@ -1,4 +1,5 @@
-@import url("../../../../../styles.css");
+@import "src/scss/vars/_colors.scss";
+@import "src/scss/vars/_fonts.scss";
 
 .card {
 	display: flex;
@@ -25,7 +26,7 @@
 	}
 
 	&:hover .titulo_musica {
-		color: var(--verde-escuro);
+		color: $primary-dark;
 		font-weight: 600;
 	}
 
@@ -34,6 +35,7 @@
 
 		.card_titulo {
 			height: 100%;
+			width: 150px;
 			display: flex;
 			align-items: center;
 			flex-direction: column;
@@ -62,26 +64,27 @@
 
 		.card_informacoes {
 			display: flex;
-			width: 250px;
+			width: 100%;
 			font-size: 1rem;
 			flex-direction: column;
-			font-family: var(--ff-quicksand);
+			justify-content: flex-start;
+			font-family: $ff-quicksand;
 
 			.titulo_musica {
 				display: flex;
 				text-wrap: wrap;
-				font-size: 1rem;
-				font-family: var(--ff-quicksand);
+				font-size: 1.2rem;
+				font-family: $ff-quicksand;
 			}
 
 			.duracao_musica {
 				display: flex;
-				color: var(--fundo);
+				color: $fundo;
 			}
 
 			.disponibilidade_musica {
 				display: flex;
-				color: var(--fundo);
+				color: $fundo;
 			}
 		}
 	}
@@ -121,6 +124,6 @@
 @media screen and (min-width: 1690px) {
 	.card {
 		width: 390px;
-		padding: 0.7rem;
+		padding: 1rem;
 	}
 }

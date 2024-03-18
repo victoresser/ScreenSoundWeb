@@ -1,21 +1,23 @@
 <div class="container">
-	<form class="example-form">
-		<mat-form-field>
-			<mat-label>Input</mat-label>
-			<input matInput placeholder="Usuário"/>
+	<img [src]="logo" alt="Logo ScreenSound" class="imagem_form" />
+	<form class="form_container" [formGroup]="loginForm">
+		<mat-form-field class="example-full-width" [appearance]="appearance">
+			<mat-label>Usuário</mat-label>
+			<mat-input-container floatPlaceholder="Usuário">
+				<input matInput type="text" form required />
+			</mat-input-container>
 		</mat-form-field>
 
-		<mat-form-field>
-			<mat-label>Select</mat-label>
-			<mat-select aria-placeholder="Select">
-				<mat-option value="one">First Option</mat-option>
-				<mat-option value="two">Second Option</mat-option>
-			</mat-select>
+		<mat-form-field class="example-full-width" [appearance]="appearance">
+			<mat-label>Password</mat-label>
+			<mat-input-container floatPlaceholder="auto">
+				<input matInput type="password" required />
+			</mat-input-container>
 		</mat-form-field>
 
-		<mat-form-field>
-			<mat-label>Textarea</mat-label>
-			<textarea matInput></textarea>
-		</mat-form-field>
+		<div class="form_buttons">
+			<button mat-stroked-button class="form_buttons_button button-rounded" type="menu">Cadastrar-se</button>
+			<button mat-stroked-button class="form_buttons_button" type="submit" (click)="Login(loginForm)">Login</button>
+		</div>
 	</form>
 </div>

@@ -1,9 +1,11 @@
-@import url("../../../../styles.css");
+@import "src/scss/vars/_colors.scss";
+@import "src/scss/vars/_fonts.scss";
+@import "src/reset.scss";
 
 p,
 h2 {
-	color: var(--branco);
-	font-family: var(--ff-montserrat);
+	color: $branco;
+	font-family: $ff-montserrat;
 }
 
 h2 {
@@ -21,8 +23,8 @@ hr {
 
 .buttons__button {
 	text-decoration: none;
-	font-family: var(--ff-montserrat);
-	color: var(--branco);
+	font-family: $ff-montserrat;
+	color: $branco;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -31,7 +33,7 @@ hr {
 	gap: 0.2em;
 	width: 150px;
 	height: 55px;
-	background-color: var(--verde-escuro);
+	background-color: $primary-dark;
 	box-shadow: inset 0px -4px 0px 0px rgba(0, 0, 0, 25%);
 	border-radius: 0.2em;
 	transition: transform 0.5s ease;
@@ -66,13 +68,13 @@ hr {
 .container__buttons {
 	display: flex;
 	text-align: center;
+	align-items: center;
 	justify-content: center;
 	gap: 0.5em;
-	margin: 0 0.5em;
+	margin: .5rem;
 }
 
 .container {
-	margin-bottom: 1.5rem;
 	display: flex;
 	text-align: center;
 	justify-content: center;

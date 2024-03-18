@@ -1,0 +1,23 @@
+@import "src/reset.scss";
+
+$ff-montserrat: "Montserrat Alternates", sans-serif;
+
+$ff-quicksand: "Quicksand", sans-serif;
+
+p {
+	font-family: $ff-montserrat;
+	color: $branco;
+	font-size: 16px;
+}
+
+a {
+	font-family: $ff-montserrat;
+	text-decoration: none;
+	color: $branco;
+	font-size: 16px;
+}
+
+h3 {
+	font-family: $ff-montserrat;
+	font-size: 24px;
+}

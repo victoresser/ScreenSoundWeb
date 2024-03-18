@@ -11,7 +11,7 @@ import { CreateBandaDto } from '../banda/interface/banda.interface';
 @Component({
 	selector: 'app-add',
 	templateUrl: './add.component.html',
-	styleUrl: './add.component.css',
+	styleUrl: './add.component.scss',
 })
 export class AddComponent {
 	handler = this.handle;

@@ -2,7 +2,7 @@ import { Component, HostListener } from '@angular/core';
 @Component({
 	selector: 'app-novidades',
 	templateUrl: './novidades.component.html',
-	styleUrls: ['./novidades.component.css'],
+	styleUrls: ['./novidades.component.scss'],
 })
 export class NovidadesComponent {
 	offset = 0;

@@ -1,9 +1,22 @@
 .container {
 	display: flex;
-	justify-content: center;
 	flex-direction: column;
+	justify-content: center;
 	height: 100%;
 	padding: .5em;
+
+	h3 {
+		margin: .5rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 2rem;
+	}
+
+	.login_form {
+		display: flex;
+		align-items: center;
+	}
 }
 
 .container_video {

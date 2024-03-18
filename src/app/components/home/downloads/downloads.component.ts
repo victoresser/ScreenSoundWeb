@@ -5,7 +5,7 @@ import { hoverAnimation } from 'src/app/animations';
 @Component({
 	selector: 'app-downloads',
 	templateUrl: './downloads.component.html',
-	styleUrls: ['./downloads.component.css'],
+	styleUrls: ['./downloads.component.scss'],
 	animations: [hoverAnimation],
 })
 export class DownloadsComponent {

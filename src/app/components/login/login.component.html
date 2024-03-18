@@ -1,12 +1,16 @@
 <div class="container">
 	<div class="container_background">
-		<h1 class="titulo">Login</h1>
-	<app-login-form></app-login-form>
+		<h3 class="titulo">Login</h3>
+		<app-login-form class="login_form"></app-login-form>
 
-	<video class="container_video" autoplay loop muted playsinline (ended)="playNextVideo()">
-		<source [src]="videos[videoIndex]" type="video/mp4"/>
-	</video>
-
-</div>
-<app-footer class="footer"></app-footer>
+		<video
+			class="container_video"
+			autoplay
+			muted
+			(ended)="playNextVideo()"
+		>
+			<source [src]="videos[videoIndex]" type="video/mp4" />
+		</video>
+	</div>
+	<app-footer class="footer"></app-footer>
 </div>

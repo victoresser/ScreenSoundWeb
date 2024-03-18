@@ -1,5 +1,5 @@
 import { ToastrModule } from 'ngx-toastr';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -29,10 +29,16 @@ import {
 } from '@angular/material/form-field';
 import { LoginComponent } from './components/login/login.component';
 import { LoginFormComponent } from './components/login/login-form/login-form.component';
-import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
+import {
+	ErrorStateMatcher,
+	ShowOnDirtyErrorStateMatcher,
+} from '@angular/material/core';
 import { CardMusicaComponent } from './components/filtro/musica/card-musica/card-musica.component';
 import { CardBandaComponent } from './components/filtro/banda/card-banda/card-banda.component';
 import { CardAlbumComponent } from './components/filtro/album/card-album/card-album.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
 	declarations: [
@@ -56,13 +62,17 @@ import { CardAlbumComponent } from './components/filtro/album/card-album/card-al
 		LoginFormComponent,
 		CardMusicaComponent,
 		CardBandaComponent,
-		CardAlbumComponent
+		CardAlbumComponent,
 	],
 	imports: [
 		MatFormFieldModule,
+		MatDialogModule,
+		MatButtonModule,
+		MatInputModule,
 		BrowserModule,
 		HttpClientModule,
 		AppRoutingModule,
+		ReactiveFormsModule,
 		BrowserAnimationsModule,
 		FormsModule,
 		IgxCarouselModule,
