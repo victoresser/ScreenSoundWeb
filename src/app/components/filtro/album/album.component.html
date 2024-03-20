@@ -1,6 +1,6 @@
 <div class="container">
-	<div class="lista__container" *ngIf="albuns.length > 0; else semAlbuns">
-		<div class="cards" *ngFor="let album of albuns; let i = index">
+	<div class="container_lista" *ngIf="albuns.length > 0; else semAlbuns">
+		<div class="container_lista_cards" *ngFor="let album of albuns; let i = index">
 			<app-card-album
 				[album]="album"
 				[index]="i"
@@ -22,13 +22,13 @@
 	<ng-template #semAlbuns class="semAlbuns">
 		<div class="semAlbuns">
 			<img
-				class="imagem_semAlbuns"
+				class="semAlbuns_imagem"
 				src="../../../../assets/Icons/papagaio.svg"
 				alt="ScreenSound Papagaio"
 			/>
 
-			<div class="texto_semAlbuns">
-				"Parece que ficamos sem <b class="destaque_texto">Álbuns</b> capitão!"
+			<div class="semAlbuns_texto">
+				"Parece que ficamos sem <b class="semAlbuns_texto_destaque">Álbuns</b> capitão!"
 			</div>
 		</div>
 	</ng-template>

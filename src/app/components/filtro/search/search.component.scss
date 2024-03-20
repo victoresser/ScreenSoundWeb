@@ -1,28 +1,29 @@
 @import "src/scss/vars/_colors.scss";
 @import "src/scss/vars/_fonts.scss";
+@import "src/styles.scss";
 
 .pesquisador {
 	flex-direction: column;
 	box-sizing: border-box;
 	align-items: center;
-	border-radius: 0.5em;
-	margin-bottom: 0.5em;
-	padding: 0.5em;
+	border-radius: 0.5rem;
+	margin-bottom: 0.5rem;
+	padding: 0.5rem;
 	display: flex;
 	width: 100%;
 
 	.titulo__pesquisador {
 		justify-content: center;
 		align-items: center;
-		font-size: 24px;
+		font-size: 1.5rem;
 		display: flex;
-		height: 24px;
+		height: 1.5rem;
 	}
 
 	.descricao__pesquisador {
 		justify-content: center;
 		text-align: center;
-		font-size: 16px;
+		font-size: 1rem;
 		display: flex;
 	}
 
@@ -30,13 +31,13 @@
 		justify-content: space-between;
 		display: flex;
 		width: 100%;
-		gap: 0.5em;
+		gap: 0.5rem;
 	}
 
 	.pesquisar__button {
 		padding: 0;
-		width: 32px;
-		height: 32px;
+		width: 2rem;
+		height: 2rem;
 		border: none;
 		outline: none;
 		cursor: pointer;
@@ -44,7 +45,7 @@
 		background-image: url(../../../../assets/Icons/search-white.png);
 		background-repeat: no-repeat;
 		background-position: center;
-		background-size: 24px;
+		background-size: 1.5rem;
 
 		&:hover {
 			background-image: url(../../../../assets/Icons/search-green.png);
@@ -54,21 +55,21 @@
 
 .search {
 	display: flex;
-	gap: 0.5em;
+	gap: 0.5rem;
 	align-items: center;
 }
 
 @media screen and (min-width: 900px) {
 	.pesquisador {
-		width: 700px;
+		width: 43.75rem;
 	}
 
 	.pesquisar__button {
-		height: 16px;
-		width: 16px;
+		height: 1rem;
+		width: 1rem;
 
 		span {
-			background-size: 16px;
+			background-size: 1rem;
 			background-repeat: no-repeat;
 			background-position: center;
 			background-image: url(../../../../assets/Icons/search-black.png);

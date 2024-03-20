@@ -36,17 +36,17 @@
 	flex-direction: column;
 	align-items: center;
 
-	.imagem_semBandas {
-		height: 250px;
-		width: 250px;
+	&_imagem {
+		height: 15.625rem;
+		width: 15.625rem;
 		margin: 1rem;
 	}
 
-	.texto_semBandas {
+	&_texto {
 		color: $branco;
 		font-family: $ff-quicksand;
 
-		.destaque_texto {
+		&_destaque {
 			font-weight: 600;
 			color: $primary-light;
 		}
