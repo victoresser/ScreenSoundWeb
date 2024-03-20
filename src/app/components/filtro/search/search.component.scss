@@ -12,7 +12,7 @@
 	display: flex;
 	width: 100%;
 
-	.titulo__pesquisador {
+	&_titulo {
 		justify-content: center;
 		align-items: center;
 		font-size: 1.5rem;
@@ -20,7 +20,7 @@
 		height: 1.5rem;
 	}
 
-	.descricao__pesquisador {
+	&_descricao {
 		justify-content: center;
 		text-align: center;
 		font-size: 1rem;
@@ -34,29 +34,29 @@
 		gap: 0.5rem;
 	}
 
-	.pesquisar__button {
-		padding: 0;
-		width: 2rem;
-		height: 2rem;
-		border: none;
-		outline: none;
-		cursor: pointer;
-		background-color: transparent;
-		background-image: url(../../../../assets/Icons/search-white.png);
-		background-repeat: no-repeat;
-		background-position: center;
-		background-size: 1.5rem;
+	.search {
+		display: flex;
+		gap: 0.5rem;
+		align-items: center;
 
-		&:hover {
-			background-image: url(../../../../assets/Icons/search-green.png);
+		&_button {
+			padding: 0;
+			width: 2rem;
+			height: 2rem;
+			border: none;
+			outline: none;
+			cursor: pointer;
+			background-color: transparent;
+			background-image: url(../../../../assets/Icons/search-white.png);
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: 1.5rem;
+
+			&:hover {
+				background-image: url(../../../../assets/Icons/search-green.png);
+			}
 		}
 	}
-}
-
-.search {
-	display: flex;
-	gap: 0.5rem;
-	align-items: center;
 }
 
 @media screen and (min-width: 900px) {
