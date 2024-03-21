@@ -1,0 +1,6 @@
+{
+	"filtro": {
+		"titulo": "Tem certeza de que deseja excluir {{ tipoEntidade }} {{ nomeEntidade }}",
+		"mensagem": "Clique em <span class=\"bold\">Confirmar</span> para excluir ou em <span class=\"bold\">Cancelar</span> para voltar para à listagem."
+	}
+}

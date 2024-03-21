@@ -1,10 +1,12 @@
-<h1 matDialogTitle>Excluir {{ entidade }}</h1>
+<h1 matDialogTitle>
+	{{ "filtro.titulo" | translate }}
+</h1>
 
 <mat-dialog-content>
-	Você realmente deseja excluir {{ entidade }}
+	{{ "filtro.mensagem" | translate }}
 </mat-dialog-content>
 
 <mat-dialog-actions>
-	<button mat-button matDialogClose>Cancelar</button>
-	<button mat-button>Confirmar</button>
+	<button mat-raised-button color="primary" class="button-large" matDialogClose (click)="onClickCancel()">Cancelar</button>
+	<button mat-raised-button color="primary" class="button-large" matDialogClose (click)="onClickConfirm()">Confirmar</button>
 </mat-dialog-actions>

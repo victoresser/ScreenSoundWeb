@@ -18,8 +18,9 @@ import { MusicaService } from 'src/app/services/musica/musica.service';
 import { AlbumService } from 'src/app/services/album/album.service';
 import { BandaService } from 'src/app/services/banda/banda.service';
 import { ModalService } from 'src/app/services/common/modal.service';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ExcluirModalComponent } from './modal/excluir-modal/excluir-modal.component';
+import { DialogConfig } from '@angular/cdk/dialog';
 
 @Component({
 	selector: 'app-filtro',
