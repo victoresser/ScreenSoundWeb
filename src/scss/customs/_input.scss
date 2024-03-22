@@ -1,13 +1,6 @@
 @import "src/scss/vars/_colors.scss";
 @import "src/scss/vars/_fonts.scss";
 
-.mat-input-container {
-	width: 100%;
-	height: 100%;
-	max-width: 250px;
-	max-height: 150px;
-
-	input {
-		border: solid 2px $primary-light;
-	}
+.mat-form-field {
+	font-family: $ff-montserrat;
 }

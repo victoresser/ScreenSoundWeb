@@ -1,0 +1,24 @@
+<mat-form-field
+	class="screensound_input"
+	[ngClass]="{
+		'mat-form-field-success': hasInputSuccess(),
+		screensound_input_success: hasInputSuccess()
+	}"
+	#f="ngForm"
+	[formGroup]="internalForm"
+	[appearance]="appearance"
+>
+	<input
+		matInput
+		formControlName="typeableInput"
+		[ngClass]="{
+			'screensound_input_error': hasInputError()
+		}"
+		[type]="type"
+		[mask]="mask"
+		[required]="required"
+		[maxLength]="maxLength"
+		[pattern]="pattern"
+		[atrr.inputMode]="inputMode"
+	/>
+</mat-form-field>

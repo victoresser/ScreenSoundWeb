@@ -1,23 +1,8 @@
 <div class="container">
 	<img [src]="logo" alt="Logo ScreenSound" class="imagem_form" />
-	<form class="form_container" [formGroup]="loginForm">
-		<mat-form-field class="example-full-width" [appearance]="appearance">
-			<mat-label>Usuário</mat-label>
-			<mat-input-container floatPlaceholder="Usuário">
-				<input matInput type="text" form required />
-			</mat-input-container>
-		</mat-form-field>
+	<form action="submit" class="form" [formGroup]="loginForm">
+		<mat-form-field appearance="outline">
 
-		<mat-form-field class="example-full-width" [appearance]="appearance">
-			<mat-label>Password</mat-label>
-			<mat-input-container floatPlaceholder="auto">
-				<input matInput type="password" required />
-			</mat-input-container>
 		</mat-form-field>
-
-		<div class="form_buttons">
-			<button mat-stroked-button class="form_buttons_button button-rounded" type="menu">Cadastrar-se</button>
-			<button mat-stroked-button class="form_buttons_button" type="submit" (click)="Login(loginForm)">Login</button>
-		</div>
 	</form>
 </div>

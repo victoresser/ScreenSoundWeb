@@ -10,20 +10,21 @@
 	align-items: center;
 	padding: 0.5rem;
 	width: 100%;
+	max-width: 31.25rem;
 	height: 100%;
-	max-height: 450px;
+	max-height: 28.125rem;
 	border-radius: 0.7em;
 	background-color: rgba(255, 255, 255, 0.55);
-	box-shadow: 0px 0px 36px 0px rgba(0, 0, 0, 0.45) inset;
-	-webkit-box-shadow: 0px 0px 36px 0px rgba(0, 0, 0, 0.45) inset;
-	-moz-box-shadow: 0px 0px 36px 0px rgba(0, 0, 0, 0.45) inset;
-	backdrop-filter: blur(5px);
-	-webkit-backdrop-filter: blur(5px);
-	border: 1px solid rgba(255, 255, 255, 1);
+	box-shadow: 0 0 2.25rem 0 rgba(0, 0, 0, 0.45) inset;
+	-webkit-box-shadow: 0 0 2.25rem 0 rgba(0, 0, 0, 0.45) inset;
+	-moz-box-shadow: 0 0 2.25rem 0 rgba(0, 0, 0, 0.45) inset;
+	backdrop-filter: blur(0.313rem);
+	-webkit-backdrop-filter: blur(0.313rem);
+	border: 0.063rem solid rgba(255, 255, 255, 1);
 	overflow: hidden;
 
 	.imagem_form {
-		width: 150px;
+		width: 9.375rem;
 		margin: 1rem;
 	}
 
@@ -43,8 +44,6 @@
 
 			&_button {
 				color: $primary-light;
-				border: solid 1px $primary-light;
-				border-radius: .3rem;
 
 				&:active {
 					color: $primary-dark;
@@ -54,14 +53,9 @@
 	}
 }
 
-
-mat-input-container {
-	width: 100%;
-	height: 100%;
-	max-width: 250px;
-	max-height: 150px;
-
-	input {
-		
-	}
-}
+// mat-input-container {
+// 	width: 100%;
+// 	height: 100%;
+// 	max-width: 30.625rem;
+// 	max-height: 9.375rem;
+// }

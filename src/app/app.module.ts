@@ -23,19 +23,14 @@ import { EditComponent } from './components/filtro/edit/edit.component';
 import { SearchComponent } from './components/filtro/search/search.component';
 import { FiltroComponent } from './components/filtro/filtro.component';
 import { ExcluirModalComponent } from './components/filtro/modal/excluir-modal/excluir-modal.component';
-import {
-	MAT_FORM_FIELD_DEFAULT_OPTIONS,
-	MatFormFieldModule,
-} from '@angular/material/form-field';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { LoginComponent } from './components/login/login.component';
 import { LoginFormComponent } from './components/login/login-form/login-form.component';
-import {
-	ErrorStateMatcher,
-	ShowOnDirtyErrorStateMatcher,
-} from '@angular/material/core';
+import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
 import { CardMusicaComponent } from './components/filtro/musica/card-musica/card-musica.component';
 import { CardBandaComponent } from './components/filtro/banda/card-banda/card-banda.component';
 import { CardAlbumComponent } from './components/filtro/album/card-album/card-album.component';
+<<<<<<< HEAD
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -45,6 +40,9 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 export function HttpLoaderFactory(http: HttpClient) {
 	return new TranslateHttpLoader(http, 'src/assets/i18n', 'json')
 }
+=======
+import { SharedModule } from './shared/shared.module';
+>>>>>>> cd6b096 (Implementando padrões de mat-form-field.)
 
 @NgModule({
 	declarations: [
@@ -71,10 +69,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 		CardAlbumComponent,
 	],
 	imports: [
-		MatFormFieldModule,
-		MatDialogModule,
-		MatButtonModule,
-		MatInputModule,
+		SharedModule,
 		BrowserModule,
 		HttpClientModule,
 		AppRoutingModule,
