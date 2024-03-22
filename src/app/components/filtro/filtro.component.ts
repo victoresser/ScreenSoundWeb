@@ -18,9 +18,11 @@ import { MusicaService } from 'src/app/services/musica/musica.service';
 import { AlbumService } from 'src/app/services/album/album.service';
 import { BandaService } from 'src/app/services/banda/banda.service';
 import { ModalService } from 'src/app/services/common/modal.service';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { ExcluirModalComponent } from './modal/excluir-modal/excluir-modal.component';
-import { DialogConfig } from '@angular/cdk/dialog';
+import configModal from 'src/app/shared/model/config-modal';
+import { TipoAcaoBotao } from './common/model/tipo-acao-botao.enum';
+import { DialogRetorno } from './common/model/dialog-retorno.interface';
 
 @Component({
 	selector: 'app-filtro',
@@ -127,12 +129,30 @@ export class FiltroComponent implements OnDestroy, OnInit {
 	}
 
 	async onDelete(rotaAtual: string) {
+		let acaoBotao: TipoAcaoBotao;
 		this.id = this.dataService.obterIdSelecionado();
-		return rotaAtual === '/filtro/musicas'
-			? (await this.musicaService.onDelete(this.id!)).subscribe()
-			: rotaAtual === '/filtro/albuns'
-			? (await this.albumService.onDelete(this.id!)).subscribe()
-			: (await this.bandaService.onDelete(this.id!)).subscribe();
+
+		const config = configModal({
+			data: <DialogRetorno>{
+				titulo: 'modal.filtro.titulo',
+				mensagem: 'modal.filtro.mensagem',
+			},
+		});
+
+		const dialogRef = this.matDialog.open(ExcluirModalComponent, config);
+		dialogRef
+			.afterClosed()
+			.subscribe((tipoAcao: TipoAcaoBotao) => (acaoBotao = tipoAcao));
+
+		if (acaoBotao === TipoAcaoBotao.Confirmar) {
+			return rotaAtual === '/filtro/musicas'
+				? (await this.musicaService.onDelete(this.id!)).subscribe()
+				: rotaAtual === '/filtro/albuns'
+				? (await this.albumService.onDelete(this.id!)).subscribe()
+				: (await this.bandaService.onDelete(this.id!)).subscribe();
+		}
+
+		return;
 	}
 
 	openModalExcluir() {

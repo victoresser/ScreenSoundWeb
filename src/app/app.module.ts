@@ -1,5 +1,4 @@
 import { ToastrModule } from 'ngx-toastr';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -26,23 +25,21 @@ import { ExcluirModalComponent } from './components/filtro/modal/excluir-modal/e
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { LoginComponent } from './components/login/login.component';
 import { LoginFormComponent } from './components/login/login-form/login-form.component';
-import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
+import {
+	ErrorStateMatcher,
+	ShowOnDirtyErrorStateMatcher,
+} from '@angular/material/core';
 import { CardMusicaComponent } from './components/filtro/musica/card-musica/card-musica.component';
 import { CardBandaComponent } from './components/filtro/banda/card-banda/card-banda.component';
 import { CardAlbumComponent } from './components/filtro/album/card-album/card-album.component';
-<<<<<<< HEAD
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 export function HttpLoaderFactory(http: HttpClient) {
-	return new TranslateHttpLoader(http, 'src/assets/i18n', 'json')
+	return new TranslateHttpLoader(http, 'src/assets/i18n', 'json');
 }
-=======
 import { SharedModule } from './shared/shared.module';
->>>>>>> cd6b096 (Implementando padrões de mat-form-field.)
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
 	declarations: [
@@ -84,14 +81,14 @@ import { SharedModule } from './shared/shared.module';
 			loader: {
 				provide: TranslateLoader,
 				useFactory: HttpLoaderFactory,
-				deps: [HttpClient]
-			}
-		})
+				deps: [HttpClient],
+			},
+		}),
 	],
 	providers: [
 		{
 			provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
-			useValue: { appearance: 'outline' },
+			useValue: { appearance: 'outline', color: 'primary' },
 		},
 		{ provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher },
 	],
