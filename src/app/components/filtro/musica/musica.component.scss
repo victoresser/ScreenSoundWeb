@@ -12,7 +12,7 @@ p {
 }
 
 .lista__container {
-	@include display-flex(column, center, none);
+	@include display-flex(row, center, center);
 	box-sizing: border-box;
 	flex-wrap: wrap;
 	height: auto;
@@ -29,6 +29,7 @@ p {
 
 	.cards {
 		width: 100%;
+		max-width: 400px;
 	}
 }
 
@@ -68,7 +69,7 @@ p {
 
 @media screen and (min-width: 1690px) {
 	.lista__container {
-		justify-content: center;
+		flex-wrap: wrap;
 		max-width: 98.75rem;
 		padding: 0.5rem;
 	}
