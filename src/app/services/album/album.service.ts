@@ -43,25 +43,26 @@ export class AlbumService {
 	}
 
 	onEdit(album: EditAlbumDto): Observable<Album> {
-		return this.http.put<Album>(`${this.APIUrl}/editar/${album.id}`, album).pipe(
-			tap(() => {
-				this.toastr.success('Album editado com sucesso', 'Sucesso');
-				this.notificarAtualizacao();
-			}),
-			catchError((error) => {
-				console.log(error);
-				return throwError(
-					() =>
-						new Error(
-							'Algo deu errado e foi impossível realizar a requisição PUT'
-						)
-				);
-			})
-		);
+		return this.http
+			.put<Album>(`${this.APIUrl}/editar/${album.id}`, album)
+			.pipe(
+				tap(() => {
+					this.toastr.success('Album editado com sucesso', 'Sucesso');
+					this.notificarAtualizacao();
+				}),
+				catchError((error) => {
+					console.log(error);
+					return throwError(
+						() =>
+							new Error(
+								'Algo deu errado e foi impossível realizar a requisição PUT'
+							)
+					);
+				})
+			);
 	}
 
 	async onDelete(id: number) {
-		window.confirm('Tem certeza que deseja excluir esta banda?');
 		return this.http.delete<Album>(`${this.APIUrl}/excluir/${id}`).pipe(
 			tap(() => {
 				this.toastr.success('Album excluído com sucesso!', 'Atenção');
@@ -69,7 +70,7 @@ export class AlbumService {
 			}),
 			catchError((err) => {
 				const errorMessage = `Erro ao tentar deletar o álbum do id ${id}`;
-				this.toastr.warning(errorMessage, 'Error');
+				this.toastr.error(errorMessage, 'Erro');
 				return throwError(err);
 			})
 		);

@@ -96,7 +96,7 @@ export class AddComponent {
 	}
 
 	async onAddMusica(musica: CreateMusicaDto) {
-		if (!this.musicaService.validateMusica(musica)) return this.onAddChange();
+		if (!this.musicaService.validarMusica(musica)) return this.onAddChange();
 		await this.onFileSelected(musica, 'musicas');
 		return await this.onAdd(musica, this.musicaService);
 	}

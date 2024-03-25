@@ -1,7 +1,7 @@
 import { ToastrModule } from 'ngx-toastr';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
@@ -32,15 +32,10 @@ import {
 import { CardMusicaComponent } from './components/filtro/musica/card-musica/card-musica.component';
 import { CardBandaComponent } from './components/filtro/banda/card-banda/card-banda.component';
 import { CardAlbumComponent } from './components/filtro/album/card-album/card-album.component';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SharedModule } from './shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularMaterialModule } from './shared/angular-material/angular-material.module';
-
-export function HttpLoaderFactory(http: HttpClient) {
-	return new TranslateHttpLoader(http, 'src/assets/i18n', 'json');
-}
+import { TranslateModuleConfigFactory } from './translate-config.factory';
 
 @NgModule({
 	declarations: [
@@ -79,13 +74,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 		IgxSliderModule,
 		InfiniteScrollModule,
 		ToastrModule.forRoot({}),
-		TranslateModule.forRoot({
-			loader: {
-				provide: TranslateLoader,
-				useFactory: HttpLoaderFactory,
-				deps: [HttpClient],
-			},
-		}),
+		TranslateModuleConfigFactory.createForRoot(),
 	],
 	providers: [
 		{

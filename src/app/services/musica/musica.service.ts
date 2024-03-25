@@ -13,9 +13,7 @@ import { Musica } from 'src/app/components/filtro/musica/models/musica.model';
 })
 export class MusicaService {
 	private readonly API = 'https://localhost:7049/api/Musica';
-	public musicas: Musica[] = [];
 	private listaAtualizada = new Subject<void>();
-	public musicaEditada = false;
 	private pageSize = 20;
 
 	constructor(
@@ -110,7 +108,7 @@ export class MusicaService {
 		return this.listaAtualizada.asObservable();
 	}
 
-	validateMusica(musica: CreateMusicaDto): boolean {
+	validarMusica(musica: CreateMusicaDto): boolean {
 		if (!musica.nome.trim()) {
 			this.toastr.warning(
 				'O nome da música não pode ser vazío, por favor, informe um nome para à música.',

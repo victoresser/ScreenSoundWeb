@@ -151,8 +151,4 @@ export class FiltroComponent implements OnDestroy, OnInit {
 
 		return;
 	}
-
-	openModalExcluir() {
-		this.matDialog.open(ExcluirModalComponent, {});
-	}
 }

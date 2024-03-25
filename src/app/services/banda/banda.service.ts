@@ -14,7 +14,6 @@ import { Banda } from 'src/app/components/filtro/banda/models/banda.model';
 export class BandaService {
 	private API = 'https://localhost:7049/api/Banda';
 	private listaSubject = new Subject<void>();
-	private listaFiltrada = new Subject<void>();
 	private pageSize = 20;
 
 	constructor(private http: HttpClient, private toastr: ToastrService) {}
@@ -22,8 +21,8 @@ export class BandaService {
 	async getBandas(page: number, filtro?: string): Promise<Observable<Banda[]>> {
 		const skip = (page - 1) * this.pageSize;
 		let params = new HttpParams()
-			.set('skip', skip.toString())
-			.set('take', this.pageSize.toString());
+			.set('skip', skip)
+			.set('take', this.pageSize);
 
 		if (filtro) {
 			params = params.set('nomeBanda', filtro);
@@ -64,13 +63,12 @@ export class BandaService {
 	}
 
 	async onDelete(id: number) {
-		window.confirm('Tem certeza que deseja excluir esta banda?');
 		return this.http.delete<Banda>(`${this.API}/excluir/${id}`).pipe(
 			tap(() => {
 				this.toastr.success('Banda deletada com sucesso', 'Sucesso');
 				this.notificarAtualizacao();
 			}),
-			catchError((error) => {
+			catchError((error: string) => {
 				this.toastr.error(error, 'Erro');
 				return throwError(
 					() =>
