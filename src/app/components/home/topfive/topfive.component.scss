@@ -19,7 +19,7 @@ h3 {
 }
 
 hr {
-	background-color: $branco;
+	background-color: $white;
 	margin: 0.5em 0.5em;
 	height: 100px;
 	width: 2px;
@@ -54,7 +54,7 @@ hr {
 	display: flex;
 	align-items: center;
 	box-sizing: border-box;
-	background-color: $fundo;
+	background-color: $bg;
 	border-left: solid 1px #52616b;
 	border-right: inset 1px #52616b;
 	width: 100%;

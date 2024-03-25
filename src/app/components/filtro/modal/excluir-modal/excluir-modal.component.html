@@ -1,12 +1,12 @@
 <h1 matDialogTitle>
-	{{ "filtro.titulo" | translate }}
+	{{ "modal.filtro.titulo" | translate }}
 </h1>
 
 <mat-dialog-content>
-	{{ "filtro.mensagem" | translate }}
+	{{ "modal.filtro.mensagem" | translate }}
 </mat-dialog-content>
 
 <mat-dialog-actions>
-	<button mat-raised-button color="primary" class="button-large" matDialogClose (click)="onClickCancel()">Cancelar</button>
-	<button mat-raised-button color="primary" class="button-large" matDialogClose (click)="onClickConfirm()">Confirmar</button>
+	<button mat-flat-button color="primary" class="mat-flat-button" matDialogClose (click)="onClickCancel()">Cancelar</button>
+	<button mat-flat-button color="primary" class="mat-flat-button" (click)="onClickConfirm()">Confirmar</button>
 </mat-dialog-actions>

@@ -12,7 +12,7 @@ import { Album } from 'src/app/components/filtro/album/model/album.model';
 	providedIn: 'root',
 })
 export class AlbumService {
-	private API = 'https://localhost:7049/api/Album';
+	private APIUrl = 'https://localhost:7049/api/Album';
 	private listaSubject = new Subject<void>();
 	private pageSize = 20;
 
@@ -26,15 +26,15 @@ export class AlbumService {
 			params = params.set('nomeAlbum', filtro);
 		}
 
-		return this.http.get<Album[]>(`${this.API}/listar`, { params: params });
+		return this.http.get<Album[]>(`${this.APIUrl}/listar`, { params: params });
 	}
 
 	getTopFive(): Observable<Album[]> {
-		return this.http.get<Album[]>(`${this.API}/listarTopFive`);
+		return this.http.get<Album[]>(`${this.APIUrl}/listarTopFive`);
 	}
 
 	onAdd(album: CreateAlbumDto): Observable<Album> {
-		return this.http.post<Album>(`${this.API}/adicionarAlbum`, album).pipe(
+		return this.http.post<Album>(`${this.APIUrl}/adicionarAlbum`, album).pipe(
 			tap(() => {
 				this.toastr.success('Álbum adicionado com sucesso', 'Sucesso');
 				this.notificarAtualizacao();
@@ -43,7 +43,7 @@ export class AlbumService {
 	}
 
 	onEdit(album: EditAlbumDto): Observable<Album> {
-		return this.http.put<Album>(`${this.API}/editar/${album.id}`, album).pipe(
+		return this.http.put<Album>(`${this.APIUrl}/editar/${album.id}`, album).pipe(
 			tap(() => {
 				this.toastr.success('Album editado com sucesso', 'Sucesso');
 				this.notificarAtualizacao();
@@ -62,7 +62,7 @@ export class AlbumService {
 
 	async onDelete(id: number) {
 		window.confirm('Tem certeza que deseja excluir esta banda?');
-		return this.http.delete<Album>(`${this.API}/excluir/${id}`).pipe(
+		return this.http.delete<Album>(`${this.APIUrl}/excluir/${id}`).pipe(
 			tap(() => {
 				this.toastr.success('Album excluído com sucesso!', 'Atenção');
 				this.notificarAtualizacao();

@@ -18,10 +18,10 @@ export class ExcluirModalComponent {
 	private matDialog: MatDialogRef<any>) {}
 
 	onClickConfirm() {
-		return this.matDialog.close(TipoAcaoBotao.Confirmar);
+		this.matDialog.close(TipoAcaoBotao.Confirmar);
 	}
 
 	onClickCancel() {
-		return this.matDialog.close(TipoAcaoBotao.Cancelar);
+		this.matDialog.close(TipoAcaoBotao.Cancelar);
 	}
 }

@@ -34,12 +34,13 @@ import { CardBandaComponent } from './components/filtro/banda/card-banda/card-ba
 import { CardAlbumComponent } from './components/filtro/album/card-album/card-album.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { SharedModule } from './shared/shared.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AngularMaterialModule } from './shared/angular-material/angular-material.module';
 
 export function HttpLoaderFactory(http: HttpClient) {
 	return new TranslateHttpLoader(http, 'src/assets/i18n', 'json');
 }
-import { SharedModule } from './shared/shared.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
 	declarations: [
@@ -67,6 +68,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 	],
 	imports: [
 		SharedModule,
+		AngularMaterialModule,
 		BrowserModule,
 		HttpClientModule,
 		AppRoutingModule,

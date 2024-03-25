@@ -129,7 +129,6 @@ export class FiltroComponent implements OnDestroy, OnInit {
 	}
 
 	async onDelete(rotaAtual: string) {
-		let acaoBotao: TipoAcaoBotao;
 		this.id = this.dataService.obterIdSelecionado();
 
 		const config = configModal({
@@ -140,11 +139,9 @@ export class FiltroComponent implements OnDestroy, OnInit {
 		});
 
 		const dialogRef = this.matDialog.open(ExcluirModalComponent, config);
-		dialogRef
-			.afterClosed()
-			.subscribe((tipoAcao: TipoAcaoBotao) => (acaoBotao = tipoAcao));
+		const acaoModal = await dialogRef.afterClosed().toPromise();
 
-		if (acaoBotao === TipoAcaoBotao.Confirmar) {
+		if (acaoModal === TipoAcaoBotao.Confirmar) {
 			return rotaAtual === '/filtro/musicas'
 				? (await this.musicaService.onDelete(this.id!)).subscribe()
 				: rotaAtual === '/filtro/albuns'

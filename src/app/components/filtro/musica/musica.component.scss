@@ -3,7 +3,7 @@
 @import "src/reset.scss";
 
 p {
-	color: $fundo;
+	color: $bg;
 }
 
 .container {
@@ -48,7 +48,7 @@ p {
 	}
 
 	&_texto {
-		color: $branco;
+		color: $white;
 		font-family: $ff-quicksand;
 
 		.destaque_texto {

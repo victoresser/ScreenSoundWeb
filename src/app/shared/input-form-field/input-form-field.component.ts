@@ -2,18 +2,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @angular-eslint/component-selector */
 import {
-	AfterViewInit,
-	Component,
-	EventEmitter,
-	Input,
-	OnChanges,
-	OnInit,
-	Optional,
-	Output,
-	Self,
-	SimpleChanges,
-} from '@angular/core';
-import {
 	AbstractControl,
 	ControlValueAccessor,
 	FormBuilder,
@@ -26,6 +14,7 @@ import {
 	TipoInputMode,
 	TipoInputModeEnum,
 } from '../model/tipo-input-mode.enum';
+import { Component, OnInit, OnChanges, AfterViewInit, Output, EventEmitter, Optional, Self, SimpleChanges, Input } from '@angular/core';
 
 @Component({
 	selector: 'input-form-field',

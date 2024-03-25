@@ -15,7 +15,7 @@ img {
 	justify-content: space-between;
 	box-sizing: border-box;
 	align-items: center;
-	background-color: $fundo;
+	background-color: $bg;
 	padding: 1em;
 
 	.menu {
@@ -24,7 +24,7 @@ img {
 			width: auto;
 			height: 45px;
 		}
-		
+
 		&_logo_desktop {
 			display: none;
 		}
@@ -140,7 +140,7 @@ img {
 		transition: all 0.3s ease;
 
 		&:hover {
-			color: $fundo;
+			color: $bg;
 			background-color: $primary-dark;
 			transform: translateY(-1px);
 			font-weight: 700;
@@ -162,7 +162,7 @@ img {
 		width: 2px;
 		height: 100%;
 		opacity: 25%;
-		color: $branco;
+		color: $white;
 	}
 
 	.perfil {
@@ -175,7 +175,7 @@ img {
 		}
 
 		&:hover &_button {
-			color: $fundo;
+			color: $bg;
 			background-color: $primary-dark;
 			transform: translateY(-1px);
 			font-weight: 700;
