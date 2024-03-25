@@ -1,112 +1,53 @@
 @import "src/scss/vars/_colors.scss";
-@import "src/scss/vars/_fonts.scss";
+@import "src/scss/mixins/_fonts.scss";
+@import "src/scss/mixins/_display.scss";
 
-a {
-	text-decoration: none;
-}
-
-hr {
+.novidades {
+	@include display-flex(column, center, center);
 	margin: 0.5em;
-}
 
-p,
-h2 {
-	margin: 0;
-	color: $white;
-	font-size: $ff-montserrat;
-}
+	.header {
+		@include display-flex(row, center, center);
+		background-color: $primary-dark;
+		border-radius: 0.5rem 0.5rem 0 0;
+		height: 2.813rem;
+		width: 100%;
 
-b {
-	color: $primary-dark;
-}
+		&_titulo {
+			@include display-flex(row, center, center);
+			@include headline-small;
+			font-family: $ff-montserrat;
+			color: $white;
+		}
+	}
 
-.container {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	margin: 0.5em;
-}
+	&_imagem {
+		height: 35vh;
+		width: 100%;
+		overflow: hidden;
+		position: relative;
+		background-repeat: no-repeat;
+		background-image: url("../../../../assets/headphone-1.png");
+		background-size: cover;
+	}
 
-.novidade__container {
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-	align-items: center;
-	text-align: center;
-	word-wrap: break-word;
-	width: 100%;
-}
+	.footer {
+		@include display-flex(row, center, center);
+		background-color: $primary-dark;
+		border-radius: 0 0 0.5rem 0.5rem;
+		height: 2.813rem;
+		width: 100%;
 
-.imagem__container {
-	height: 35vh;
-	width: 100%;
-	overflow: hidden;
-	position: relative;
-	background-repeat: no-repeat;
-}
-
-.imagem__novidade {
-	background-image: url("../../../../assets/headphone-1.png");
-	background-size: cover;
-}
-
-.titulo__container {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
-}
-
-.titulo {
-	display: flex;
-	font-size: 24px;
-	font-family: $ff-montserrat;
-	color: $white;
-	text-align: center;
-	justify-content: center;
-	align-items: center;
-	background-color: $primary-dark;
-	border-radius: 0.5em 0.5em 0 0;
-	height: 45px;
-	width: 100%;
-}
-
-.titulo__novidade {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background-color: $primary-dark;
-	font-size: 26px;
-	font-family: $ff-montserrat;
-	height: 45px;
-	width: 100%;
-	border-radius: 0 0 0.5em 0.5em;
-}
-
-.texto__novidade {
-	margin: 0 0.5em;
-	text-align: justify;
-	color: $bg;
-	font-size: 12px;
-	font-family: $ff-montserrat;
-	background-color: $white;
-}
-
-.imagem__container__any {
-	display: none;
-}
-
-.titulo__novidade__any {
-	display: none;
-}
-
-.overlay {
-	display: none;
+		&_titulo {
+			@include headline-small;
+			font-family: $ff-montserrat;
+			color: $white;
+		}
+	}
 }
 
 @media screen and (min-width: 1220px) {
-	.container {
+	.novidades {
 		display: flex;
 	}
 

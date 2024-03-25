@@ -1,9 +1,10 @@
 @import "src/scss/vars/_colors.scss";
-@import "src/scss/vars/_fonts.scss";
+@import "src/scss/mixins/_fonts.scss";
+@import "src/scss/mixins/_display.scss";
 
 .card {
 	display: flex;
-	width: 400px;
+	width: 100%;
 	padding: 1rem;
 	border-radius: 0.5rem;
 	-webkit-animation: fade-in-bck 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
@@ -35,7 +36,7 @@
 
 		.card_titulo {
 			height: 100%;
-			width: 150px;
+			width: 100px;
 			display: flex;
 			align-items: center;
 			flex-direction: column;
@@ -43,17 +44,17 @@
 
 			.imagem_musica {
 				display: flex;
-				width: 100px;
-				height: 100px;
+				width: 4.688rem;
+				height: 4.688rem;
 				border-radius: 0.3rem;
 				transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 0.5s;
 			}
 
 			.nome_banda {
+				@include title-small;
+				font-family: $ff-quicksand;
 				display: flex;
-				font-size: 1.2rem;
 				color: black;
-				font-weight: 500;
 			}
 		}
 
@@ -63,26 +64,32 @@
 		}
 
 		.card_informacoes {
-			display: flex;
+			@include display-flex(column, none, flex-start);
+			@include body-small;
 			width: 100%;
 			font-size: 1rem;
-			flex-direction: column;
-			justify-content: flex-start;
 			font-family: $ff-quicksand;
 
 			.titulo_musica {
-				display: flex;
+				@include title-small;
+				font-weight: 400;
+				color: $white;
 				text-wrap: wrap;
-				font-size: 1.2rem;
-				font-family: $ff-quicksand;
+				display: flex;
+
+				&:hover {
+					color: $primary-light;
+				}
 			}
 
 			.duracao_musica {
+				@include body-medium;
 				display: flex;
 				color: $bg;
 			}
 
 			.disponibilidade_musica {
+				@include body-medium;
 				display: flex;
 				color: $bg;
 			}

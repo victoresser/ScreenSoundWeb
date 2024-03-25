@@ -1,14 +1,14 @@
 <div class="container">
-  <div class="container__downloads">
-    <hr class="downloads__hr">
-    <h2>Downloads</h2>
-    <hr class="downloads__hr">
+  <div class="container_downloads">
+    <div class="downloads_separador"></div>
+    <h2 class="downloads_texto">Downloads</h2>
+    <div class="downloads_separador"></div>
   </div>
 
-  <div class="container__buttons">
-		<button class="buttons__button" *ngFor="let os of operatingSystems" (click)="getAgradecimento()">
-			<img [src]="os.icon" alt="{{os.name}} for {{os.platform}}">
-			<p class="buttons__text">{{os.name}}</p>
+  <div class="container_buttons">
+		<button class="buttons" *ngFor="let os of operatingSystems" (click)="getAgradecimento()">
+			<img [src]="os.icon" alt="{{os.name}} de {{os.platform}}">
+			<p class="buttons_text">{{os.name}}</p>
 		</button>
 	</div>
 </div>

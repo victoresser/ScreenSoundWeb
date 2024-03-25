@@ -7,20 +7,39 @@ $ff-montserrat: "Montserrat Alternates", sans-serif;
 
 $ff-quicksand: "Quicksand", sans-serif;
 
-p {
-	font-family: $ff-montserrat;
-	color: $white;
-	font-size: 1rem;
-}
+$font-size-base:                 1rem !default;    /* Assumes the browser default, typically `16px` */
 
-a {
-	font-family: $ff-montserrat;
-	text-decoration: none;
-	color: $white;
-	font-size: 1rem;
-}
+/* Display */
+$font-display-large:             ($font-size-base * 3.563) !default;    /*57px*/
+$font-display-medium:            ($font-size-base * 2.813) !default;    /*45px*/
+$font-display-small:             ($font-size-base *  2.25) !default;    /*36px*/
 
-h3 {
-	font-family: $ff-montserrat;
-	font-size: 1.5rem;
-}
+/* Headline */
+$font-headline-large:            ($font-size-base *    2) !default;    /*32px*/
+$font-headline-medium:           ($font-size-base * 1.75) !default;    /*28px*/
+$font-headline-small:            ($font-size-base *  1.5) !default;    /*24px*/
+
+/* Title */
+$font-title-large:               ($font-size-base * 1.375) !default;    /*22px*/
+$font-title-medium:              ($font-size-base *     1) !default;    /*16px*/
+$font-title-small:               ($font-size-base *  .875) !default;    /*14px*/
+
+/* Body */
+$font-body-large:                ($font-size-base *    1) !default;    /*16px*/
+$font-body-medium:               ($font-size-base * .875) !default;    /*14px*/
+$font-body-small:                ($font-size-base * .750) !default;    /*12px*/
+
+/* Label */
+$font-label-large:               ($font-size-base * .875) !default;    /*14px*/
+$font-label-medium:              ($font-size-base * .750) !default;    /*12px*/
+$font-label-small:               ($font-size-base * .688) !default;    /*11px*/
+
+$font-weight-hairline:           100 !default;
+$font-weight-ultraLight:         200 !default;
+$font-weight-light:              300 !default;
+$font-weight-normal:             400 !default;
+$font-weight-medium:             500 !default;
+$font-weight-semiBold:           600 !default;
+$font-weight-bold:               700 !default;
+$font-weight-extraBold:          800 !default;
+$font-weight-black:              900 !default;

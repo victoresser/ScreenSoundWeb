@@ -1,0 +1,137 @@
+@import "src/scss/vars/_fonts.scss";
+
+@mixin display-large {
+	color: $greyDark;
+	font-size: $font-display-large;
+	font-weight: $font-weight-normal;
+	line-height: 4rem;
+	letter-spacing: -0.016rem;
+}
+
+@mixin display-medium {
+	color: $greyDark;
+	font-size: $font-display-medium;
+	font-weight: $font-weight-normal;
+	line-height: 3.25rem;
+	letter-spacing: 0rem;
+}
+
+@mixin display-small {
+	color: $greyDark;
+	font-size: $font-display-small;
+	font-weight: $font-weight-normal;
+	line-height: 2.75rem;
+	letter-spacing: 0rem;
+}
+
+@mixin headline-large {
+	color: $greyDark;
+	font-size: $font-headline-large;
+	font-weight: $font-weight-normal;
+	line-height: 2.5rem;
+	letter-spacing: 0rem;
+}
+
+@mixin headline-medium {
+	color: $greyDark;
+	font-size: $font-headline-medium;
+	font-weight: $font-weight-normal;
+	line-height: 2.25rem;
+	letter-spacing: 0rem;
+}
+
+@mixin headline-small {
+	color: $greyDark;
+	font-size: $font-headline-small;
+	font-weight: $font-weight-normal;
+	line-height: 2rem;
+	letter-spacing: 0rem;
+}
+
+@mixin title-large {
+	color: $greyDark;
+	font-size: $font-title-large;
+	font-weight: $font-weight-semiBold;
+	line-height: 1.75rem;
+	letter-spacing: 0.006rem;
+}
+
+@mixin title-medium {
+	color: $greyDark;
+	font-size: $font-title-medium;
+	font-weight: $font-weight-semiBold;
+	line-height: 1.5rem;
+	letter-spacing: 0.006rem;
+}
+
+@mixin title-small {
+	color: $greyDark;
+	font-size: $font-title-small;
+	font-weight: $font-weight-semiBold;
+	line-height: 1.25rem;
+	letter-spacing: 0.006rem;
+}
+
+@mixin body-large {
+	color: $greyDark;
+	font-size: $font-body-large;
+	font-weight: $font-weight-normal;
+	line-height: 1.5rem;
+	letter-spacing: 0.031rem;
+}
+
+@mixin body-medium {
+	color: $greyDark;
+	font-size: $font-body-medium;
+	font-weight: $font-weight-normal;
+	line-height: 1.25rem;
+	letter-spacing: 0.016rem;
+}
+
+@mixin body-medium--forced {
+	color: $greyDark !important;
+	font-size: $font-body-medium !important;
+	font-weight: $font-weight-normal !important;
+	line-height: 1.25rem !important;
+	letter-spacing: 0.016rem !important;
+}
+
+@mixin body-small {
+	color: $greyDark;
+	font-size: $font-body-small;
+	font-weight: $font-weight-normal;
+	line-height: 1rem;
+	letter-spacing: 0.025rem;
+}
+
+@mixin body-small--forced {
+	color: $greyDark !important;
+	font-size: $font-body-small !important;
+	font-weight: $font-weight-normal !important;
+	line-height: 1rem !important;
+	letter-spacing: 0.025rem !important;
+}
+
+@mixin label-large {
+	color: $greyDark;
+	font-size: $font-label-large;
+	font-weight: $font-weight-semiBold;
+	line-height: 1.25rem;
+	letter-spacing: 0.006rem;
+}
+
+@mixin label-medium {
+	color: $greyDark;
+	font-size: $font-label-medium;
+	font-weight: $font-weight-semiBold;
+	line-height: 1rem;
+	letter-spacing: 0.01rem;
+}
+
+@mixin label-small {
+	color: $greyDark;
+	font-size: $font-label-small;
+	font-weight: $font-weight-semiBold;
+	line-height: 1rem;
+	letter-spacing: 0.01rem;
+}

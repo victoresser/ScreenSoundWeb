@@ -1,5 +1,6 @@
 @import "src/scss/vars/_colors.scss";
-@import "src/scss/vars/_fonts.scss";
+@import "src/scss/mixins/_fonts.scss";
+@import "src/scss/mixins/_display.scss";
 @import "src/reset.scss";
 
 p {
@@ -7,19 +8,15 @@ p {
 }
 
 .container {
-	display: flex;
-	width: 100%;
-	justify-content: center;
-	align-items: center;
+	@include display-flex(row, center, center);
 }
 
 .lista__container {
-	display: flex;
-	justify-content: center;
+	@include display-flex(column, center, none);
+	box-sizing: border-box;
 	flex-wrap: wrap;
-	padding: 0.3rem 0;
-	width: 100%;
 	height: auto;
+	padding: .3rem;
 	border-radius: 0.7rem;
 	background-color: rgba(255, 255, 255, 0.55);
 	box-shadow: 0px 0px 36px 0px rgba(0, 0, 0, 0.45) inset;
@@ -31,8 +28,7 @@ p {
 	overflow: hidden;
 
 	.cards {
-		display: inline-flex;
-		justify-content: center;
+		width: 100%;
 	}
 }
 

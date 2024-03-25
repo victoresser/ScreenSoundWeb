@@ -1,24 +1,12 @@
 @import "src/scss/vars/_colors.scss";
-@import "src/scss/vars/_fonts.scss";
-
-* {
-	margin: 0;
-	padding: 0;
-	color: $white;
-	font-family: $ff-montserrat;
-}
-
-p {
-	margin: 0;
-	padding: 0;
-}
+@import "src/scss/mixins/_fonts.scss";
+@import "src/scss/mixins/_display.scss";
+@import "src/reset.scss";
 
 .container {
-	margin: 0;
-	padding: 1em;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	@include display-flex(row, center, center);
+	@include body-small;
+	padding: 1rem;
 	text-align: center;
 	background-color: $primary-dark;
 	box-shadow: inset 0px -4px 0px 0px rgba(0, 0, 0, 25%);

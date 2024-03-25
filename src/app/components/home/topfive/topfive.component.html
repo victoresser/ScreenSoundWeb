@@ -8,7 +8,7 @@
         <img [src]="musica.imagem" alt="Capa de música" class="imagem">
       </div>
 
-      <div class="container__imagem" *ngIf="musica.imagem == null || musica.imagem == ''">
+      <div class="container__imagem" *ngIf="musica.imagem === null || musica.imagem === ''">
         <img src="../../../../assets/Icons/nao-encontrado.png" alt="Capa da Música" class="imagem__nao__encontrada"/>
       </div>
 
@@ -32,7 +32,7 @@
         <img [src]="album.imagem" alt="Capa de música" class="imagem">
       </div>
 
-      <div class="container__imagem" *ngIf="album.imagem == null || album.imagem == ''">
+      <div class="container__imagem" *ngIf="album.imagem === null || album.imagem === ''">
         <img src="../../../../assets/Icons/nao-encontrado.png" alt="Capa da Música" class="imagem"/>
       </div>
 
@@ -56,7 +56,7 @@
         <img [src]="banda.imagem" alt="Capa de música" class="imagem">
       </div>
 
-      <div class="container__imagem" *ngIf="banda.imagem == null || banda.imagem == ''">
+      <div class="container__imagem" *ngIf="banda.imagem === null || banda.imagem === ''">
         <img src="../../../../assets/Icons/nao-encontrado.png" alt="Capa da Música" class="imagem"/>
       </div>
 

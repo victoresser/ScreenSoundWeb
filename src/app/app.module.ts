@@ -5,15 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
-import { HomeComponent } from './components/home/home.component';
-import { IgxCarouselModule, IgxSliderModule } from 'igniteui-angular';
-import { FooterComponent } from './components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { TopfiveComponent } from './components/home/topfive/topfive.component';
-import { CarrosselComponent } from './components/home/carrossel/carrossel.component';
-import { HeaderLogoComponent } from './components/header-logo/header-logo.component';
-import { DownloadsComponent } from './components/home/downloads/downloads.component';
-import { NovidadesComponent } from './components/home/novidades/novidades.component';
 import { BandaComponent } from './components/filtro/banda/banda.component';
 import { MusicaComponent } from './components/filtro/musica/musica.component';
 import { AlbumComponent } from './components/filtro/album/album.component';
@@ -36,17 +28,16 @@ import { SharedModule } from './shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularMaterialModule } from './shared/angular-material/angular-material.module';
 import { TranslateModuleConfigFactory } from './translate-config.factory';
+import { CarrosselComponent } from './components/home/carrossel/carrossel.component';
+import { DownloadsComponent } from './components/home/downloads/downloads.component';
+import { HomeComponent } from './components/home/home.component';
+import { NovidadesComponent } from './components/home/novidades/novidades.component';
+import { TopfiveComponent } from './components/home/topfive/topfive.component';
+import { IgxCarouselModule, IgxSliderModule } from 'igniteui-angular';
 
 @NgModule({
 	declarations: [
 		AppComponent,
-		HomeComponent,
-		CarrosselComponent,
-		HeaderLogoComponent,
-		FooterComponent,
-		DownloadsComponent,
-		NovidadesComponent,
-		TopfiveComponent,
 		BandaComponent,
 		MusicaComponent,
 		AlbumComponent,
@@ -60,9 +51,16 @@ import { TranslateModuleConfigFactory } from './translate-config.factory';
 		CardMusicaComponent,
 		CardBandaComponent,
 		CardAlbumComponent,
+		HomeComponent,
+		TopfiveComponent,
+		NovidadesComponent,
+		DownloadsComponent,
+		CarrosselComponent,
 	],
 	imports: [
 		SharedModule,
+		IgxCarouselModule,
+		IgxSliderModule,
 		AngularMaterialModule,
 		BrowserModule,
 		HttpClientModule,
@@ -70,8 +68,6 @@ import { TranslateModuleConfigFactory } from './translate-config.factory';
 		ReactiveFormsModule,
 		BrowserAnimationsModule,
 		FormsModule,
-		IgxCarouselModule,
-		IgxSliderModule,
 		InfiniteScrollModule,
 		ToastrModule.forRoot({}),
 		TranslateModuleConfigFactory.createForRoot(),

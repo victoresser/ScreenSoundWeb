@@ -22,7 +22,7 @@
 						"styles": [
 							"@angular/material/prebuilt-themes/deeppurple-amber.css",
 							"node_modules/minireset.scss/minireset.css",
-							"src/styles.scss",
+							"src/scss/styles.scss",
 							"node_modules/igniteui-angular/styles/igniteui-angular.css"
 						],
 						"scripts": ["./node_modules/hammerjs/hammer.min.js"],
@@ -83,7 +83,7 @@
 						"assets": ["./src/assets/favicon.svg", "src/assets"],
 						"styles": [
 							"@angular/material/prebuilt-themes/deeppurple-amber.css",
-							"src/styles.scss",
+							"src/scss/styles.scss",
 							"node_modules/igniteui-angular/styles/igniteui-angular.scss",
 							"node_modules/ngx-toastr/toastr.scss"
 						],

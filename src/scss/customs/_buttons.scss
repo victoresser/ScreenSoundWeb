@@ -1,9 +1,9 @@
 @import "src/scss/vars/_fonts.scss";
 @import "src/scss/vars/_colors.scss";
 
-.mat-raised-button .mat-primary,
-.mat-fab-button .mat-primary,
-.mat-flat-button .mat-primary,
-.mat-stroked-button .mat-primary {
+.mat-flat-button.mat-primary,
+.mat-raised-button.mat-primary,
+.mat-fab.mat-primary,
+.mat-mini-fab.mat-primary {
 	background-color: $primary-light;
 }

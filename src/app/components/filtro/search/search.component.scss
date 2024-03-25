@@ -1,6 +1,7 @@
 @import "src/scss/vars/_colors.scss";
-@import "src/scss/vars/_fonts.scss";
-@import "src/styles.scss";
+@import "src/scss/mixins/_fonts.scss";
+@import "src/scss/mixins/_display.scss";
+@import "src/scss/styles.scss";
 
 .pesquisador {
 	flex-direction: column;
@@ -13,10 +14,8 @@
 	width: 100%;
 
 	&_titulo {
-		justify-content: center;
-		align-items: center;
-		font-size: 1.5rem;
-		display: flex;
+		@include display-flex(row, center, center);
+		@include headline-small;
 		height: 1.5rem;
 	}
 

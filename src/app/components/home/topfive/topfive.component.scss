@@ -1,48 +1,37 @@
 @import "src/scss/vars/_colors.scss";
-@import "src/scss/vars/_fonts.scss";
+@import "src/scss/mixins/_display.scss";
+@import "src/scss/mixins/_fonts.scss";
 @import "src/reset.scss";
 
 p {
-	margin: 0;
-	color: #52616b;
-	height: 50px;
-	font-size: 14px;
-}
-
-h3 {
-	font-family: $ff-montserrat;
-	font-weight: 700;
-	display: flex;
-	align-items: center;
-	font-size: 16px;
-	height: 32px;
+	@include body-small;
+	color: grey;
 }
 
 hr {
 	background-color: $white;
-	margin: 0.5em 0.5em;
+	margin: 0.5rem 0.5rem;
 	height: 100px;
 	width: 2px;
 }
 
 .container {
+	gap: 1rem;
 	display: flex;
+	margin: 0 0.5rem;
+	margin-bottom: 0.5rem;
 	flex-direction: column;
-	margin: 0 0.5em;
-	gap: 1em;
-	margin-bottom: 0.5em;
 }
 
 .titulo {
-	font-size: 24px;
-	font-weight: 700;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 45px;
+	@include display-flex(row, center, center);
+	@include headline-small;
+	color: $white;
+	height: 2.813rem;
+	font-weight: 400;
 	font-family: $ff-montserrat;
 	background-color: $primary-dark;
-	border-radius: 0.5em 0.5em 0 0;
+	border-radius: 0.5rem 0.5rem 0 0;
 }
 
 .topfive {
@@ -61,40 +50,35 @@ hr {
 }
 
 .container__imagem {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	@include display-flex(row);
 	size: 100%;
-	/* height: 90px;
-  width: 90px; */
-	/* background-color: #e7ebee; */
 	margin: 0.5em;
 	border-radius: 0.5em;
 }
 
 .imagem__nao__encontrada {
-	height: 65px;
-	width: 65px;
+	height: 4.063rem;
+	width: 4.063rem;
 }
 
 .imagem {
-	height: 90px;
-	width: 90px;
-	border-radius: 0.5em;
+	height: 5.625rem;
+	width: 5.625rem;
+	border-radius: 0.5rem;
 }
 
 .rodape__topfive {
 	display: flex;
-	height: 45px;
+	height: 2.813rem;
 	width: 100%;
 	background-color: $primary-dark;
-	border-radius: 0 0 0.5em 0.5em;
+	border-radius: 0 0 0.7rem 0.7rem;
 }
 
 @-webkit-keyframes slide-in-left {
 	0% {
-		-webkit-transform: translateX(-100px);
-		transform: translateX(-100px);
+		-webkit-transform: translateX(-6.25rem);
+		transform: translateX(-6.25rem);
 		opacity: 0;
 	}
 	100% {
@@ -106,8 +90,8 @@ hr {
 
 @keyframes slide-in-left {
 	0% {
-		-webkit-transform: translateX(-1000px);
-		transform: translateX(-1000px);
+		-webkit-transform: translateX(-62.5rem);
+		transform: translateX(-62.5rem);
 		opacity: 0;
 	}
 	100% {
@@ -117,13 +101,13 @@ hr {
 	}
 }
 
-@media screen and (min-width: 1220px) {
+@media screen and (min-width: 76.25rem) {
 	.container {
 		display: flex;
 		flex-direction: row;
 		grid-template-columns: 33% 33% 33%;
-		margin: 0.5em;
-		gap: 1.5em;
+		margin: 0.5rem;
+		gap: 1.5rem;
 	}
 
 	.topfive {

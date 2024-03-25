@@ -1,77 +1,11 @@
 @import "src/scss/vars/_colors.scss";
-@import "src/scss/vars/_fonts.scss";
+@import "src/scss/mixins/_fonts.scss";
+@import "src/scss/mixins/_display.scss";
 @import "src/reset.scss";
 
-p,
-h2 {
-	color: $white;
-	font-family: $ff-montserrat;
-}
-
-h2 {
-	font-size: 24px;
-}
-
 img {
-	height: 32px;
-	width: 32px;
-}
-hr {
-	opacity: 100%;
-	margin: 1em 0.5em;
-}
-
-.buttons__button {
-	text-decoration: none;
-	font-family: $ff-montserrat;
-	color: $white;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	border: none;
-	cursor: pointer;
-	gap: 0.2em;
-	width: 150px;
-	height: 55px;
-	background-color: $primary-dark;
-	box-shadow: inset 0px -4px 0px 0px rgba(0, 0, 0, 25%);
-	border-radius: 0.2em;
-	transition: transform 0.5s ease;
-
-	&:active {
-		box-shadow: none;
-		scale: 0.8;
-		background-color: var(--cor-principal);
-		transition: all ease-out 0.4s;
-	}
-
-	&:hover img {
-		box-shadow: none;
-		animation: scale-up-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1)
-			alternate both;
-		transition: all ease-in-out 0.4s alternate;
-	}
-
-	&:hover {
-		box-shadow: none;
-		animation: scale-up-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1)
-			alternate both;
-		transition: all ease-in-out 0.4s alternate;
-	}
-
-	&:default img {
-		animation: scale-down-center 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-			alternate both;
-	}
-}
-
-.container__buttons {
-	display: flex;
-	text-align: center;
-	align-items: center;
-	justify-content: center;
-	gap: 0.5em;
-	margin: .5rem;
+	height: 2rem;
+	width: 2rem;
 }
 
 .container {
@@ -79,19 +13,75 @@ hr {
 	text-align: center;
 	justify-content: center;
 	flex-direction: column;
-}
 
-.container__downloads {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
+	&_downloads {
+		@include title-large;
+		font-family: $ff-montserrat;
+		font-weight: 400;
+		color: $white;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin: 0 .5rem;
 
-.downloads__hr {
-	margin: 0em 0.5em 0.5em 0.5em;
-	opacity: 100%;
-	width: 100%;
-	height: 2px;
+		.downloads_texto {
+			margin: 0 .5rem;
+		}
+
+		.downloads_separador {
+			background-color: $white;
+			height: 1px;
+			width: 100%;
+		}
+	}
+
+	&_buttons {
+		display: flex;
+		text-align: center;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5em;
+		margin: 0.5rem;
+
+		.buttons {
+			@include label-small;
+			@include display-flex(row, center, center, nowrap);
+			font-weight: 400;
+			text-decoration: none;
+			font-family: $ff-montserrat;
+			color: $white;
+			border: none;
+			cursor: pointer;
+			gap: 0.2em;
+			width: 9.375rem;
+			height: 3.438rem;
+			background-color: $primary-dark;
+			box-shadow: inset 0px -4px 0px 0px rgba(0, 0, 0, 25%);
+			border-radius: 0.2em;
+			transition: all 0.5s ease;
+
+			&:active {
+				box-shadow: none;
+				scale: 0.8;
+				background-color: $primary-light;
+				transition: all ease-out 0.4s;
+			}
+
+			&:hover img {
+				box-shadow: none;
+				animation: scale-up-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1)
+					alternate both;
+				transition: all ease-in-out 0.4s alternate;
+			}
+
+			&:hover {
+				box-shadow: none;
+				animation: scale-up-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1)
+					alternate both;
+				transition: all ease-in-out 0.4s alternate;
+			}
+		}
+	}
 }
 
 .hr_separador {

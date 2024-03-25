@@ -1,5 +1,5 @@
 @import "src/scss/vars/_fonts.scss";
-@import "src/styles.scss";
+@import "src/scss/styles.scss";
 
 .editor {
 	width: 100%;
@@ -9,7 +9,7 @@
 
 	.segunda__linha {
 		display: flex;
-		gap: .5em;
+		gap: 0.5em;
 		margin-bottom: 0.5em;
 
 		.duracao {
@@ -41,22 +41,20 @@
 		justify-content: space-between;
 		display: flex;
 		width: 100%;
-		gap: .5em;
+		gap: 0.5em;
 
 		.descricaoBanda {
-			gap: .3em;
+			gap: 0.3em;
 			width: 100%;
 			display: flex;
 			flex-direction: column;
 
 			textarea {
-				padding: .3em;
+				padding: 0.3em;
 			}
 		}
 	}
-
 }
-
 
 @media screen and (min-width: 900px) {
 	.editor {
