@@ -1,6 +1,7 @@
 @import "src/scss/vars/_colors.scss";
 @import "src/scss/mixins/_fonts.scss";
 @import "src/scss/mixins/_display.scss";
+@import "src/scss/responsivity/breakpoints.scss";
 
 .novidades {
 	@include display-flex(column, center, center);
@@ -29,6 +30,20 @@
 		background-repeat: no-repeat;
 		background-image: url("../../../../assets/headphone-1.png");
 		background-size: cover;
+	}
+
+	&_imagem_desktop {
+		display: none;
+
+		@include media-min-lg {
+			height: 50vh;
+			width: 100%;
+			overflow: hidden;
+			position: relative;
+			background-repeat: no-repeat;
+			background-image: url("../../../../assets/headphone-1.png");
+			background-size: cover;
+		}
 	}
 
 	.footer {

@@ -5,11 +5,17 @@
 
 	<div
 		class="novidades_imagem imagem_container"
-		[style.backgroundPositionY]="calculateBackgroundPositionY()"
+		[style.backgroundPositionY]="calculateBackgroundPositionY(this.offset, this.maxOffset)"
+		id="parallaxContainer"
+	></div>
+
+	<div
+		class="novidades_imagem_desktop imagem_container"
+		[style.backgroundPositionY]="calculateBackgroundPositionY(this.offset, this.maxOffSetDesktop)"
 		id="parallaxContainer"
 	></div>
 	<div class="overlay"></div>
-	
+
 	<div routerLink="/novidades" class="footer">
 		<h2 class="footer_titulo">Novo Headphone Oasis!</h2>
 	</div>

@@ -7,6 +7,7 @@ import { Component, HostListener } from '@angular/core';
 export class NovidadesComponent {
 	offset = 0;
 	maxOffset = 300;
+	maxOffSetDesktop = 1000;
 	constructor() {}
 
 	@HostListener('window:scroll', ['$event'])
@@ -14,8 +15,8 @@ export class NovidadesComponent {
     this.offset = window.scrollY;
   }
 
-	calculateBackgroundPositionY(): string {
-		const adjustedOffset = Math.min(this.offset, this.maxOffset);
+	calculateBackgroundPositionY(offSet: number, maxOffSet: number): string {
+		const adjustedOffset = Math.min(offSet, maxOffSet);
 		return `${adjustedOffset * -0.7}px`;
 	}
 }
