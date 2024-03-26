@@ -1,5 +1,6 @@
 @import "src/scss/vars/_colors.scss";
-@import "src/scss/vars/_fonts.scss";
+@import "src/scss/mixins/_fonts.scss";
+@import "src/scss/mixins/_display.scss";
 
 p {
 	margin: 0;
@@ -48,14 +49,6 @@ img {
 
 	&_opcoes_desktop {
 		display: none;
-
-		.button {
-			display: none;
-		}
-
-		hr {
-			display: none;
-		}
 	}
 }
 
@@ -102,64 +95,53 @@ img {
 	}
 }
 
-
-
-
-
 @media screen and (min-width: 1220px) {
 	.container {
-		padding: 0;
-		height: 77px;
-	}
+		padding-left: 0.5rem;
+		height: 4.813rem;
 
-	.container__opcoes {
-		display: none;
-	}
+		.menu {
+			&_logo {
+				display: none;
+			}
 
-	.container__opcoes__desktop {
-		display: flex;
-		position: center;
-		align-items: center;
-		height: 100%;
-		margin-right: 5.5em;
-	}
+			&_logo_desktop {
+				display: block;
+			}
+		}
 
-	.container__meuPerfil {
-		display: flex;
-		align-items: center;
-	}
+		&_opcoes {
+			display: none;
+		}
 
-	.button {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		font-size: 16px;
-		font-family: $ff-montserrat;
-		height: 78px;
-		width: 100px;
-		transition: all 0.3s ease;
+		&_opcoes_desktop {
+			display: flex;
+			position: center;
+			align-items: center;
+			height: 100%;
 
-		&:hover {
-			color: $bg;
-			background-color: $primary-dark;
-			transform: translateY(-1px);
-			font-weight: 700;
+			.button {
+				@include display-flex(row, center, center);
+				@include label-large;
+				font-weight: $font-weight-normal;
+				color: $white;
+				font-family: $ff-montserrat;
+				height: 78px;
+				width: 100px;
+				transition: all 0.3s ease;
+
+				&:hover {
+					color: $bg;
+					background-color: $primary-dark;
+					transform: translateY(-1px);
+					font-weight: 700;
+				}
+			}
 		}
 	}
 
-	.menu__logo {
-		display: none;
-	}
-
-	.menu__logo__any {
+	hr {
 		display: flex;
-		height: 45px;
-		margin: 0.5em;
-	}
-
-	.container__opcoes__desktop hr {
-		display: flex;
-		width: 2px;
 		height: 100%;
 		opacity: 25%;
 		color: $white;

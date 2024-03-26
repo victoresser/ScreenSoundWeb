@@ -6,7 +6,7 @@ import { Component, HostListener } from '@angular/core';
 })
 export class NovidadesComponent {
 	offset = 0;
-	maxOffset = 400;
+	maxOffset = 300;
 	constructor() {}
 
 	@HostListener('window:scroll', ['$event'])

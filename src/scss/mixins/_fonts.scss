@@ -1,7 +1,7 @@
 @import "src/scss/vars/_fonts.scss";
 
 @mixin display-large {
-	color: $greyDark;
+	color: $white;
 	font-size: $font-display-large;
 	font-weight: $font-weight-normal;
 	line-height: 4rem;
@@ -9,7 +9,7 @@
 }
 
 @mixin display-medium {
-	color: $greyDark;
+	color: $white;
 	font-size: $font-display-medium;
 	font-weight: $font-weight-normal;
 	line-height: 3.25rem;
@@ -17,7 +17,7 @@
 }
 
 @mixin display-small {
-	color: $greyDark;
+	color: $white;
 	font-size: $font-display-small;
 	font-weight: $font-weight-normal;
 	line-height: 2.75rem;
@@ -25,7 +25,7 @@
 }
 
 @mixin headline-large {
-	color: $greyDark;
+	color: $white;
 	font-size: $font-headline-large;
 	font-weight: $font-weight-normal;
 	line-height: 2.5rem;
@@ -33,7 +33,7 @@
 }
 
 @mixin headline-medium {
-	color: $greyDark;
+	color: $white;
 	font-size: $font-headline-medium;
 	font-weight: $font-weight-normal;
 	line-height: 2.25rem;
@@ -41,7 +41,7 @@
 }
 
 @mixin headline-small {
-	color: $greyDark;
+	color: $white;
 	font-size: $font-headline-small;
 	font-weight: $font-weight-normal;
 	line-height: 2rem;
@@ -49,7 +49,7 @@
 }
 
 @mixin title-large {
-	color: $greyDark;
+	color: $white;
 	font-size: $font-title-large;
 	font-weight: $font-weight-semiBold;
 	line-height: 1.75rem;
@@ -57,7 +57,7 @@
 }
 
 @mixin title-medium {
-	color: $greyDark;
+	color: $white;
 	font-size: $font-title-medium;
 	font-weight: $font-weight-semiBold;
 	line-height: 1.5rem;
@@ -65,7 +65,7 @@
 }
 
 @mixin title-small {
-	color: $greyDark;
+	color: $white;
 	font-size: $font-title-small;
 	font-weight: $font-weight-semiBold;
 	line-height: 1.25rem;
@@ -73,7 +73,7 @@
 }
 
 @mixin body-large {
-	color: $greyDark;
+	color: $white;
 	font-size: $font-body-large;
 	font-weight: $font-weight-normal;
 	line-height: 1.5rem;
@@ -81,7 +81,7 @@
 }
 
 @mixin body-medium {
-	color: $greyDark;
+	color: $white;
 	font-size: $font-body-medium;
 	font-weight: $font-weight-normal;
 	line-height: 1.25rem;
@@ -89,7 +89,7 @@
 }
 
 @mixin body-medium--forced {
-	color: $greyDark !important;
+	color: $white !important;
 	font-size: $font-body-medium !important;
 	font-weight: $font-weight-normal !important;
 	line-height: 1.25rem !important;
@@ -97,7 +97,7 @@
 }
 
 @mixin body-small {
-	color: $greyDark;
+	color: $white;
 	font-size: $font-body-small;
 	font-weight: $font-weight-normal;
 	line-height: 1rem;
@@ -105,7 +105,7 @@
 }
 
 @mixin body-small--forced {
-	color: $greyDark !important;
+	color: $white !important;
 	font-size: $font-body-small !important;
 	font-weight: $font-weight-normal !important;
 	line-height: 1rem !important;
@@ -113,7 +113,7 @@
 }
 
 @mixin label-large {
-	color: $greyDark;
+	color: $white;
 	font-size: $font-label-large;
 	font-weight: $font-weight-semiBold;
 	line-height: 1.25rem;
@@ -121,7 +121,7 @@
 }
 
 @mixin label-medium {
-	color: $greyDark;
+	color: $white;
 	font-size: $font-label-medium;
 	font-weight: $font-weight-semiBold;
 	line-height: 1rem;
@@ -129,7 +129,7 @@
 }
 
 @mixin label-small {
-	color: $greyDark;
+	color: $white;
 	font-size: $font-label-small;
 	font-weight: $font-weight-semiBold;
 	line-height: 1rem;

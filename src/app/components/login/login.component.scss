@@ -1,16 +1,16 @@
+@import "src/scss/mixins/_display.scss";
+
 .container {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	height: 100%;
-	width: 100%;
-	padding: .5em;
+	width: 100vw;
+	padding: .5rem;
 
-	h3 {
+	.titulo {
+		@include display-flex(row, center, center);
 		margin: .5rem;
-		display: flex;
-		align-items: center;
-		justify-content: center;
 		margin-bottom: 2rem;
 	}
 }

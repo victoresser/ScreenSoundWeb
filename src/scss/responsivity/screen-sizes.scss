@@ -1,0 +1,24 @@
+@use "sass:map";
+
+$screen-sizes: (extra-extra-small 0px) (extra-small 360px) (small 600px)
+  (medium 960px) (large 1280px) (extra-large 1920px);
+
+$screen-size-gap: 0.02px;
+
+$screen-ranges: ();
+
+$_last-name: false;
+@each $name, $size in $screen-sizes {
+  @if $_last-name {
+    $screen-ranges: map.set(
+      $screen-ranges,
+      #{$_last-name}-end,
+      $size - $screen-size-gap
+    );
+  }
+
+  @if $size > 0px {
+    $screen-ranges: map.set($screen-ranges, #{$name}-start, $size);
+  }
+  $_last-name: $name;
+}

@@ -1,0 +1,35 @@
+@mixin media-xxs {
+  @include _media-max-for("extra-extra-small") {
+    @content;
+  }
+}
+
+@mixin media-xs {
+  @include _media-min-max-for("extra-small") {
+    @content;
+  }
+}
+
+@mixin media-sm {
+  @include _media-min-max-for("small") {
+    @content;
+  }
+}
+
+@mixin media-md {
+  @include _media-min-max-for("medium") {
+    @content;
+  }
+}
+
+@mixin media-lg {
+  @include _media-min-max-for("large") {
+    @content;
+  }
+}
+
+@mixin media-xl {
+  @include _media-min-for("extra-large") {
+    @content;
+  }
+}

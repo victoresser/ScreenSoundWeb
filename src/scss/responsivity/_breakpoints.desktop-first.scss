@@ -1,0 +1,29 @@
+@mixin media-max-xxs {
+  @include _media-max-for("extra-extra-small") {
+    @content;
+  }
+}
+
+@mixin media-max-xs {
+  @include _media-max-for("extra-small") {
+    @content;
+  }
+}
+
+@mixin media-max-sm {
+  @include _media-max-for("small") {
+    @content;
+  }
+}
+
+@mixin media-max-md {
+  @include _media-max-for("medium") {
+    @content;
+  }
+}
+
+@mixin media-max-lg {
+  @include _media-max-for("large") {
+    @content;
+  }
+}

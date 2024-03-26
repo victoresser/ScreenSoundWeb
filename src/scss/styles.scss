@@ -1,5 +1,6 @@
 /* Estilazação de elementos externos */
 @import "node_modules/ngx-toastr/toastr.css";
+@import "src/scss/responsivity/breakpoints.scss";
 
 /* Variáveis */
 @import "src/scss/vars/_colors.scss";
@@ -11,6 +12,8 @@
 @import "src/scss/customs/_input.scss";
 
 /* Mixins (Podem ser importados nos component) */
+@import "src/scss/mixins/_display.scss";
+@import "src/scss/mixins/_fonts.scss";
 
 body {
 	height: 100%;

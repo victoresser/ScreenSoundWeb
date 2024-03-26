@@ -1,5 +1,6 @@
 @import "src/scss/vars/_colors.scss";
-@import "src/scss/vars/_fonts.scss";
+@import "src/scss/mixins/_fonts.scss";
+@import "src/scss/responsivity/breakpoints.scss";
 
 .filtro__container video {
 	-webkit-filter: brightness(58%);
@@ -33,6 +34,12 @@
 	display: flex;
 	height: 65px;
 	width: 100%;
+
+	@include media-min-sm {
+		display: flex;
+		justify-content: center;
+		width: 28.125rem;
+	}
 }
 
 .menu__button {
@@ -170,13 +177,5 @@ app-edit {
 		-webkit-transform: translateZ(0);
 		transform: translateZ(0);
 		opacity: 1;
-	}
-}
-
-@media screen and (min-width: 466px) {
-	.menu__container {
-		display: flex;
-		justify-content: center;
-		width: 450px;
 	}
 }

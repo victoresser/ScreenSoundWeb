@@ -1,0 +1,28 @@
+@use "sass:map";
+@import "screen-sizes";
+
+@function _min-for($name) {
+  @return map.get($screen-ranges, #{$name}-start);
+}
+
+@function _max-for($name) {
+  @return map.get($screen-ranges, #{$name}-end);
+}
+
+@mixin _media-min-for($name) {
+  @media (min-width: _min-for($name)) {
+    @content;
+  }
+}
+
+@mixin _media-max-for($name) {
+  @media (max-width: _max-for($name)) {
+    @content;
+  }
+}
+
+@mixin _media-min-max-for($name) {
+  @media (min-width: _min-for($name)) and (max-width: _max-for($name)) {
+    @content;
+  }
+}

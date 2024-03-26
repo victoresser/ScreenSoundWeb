@@ -1,18 +1,13 @@
 @import "src/scss/vars/_colors.scss";
-@import "src/scss/vars/_fonts.scss";
+@import "src/scss/mixins/_fonts.scss";
+@import "src/scss/mixins/_display.scss";
+@import "src/scss/responsivity/breakpoints.scss";
 
 .container {
-	display: flex;
-	width: 100%;
-	align-items: center;
-	flex-direction: column;
-	box-sizing: border-box;
+	@include display-flex(row, center, center);
 
 	&_lista {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-		width: 100%;
+		@include display-flex(row, center, center, wrap);
 		height: auto;
 		padding: 0.3rem;
 		border-radius: 0.7rem;
@@ -25,8 +20,27 @@
 		border: 1px solid rgba(255, 255, 255, 1);
 		overflow: hidden;
 
+		@include media-min-sm {
+			max-width: 53.438rem;
+			padding: 0.3rem;
+		}
+
+		@include media-min-lg {
+			max-width: 94.688rem;
+			column-gap: 0.5rem;
+			padding: 0.5rem;
+		}
+
 		&_cards {
-			display: inline-flex;
+			width: 100%;
+
+			@include media-min-sm {
+				max-width: 21rem;
+			}
+
+			@include media-min-lg {
+				max-width: 23rem;
+			}
 		}
 	}
 }

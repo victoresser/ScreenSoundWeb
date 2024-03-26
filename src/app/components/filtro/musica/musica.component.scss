@@ -1,6 +1,7 @@
 @import "src/scss/vars/_colors.scss";
 @import "src/scss/mixins/_fonts.scss";
 @import "src/scss/mixins/_display.scss";
+@import "src/scss/responsivity/breakpoints.scss";
 @import "src/reset.scss";
 
 p {
@@ -12,11 +13,9 @@ p {
 }
 
 .lista__container {
-	@include display-flex(row, center, center);
-	box-sizing: border-box;
-	flex-wrap: wrap;
+	@include display-flex(row, center, center, wrap);
 	height: auto;
-	padding: .3rem;
+	padding: 0.3rem;
 	border-radius: 0.7rem;
 	background-color: rgba(255, 255, 255, 0.55);
 	box-shadow: 0px 0px 36px 0px rgba(0, 0, 0, 0.45) inset;
@@ -27,16 +26,32 @@ p {
 	border: 1px solid rgba(255, 255, 255, 1);
 	overflow: hidden;
 
+	@include media-min-sm {
+		max-width: 53.438rem;
+		padding: 0.3rem;
+	}
+
+	@include media-min-lg {
+		max-width: 94.688rem;
+		column-gap: 0.5rem;
+		padding: 0.5rem;
+	}
+
 	.cards {
 		width: 100%;
-		max-width: 400px;
+
+		@include media-min-sm {
+			max-width: 21rem;
+		}
+
+		@include media-min-lg {
+			max-width: 23rem;
+		}
 	}
 }
 
 .semMusicas {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+	@include display-flex(column);
 
 	&_imagem {
 		height: 15.625rem;
@@ -45,41 +60,12 @@ p {
 	}
 
 	&_texto {
-		color: $white;
+		@include body-medium;
 		font-family: $ff-quicksand;
 
 		.destaque_texto {
-			font-weight: 600;
+			font-weight: $font-weight-semiBold;
 			color: $primary-light;
 		}
-	}
-}
-
-@media screen and (min-width: 980px) {
-	.lista__container {
-		justify-content: space-between;
-		padding: 0.5em;
-		max-width: 53.438rem;
-	}
-
-	.texto_semMusicas {
-		font-size: 1.2rem;
-	}
-}
-
-@media screen and (min-width: 1690px) {
-	.lista__container {
-		flex-wrap: wrap;
-		max-width: 98.75rem;
-		padding: 0.5rem;
-	}
-
-	.texto_semMusicas {
-		font-size: 1.4rem;
-	}
-
-	.imagem_semMusicas {
-		height: 21.875rem;
-		width: 21.875rem;
 	}
 }

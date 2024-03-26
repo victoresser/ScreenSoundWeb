@@ -1,11 +1,12 @@
 @import "src/scss/vars/_colors.scss";
-@import "src/scss/vars/_fonts.scss";
+@import "src/scss/mixins/_fonts.scss";
+@import "src/scss/mixins/_display.scss";
+@import "src/scss/responsivity/breakpoints.scss";
 
 .card {
-	display: flex;
-	width: 400px;
-	padding: 1rem;
-	border-radius: 0.5rem;
+	@include display-flex(row, center, flex-start);
+	padding: 0.5rem;
+	border-radius: 0.3rem;
 	-webkit-animation: fade-in-bck 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 	animation: fade-in-bck 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 	opacity: 0;
@@ -29,42 +30,63 @@
 	}
 
 	.card_container {
-		display: flex;
-		align-items: center;
+		@include display-flex(row, center, center);
 
 		.card_titulo {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-			width: 100px;
-			margin: 0 0.5rem;
+			@include display-flex(column, center, space-between);
+			width: 6.25rem;
+			height: 100%;
+
+			@include media-min-sm {
+				width: 9.375rem;
+			}
 
 			.imagem_album {
 				display: flex;
-				border-radius: 0.5rem;
-				height: 100px;
-				width: 100px;
+				width: 4.688rem;
+				height: 4.688rem;
+				border-radius: 0.3rem;
 				transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 0.5s;
+
+				@include media-min-sm {
+					width: 6.25rem;
+					height: 6.25rem;
+				}
 			}
 
 			.nome_banda {
+				@include title-small;
+				font-family: $ff-quicksand;
 				display: flex;
-				font-size: 1rem;
 				color: $bg;
-				font-weight: 600;
-				margin-top: 0.5rem;
+
+				@include media-min-sm {
+					@include title-medium;
+					font-weight: $font-weight-semiBold;
+					color: $bg;
+				}
 			}
 		}
 
-		hr {
-			height: 100%;
-			margin: 1rem;
+		.separador {
+			background-color: $white;
+			border-radius: 30%;
+			display: flex;
+			margin: 0.5rem;
+			height: 90px;
+			width: 1px;
 		}
 
 		.nome_album {
-			display: flex;
+			@include title-small;
 			font-family: $ff-quicksand;
+			font-weight: $font-weight-normal;
+
+			@include media-min-sm {
+				@include title-medium;
+				font-family: $ff-quicksand;
+				font-weight: $font-weight-semiBold;
+			}
 		}
 	}
 }
@@ -82,13 +104,5 @@
 	}
 	100% {
 		transform: scale(1.01);
-	}
-}
-
-@media screen and (min-width: 1690px) {
-	.card {
-		width: 390px;
-		padding: 0.7rem;
-		cursor: pointer;
 	}
 }

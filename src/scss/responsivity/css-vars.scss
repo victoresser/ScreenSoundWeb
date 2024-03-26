@@ -1,0 +1,7 @@
+@import "screen-sizes";
+
+:root {
+  @each $name, $size in $screen-ranges {
+    --senac-screen-size-#{$name}: #{$size};
+  }
+}
