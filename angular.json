@@ -21,7 +21,7 @@
 						"assets": ["src/favicon.ico", "src/assets"],
 						"styles": [
 							"@angular/material/prebuilt-themes/deeppurple-amber.css",
-							"node_modules/minireset.scss/minireset.css",
+							"node_modules/minireset.css/minireset.css",
 							"src/scss/styles.scss",
 							"node_modules/igniteui-angular/styles/igniteui-angular.css"
 						],
