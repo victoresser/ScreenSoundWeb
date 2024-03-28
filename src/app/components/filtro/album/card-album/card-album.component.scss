@@ -30,7 +30,8 @@
 	}
 
 	.card_container {
-		@include display-flex(row, center, center);
+		display: flex;
+		align-items: center;
 
 		.card_titulo {
 			@include display-flex(column, center, space-between);

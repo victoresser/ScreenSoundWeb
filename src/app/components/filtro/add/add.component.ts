@@ -15,7 +15,7 @@ import { CreateBandaDto } from '../banda/interface/banda.interface';
 })
 export class AddComponent {
 	handler = this.handle;
-	imagem?: File;
+	imagem?: string;
 	nenhumaImagem = '../../../../assets/musicas/nenhuma-imagem.png';
 
 	public musica: CreateMusicaDto = {
@@ -36,6 +36,7 @@ export class AddComponent {
 	public banda: CreateBandaDto = {
 		nome: '',
 		descricao: '',
+		imagem: ''
 	};
 
 	@Input() add = false;
@@ -55,37 +56,28 @@ export class AddComponent {
 		this.addChange.emit(this.add);
 	}
 
-	onImageChange(event: any) {
+	onFileSelected(event: any) {
 		const file: File = event.target.files[0];
+		const reader = new FileReader();
 
 		if (file) {
-			this.imagem = file;
-			const reader = new FileReader();
-
-			reader.onload = (e: any) => {
-				this.imagem = e.target.result;
-			};
-
 			reader.readAsDataURL(file);
+
+			reader.onloadend = () => {
+				this.imagem = reader.result as string;
+				console.log(this.imagem);
+			};
 		}
-	}
-
-	private async onFileSelected(dto: any, entity: string) {
-		if (dto) {
-			const url = this.formataNomeCamelCase(dto.nome, entity);
-			dto.imagem = url;
-
-			console.log(`Camingo da imagem: ${dto.imagem}`);
-			// this.toastr.info(`Url de imagem alterada para ${url}`, 'Caminho da imagem alterado!');
-		}
-
-		return;
 	}
 
 	private formataNomeCamelCase(nome: string, entity: string) {
 		const format = nome;
-		const nomeFormatado = format.replace(/\s+(\w)/g, (_, p1) => p1.toUpperCase());
-		const url = `../../../../assets/${entity}/${nomeFormatado.charAt(0).toLocaleLowerCase()}.png`;
+		const nomeFormatado = format.replace(/\s+(\w)/g, (_, p1) =>
+			p1.toUpperCase()
+		);
+		const url = `../../../../assets/${entity}/${nomeFormatado
+			.charAt(0)
+			.toLocaleLowerCase()}.png`;
 		return url;
 	}
 
@@ -97,17 +89,36 @@ export class AddComponent {
 
 	async onAddMusica(musica: CreateMusicaDto) {
 		if (!this.musicaService.validarMusica(musica)) return this.onAddChange();
-		await this.onFileSelected(musica, 'musicas');
+
+		if (this.imagem && this.isValidBase64(this.imagem)) {
+			musica.imagem = this.imagem;
+		}
+
 		return await this.onAdd(musica, this.musicaService);
 	}
 
 	async onAddAlbum(album: CreateAlbumDto) {
-		await this.onFileSelected(album, 'albuns');
+		if (this.imagem && this.isValidBase64(this.imagem)) {
+			album.imagem = this.imagem;
+		}
+
 		return await this.onAdd(album, this.albumService);
 	}
 
 	async onAddBanda(banda: CreateBandaDto) {
-		await this.onFileSelected(banda, 'bandas');
+		if (this.imagem) {
+			banda.imagem = this.imagem;
+			console.log(banda.imagem)
+		}
+
 		return await this.onAdd(banda, this.bandaService);
 	}
+
+	isValidBase64(str: string): boolean {
+		try {
+				return btoa(atob(str)) == str;
+		} catch (err) {
+				return false;
+		}
+}
 }

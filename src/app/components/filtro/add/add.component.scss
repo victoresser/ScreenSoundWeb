@@ -1,12 +1,14 @@
 @import "src/scss/vars/_colors.scss";
-@import "src/scss/vars/_fonts.scss";
-@import "src/scss/styles.scss";
+@import "src/scss/mixins/_fonts.scss";
+@import "src/scss/mixins/_display.scss";
+// @import "src/scss/styles.scss";
 
 .adicionador {
 	position: relative;
 	font-family: $ff-quicksand;
-	width: 100%;
 	border: 1px solid var(--cor-principal);
+	width: 100%;
+	padding: 0.5rem;
 
 	.segunda__linha {
 		gap: 0.5em;
@@ -26,17 +28,11 @@
 	}
 }
 
-.descricao__button {
-	gap: 0.5em;
+.descricao {
+	gap: 0.3em;
+	width: 100%;
 	display: flex;
-	justify-content: space-between;
-
-	.descricaoBanda {
-		gap: 0.3em;
-		width: 100%;
-		display: flex;
-		flex-direction: column;
-	}
+	flex-direction: column;
 }
 
 .disponibilidade {
@@ -78,6 +74,25 @@
 		width: 100px;
 		height: 100px;
 		border-radius: 0.5em;
+	}
+}
+
+.imagem {
+	@include display-flex(row, center, center);
+	margin-bottom: 1rem;
+	height: 6.25rem;
+
+	&_input {
+		width: 100%;
+		margin-right: 0.5rem;
+	}
+
+	&_preview {
+		border-radius: 0.5rem;
+		width: 100%;
+		height: 100%;
+		max-width: 100px;
+		max-height: 100px;
 	}
 }
 

@@ -40,7 +40,7 @@
 				</div>
 
 				<div class="imagem div__input">
-						<input type="file" id="imagem" name="musica.imagem" class="imagem__input" (change)="onImageChange($event)" accept="image/*" [(ngModel)]="imagem">
+						<input type="file" id="imagem" name="musica.imagem" class="imagem__input" (change)="onFileSelected($event)" accept="image/*">
 						<label for="imagem" class="imagem__label">Capa da Música</label>
 				</div>
 			</div>
@@ -98,18 +98,22 @@
 			<span class="bar"></span>
 		</div>
 
-		<div class="descricao__button">
-
-			<div class="descricaoBanda">
-				<textarea name="descricao" name="descricaoBanda" id="descricao" rows="8" [(ngModel)]="banda.descricao"></textarea>
-				<label for="descricao" class="descricao__label">Descrição (opcional)</label>
-			</div>
-
-			<div class="button">
-				<button type="submit" class="button__submit">Adicionar</button>
-			</div>
-
+		<div class="descricao">
+			<textarea name="descricao" name="descricaoBanda" id="descricao" rows="8" [(ngModel)]="banda.descricao"></textarea>
+			<label for="descricao" class="descricao__label">Descrição (opcional)</label>
 		</div>
 
+		<div class="imagem">
+			<div class="imagem_input div__input">
+				<input type="file" id="imagem" name="musica.imagem" class="imagem__input" (change)="onFileSelected($event)" accept="image/*">
+				<label for="imagem" class="imagem__label">Capa da Banda</label>
+			</div>
+
+			<img [src]="this.imagem ? this.imagem : nenhumaImagem" [alt]="banda.nome" class="imagem_preview">
+		</div>
+
+		<div class="button">
+			<button type="submit" class="button__submit">Adicionar</button>
+		</div>
 	</form>
 </div>
