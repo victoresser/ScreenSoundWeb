@@ -77,6 +77,15 @@
 			</div>
 		</div>
 
+		<div class="imagem">
+			<div class="imagem_input div__input">
+				<input type="file" id="imagem" name="musica.imagem" class="imagem__input" (change)="onFileSelected($event)" accept="image/*">
+				<label for="imagem" class="imagem__label">Capa do Álbum</label>
+			</div>
+
+			<img [src]="this.imagem ? this.imagem : nenhumaImagem" [alt]="album.nome" class="imagem_preview">
+		</div>
+
 		<div class="button">
 			<button type="submit" class="button__submit">Adicionar</button>
 		</div>

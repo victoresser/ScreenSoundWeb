@@ -34,6 +34,13 @@
 		&_cards {
 			width: 100%;
 
+			::ng-deep .card {
+
+				&:hover .nome_album {
+					color: $primary-light;
+				}
+			}
+
 			@include media-min-sm {
 				max-width: 21rem;
 			}

@@ -27,7 +27,9 @@
 		transform: scale(1.1);
 	}
 
-	&:hover .titulo_musica {
+	&:hover .container_card .card_informacoes .titulo_musica {
+		@include title-medium;
+		font-weight: $font-weight-semiBold;
 		color: $primary-dark;
 	}
 
@@ -80,12 +82,6 @@
 			@include body-medium;
 			width: 100%;
 			font-family: $ff-quicksand;
-
-			&:hover .titulo_musica {
-				@include title-medium;
-				font-weight: $font-weight-semiBold;
-				color: $primary-dark;
-			}
 
 			@include media-min-sm {
 				@include body-large;

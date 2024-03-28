@@ -70,27 +70,15 @@ export class AddComponent {
 		}
 	}
 
-	private formataNomeCamelCase(nome: string, entity: string) {
-		const format = nome;
-		const nomeFormatado = format.replace(/\s+(\w)/g, (_, p1) =>
-			p1.toUpperCase()
-		);
-		const url = `../../../../assets/${entity}/${nomeFormatado
-			.charAt(0)
-			.toLocaleLowerCase()}.png`;
-		return url;
-	}
-
-	protected async onAdd(entity: object, entityService: any) {
-		(await entityService.onAdd(entity)).subscribe(() => {
-			this.onAddChange();
-		});
+	private async onAdd(entity: object, entityService: any) {
+		(await entityService.onAdd(entity)).subscribe();
+		this.onAddChange();
 	}
 
 	async onAddMusica(musica: CreateMusicaDto) {
 		if (!this.musicaService.validarMusica(musica)) return this.onAddChange();
 
-		if (this.imagem && this.isValidBase64(this.imagem)) {
+		if (this.imagem) {
 			musica.imagem = this.imagem;
 		}
 
@@ -98,7 +86,7 @@ export class AddComponent {
 	}
 
 	async onAddAlbum(album: CreateAlbumDto) {
-		if (this.imagem && this.isValidBase64(this.imagem)) {
+		if (this.imagem) {
 			album.imagem = this.imagem;
 		}
 
